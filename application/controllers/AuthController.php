@@ -19,13 +19,22 @@ class AuthController extends CI_Controller {
     public function login()
     {
         $username = $this->input->post('username');
-        $password = $this->input->post('password');
-    }
+        $password = md5($this->input->post('password'));
 
-    public function logout($value='')
-    {
-        $this->session->sess_destroy();
-        redirect(base_url('login'));
+        $check_auth = $this->usermodel->check_auth($username, $password)->row();
+        if ($check_auth) {
+            if ($check_auth->role_id == 0) {
+                $auth = array(
+                        'username'  => $check_auth->username,
+                        'email'     => $check_auth->email,
+                        'role_id'   => $check_auth->role_id,
+                        'logged_in' => TRUE
+                );
+
+                $this->session->set_userdata($auth);
+                return redirect(base_url('home'));
+            }
+        }
     }
 
     public function create()
