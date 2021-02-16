@@ -21,7 +21,7 @@ class CriteriaController extends CI_Controller {
 	public function index()
 	{
         $this->load->view('templates/backend/header');
-		$this->load->view('home/index');
+		$this->load->view('criteria/index');
         $this->load->view('templates/backend/footer');
 	}
 

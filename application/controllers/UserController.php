@@ -21,7 +21,7 @@ class UserController extends CI_Controller {
 	public function index()
 	{
         $this->load->view('templates/backend/header');
-		$this->load->view('home/index');
+		$this->load->view('user/index');
         $this->load->view('templates/backend/footer');
 	}
 

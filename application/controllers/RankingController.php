@@ -21,7 +21,7 @@ class RankingController extends CI_Controller {
 	public function index()
 	{
         $this->load->view('templates/backend/header');
-		$this->load->view('home/index');
+		$this->load->view('ranking/index');
         $this->load->view('templates/backend/footer');
 	}
 
