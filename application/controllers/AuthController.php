@@ -28,7 +28,7 @@ class AuthController extends CI_Controller {
                         'username'  => $check_auth->username,
                         'email'     => $check_auth->email,
                         'role_id'   => $check_auth->role_id,
-                        'logged_in' => TRUE
+                        'logged_in' => 1
                 );
 
                 $this->session->set_userdata($auth);

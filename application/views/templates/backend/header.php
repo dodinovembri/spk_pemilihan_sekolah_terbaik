@@ -3,10 +3,9 @@
 <head>
         
         <meta charset="utf-8" />
-        <title>Login | Skote - Admin & Dashboard Template</title>
+        <title>Administrator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
+        <meta content="Administrator - SPK Pemilihan SMA" name="description" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -19,4 +18,4 @@
 
     </head>
 
-    <body>
+    <body data-sidebar="dark">

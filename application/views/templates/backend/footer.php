@@ -8,6 +8,12 @@
         
         <!-- App js -->
         <script src="<?php echo base_url('assets/js/app.js') ?>"></script>
+
+        <!-- apexcharts -->
+        <script src="<?php echo base_url('assets/libs/apexcharts/apexcharts.min.js') ?>"></script>
+
+        <!-- dashboard init -->
+        <script src="<?php echo base_url('assets/js/pages/dashboard.init.js') ?>"></script>
     </body>
 
 </html>

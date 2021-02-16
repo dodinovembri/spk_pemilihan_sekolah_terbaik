@@ -54,3 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'homecontroller';
+$route['login'] = 'authcontroller';
+$route['alternative'] = 'alternativecontroller';
+$route['ranking'] = 'rankingcontroller';
+$route['criteria'] = 'criteriacontroller';
+$route['user'] = 'usercontroller';
