@@ -429,7 +429,7 @@
                                 </a>
                             </li>
 
-                            <li class="menu-title" key="t-apps">Master Data</li>
+                            <li class="menu-title" key="t-apps">Setup</li>
 
                             <li>
                                 <a href="<?php echo base_url('criteria') ?>" class="waves-effect">
@@ -437,9 +437,6 @@
                                     <span key="t-file-manager">Criteria</span>
                                 </a>
                             </li>
-
-                            <li class="menu-title" key="t-apps">System Setting</li>
-
                             <li>
                                 <a href="<?php echo base_url('user') ?>" class="waves-effect">
                                     <i class="bx bx-file"></i>

@@ -12,4 +12,9 @@ class UserModel extends CI_Model
         return $query = $this->db->get($this->_table);
     }
 
+    public function get_user()
+    {
+    	return $query = $this->db->get($this->_table);
+    }
+
 }

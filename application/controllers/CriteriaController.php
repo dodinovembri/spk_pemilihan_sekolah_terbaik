@@ -6,7 +6,7 @@ class CriteriaController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('usermodel');
+        $this->load->model(['usermodel', 'criteriamodel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,8 +20,10 @@ class CriteriaController extends CI_Controller {
 
 	public function index()
 	{
+        $data['criteria'] = $this->criteriamodel->get_criteria()->result();
+
         $this->load->view('templates/backend/header');
-		$this->load->view('criteria/index');
+		$this->load->view('criteria/index', $data);
         $this->load->view('templates/backend/footer');
 	}
 

@@ -55,7 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'homecontroller';
 $route['login'] = 'authcontroller';
-$route['alternative'] = 'alternativecontroller';
 $route['ranking'] = 'rankingcontroller';
 $route['criteria'] = 'criteriacontroller';
 $route['user'] = 'usercontroller';
+
+$route['alternative'] = 'alternativecontroller';
+$route['alternative-detail/(:any)'] = 'alternativedetailcontroller/index/$1';

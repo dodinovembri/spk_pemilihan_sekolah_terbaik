@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AlternativeController extends CI_Controller {
+class AlternativeDetailController extends CI_Controller {
 
     function __construct()
     {
@@ -18,13 +18,13 @@ class AlternativeController extends CI_Controller {
         }
     }
 
-	public function index()
+	public function index($id)
 	{
-        $data['alternative'] = $this->alternativemodel->get_alternative()->result();
+        // store alternative id in session
+        $this->session->set_userdata('alternative_id', $id);
+        $alternative_id = $this->session->userdata('alternative_id');
 
-        $this->load->view('templates/backend/header');
-		$this->load->view('alternative/index', $data);
-        $this->load->view('templates/backend/footer');
+        
 	}
 
     public function create()
