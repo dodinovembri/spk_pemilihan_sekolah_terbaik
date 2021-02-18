@@ -60,4 +60,6 @@ $route['criteria'] = 'criteriacontroller';
 $route['user'] = 'usercontroller';
 
 $route['alternative'] = 'alternativecontroller';
-$route['alternative-detail/(:any)'] = 'alternativedetailcontroller/index/$1';
+$route['alternative-value/(:any)'] = 'alternativevaluecontroller/index/$1';
+
+$route['my-scale'] = 'myscalecontroller';

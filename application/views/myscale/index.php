@@ -32,14 +32,14 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <button type="button" class="btn btn-primary waves-effect waves-light">Primary</button>
+        
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Criteria Code</th>
-                                                <th>Criteria Description</th>
-                                                <th>Criteria Type</th>
+                                                <th>Criteria</th>
+                                                <th>Imporrtance Scale</th>
+                                                <th>Weight Fixes</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -47,12 +47,12 @@
         
         
                                             <tbody>
-                                            <?php $no = 0; foreach ($criteria as $key => $value) { $no++; ?>
+                                            <?php $no = 0; foreach ($myscale as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td><?php echo $value->criteria_code; ?></td>
-                                                    <td><?php echo $value->criteria_description; ?></td>
-                                                    <td><?php echo $value->criteria_type; ?></td>
+                                                    <td><?php echo $value->criteria_id; ?></td>
+                                                    <td><?php echo $value->importance_scale; ?></td>
+                                                    <td><?php echo $value->weight_fixes; ?></td>
                                                     <td>
                                                         <?php if ($value->status == 1) { ?>
                                                             <span class="badge badge-pill badge-soft-success font-size-11">Active</span>

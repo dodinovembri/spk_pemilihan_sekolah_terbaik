@@ -432,6 +432,13 @@
                             <li class="menu-title" key="t-apps">Setup</li>
 
                             <li>
+                                <a href="<?php echo base_url('my-scale') ?>" class="waves-effect">
+                                    <i class="bx bx-calendar"></i>
+                                    <span key="t-calendar">My Scale</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="<?php echo base_url('criteria') ?>" class="waves-effect">
                                     <i class="bx bx-file"></i>
                                     <span key="t-file-manager">Criteria</span>

@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AlternativeDetailController extends CI_Controller {
+class AlternativeValueController extends CI_Controller {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel']);
+        $this->load->model(['usermodel', 'alternativemodel', 'alternativevaluemodel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -24,7 +24,7 @@ class AlternativeDetailController extends CI_Controller {
         $this->session->set_userdata('alternative_id', $id);
         $alternative_id = $this->session->userdata('alternative_id');
 
-        
+        $data['alternative_value'] = $this->alternativevaluemodel->get_alternative_value()->row();
 	}
 
     public function create()
