@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CriteriaController extends CI_Controller {
+class CriterionValueController extends CI_Controller {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'criteriamodel']);
+        $this->load->model(['usermodel', 'criteriamodel', 'criterionvaluemodel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -18,12 +18,18 @@ class CriteriaController extends CI_Controller {
         }
     }
 
-	public function index()
+	public function index($id)
 	{
-        $data['criteria'] = $this->criteriamodel->get_criteria()->result();
+        $criteria = array(
+            'criteria_id' => $id
+        );
+
+        $this->session->set_userdata($criteria);
+
+        $data['criterion_value'] = $this->criterionvaluemodel->get_criterion_value()->result();
 
         $this->load->view('templates/backend/header');
-		$this->load->view('criteria/index', $data);
+		$this->load->view('criterion_value/index', $data);
         $this->load->view('templates/backend/footer');
 	}
 

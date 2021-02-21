@@ -7,6 +7,7 @@ class RankingController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('usermodel');
+        $this->load->helper('my_helper');
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,9 +21,12 @@ class RankingController extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('templates/backend/header');
-		$this->load->view('ranking/index');
-        $this->load->view('templates/backend/footer');
+        $total_importance_scale = weight_fixes();
+        var_dump($total_importance_scale);
+
+  //       $this->load->view('templates/backend/header');
+		// $this->load->view('ranking/index');
+  //       $this->load->view('templates/backend/footer');
 	}
 
     public function create()

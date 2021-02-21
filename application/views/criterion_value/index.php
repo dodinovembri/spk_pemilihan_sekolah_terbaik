@@ -16,7 +16,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        Criteria
+                                        <a href="<?php echo base_url('criteria') ?>">Criteria</a> 
+                                        <b>></b> 
+                                        <span>Criterion Value</span></h6>
                                     </h6>
                                 </div>
                             </div>
@@ -41,9 +43,9 @@
                                             <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Criteria Code</th>
-                                                <th>Criteria Description</th>
-                                                <th>Criteria Type</th>
+                                                <th>Criteria</th>
+                                                <th>Description</th>
+                                                <th>Value</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -51,10 +53,10 @@
         
         
                                             <tbody>
-                                            <?php $no = 0; foreach ($criteria as $key => $value) { $no++; ?>
+                                            <?php $no = 0; foreach ($criterion_value as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td><a href="<?php echo base_url('criterion-value/'); echo $value->id; ?>"><u><b><?php echo $value->criteria_code; ?></b></u></a></td>
+                                                    <td><a href="<?php echo base_url('criterion_value/'); echo $value->id; ?>"><u><b><?php echo $value->criteria_code; ?></b></u></a></td>
                                                     <td><?php echo $value->criteria_description; ?></td>
                                                     <td><?php echo $value->criteria_type; ?></td>
                                                     <td>
@@ -66,11 +68,11 @@
                                                     </td>
                                                     <td>
                                                         <a href="<?php echo base_url('criteria/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
-                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
                                                     </td>
                                                 </tr>
                                                 <!-- Static Backdrop Modal -->
-                                                <div class="modal fade" id="staticBackdrop-<?php echo $value->id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">

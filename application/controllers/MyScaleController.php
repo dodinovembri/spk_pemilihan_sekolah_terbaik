@@ -6,7 +6,7 @@ class MyScaleController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel', 'userweightmodel']);
+        $this->load->model(['usermodel', 'alternativemodel', 'userweightmodel', 'criteriamodel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,7 +20,8 @@ class MyScaleController extends CI_Controller {
 
 	public function index()
 	{
-        $data['myscale'] = $this->userweightmodel->get_my_scale()->result();
+        $user_id = $this->session->userdata('id');
+        $data['myscale'] = $this->userweightmodel->get_my_scale($user_id)->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('myscale/index', $data);
@@ -29,12 +30,30 @@ class MyScaleController extends CI_Controller {
 
     public function create()
     {
-        //
+        $data['criteria'] = $this->criteriamodel->get_criteria_with_not_in()->result();
+
+        $this->load->view('templates/backend/header');
+        $this->load->view('myscale/create', $data);
+        $this->load->view('templates/backend/footer');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $criteria = $this->input->post('criteria');
+        $importance_scale = $this->input->post('importance_scale');
+        $status = $this->input->post('status');
+        $user_id = $this->session->userdata('id');
+
+        $data = array(
+            'user_id' => $user_id,
+            'criteria_id' => $criteria,
+            'importance_scale' => $importance_scale,
+            'status' => $status
+        );
+
+        $insert = $this->userweightmodel->insert($data);
+        $this->session->set_flashdata('success', "Success create my-scale!");
+        return redirect(base_url('my-scale'));    
     }
 
     public function show($id)
@@ -44,16 +63,32 @@ class MyScaleController extends CI_Controller {
 
     public function edit($id)
     {
-        //
+        $data['scale'] = $this->userweightmodel->get_data($id)->row();
+
+        $this->load->view('templates/backend/header');
+        $this->load->view('myscale/edit', $data);
+        $this->load->view('templates/backend/footer');
     }
 
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $importance_scale = $this->input->post('importance_scale');
+        $status = $this->input->post('status');
+
+        $data = array(
+            'importance_scale' => $importance_scale,
+            'status' => $status
+        );
+
+        $update = $this->userweightmodel->update($data, $id);
+        $this->session->set_flashdata('success', "Success update data!");
+        return redirect(base_url('my-scale'));
     }
 
     public function destroy($id)
     {
-        //
+        $delete = $this->userweightmodel->destroy($id);        
+        $this->session->set_flashdata('success', "Success deleted data!");
+        return redirect(base_url('my-scale'));
     }
 }

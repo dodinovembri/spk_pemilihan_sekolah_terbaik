@@ -15,14 +15,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Criteria</h4>
-
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item active">Criteria</li>
-                                        </ol>
-                                    </div>
-
+                                    <h6 class="mb-sm-0">
+                                        Alternative
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +27,16 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-        
+                                        <a href="<?php echo base_url('alternative/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
+                                        <?php if($this->session->flashdata('success')){ ?>
+                                            <div class="alert alert-success" role="alert">
+                                                <?php echo $this->session->flashdata('success'); ?>
+                                            </div>
+                                        <?php } elseif ($this->session->flashdata('warning')){ ?>
+                                            <div class="alert alert-warning" role="alert">
+                                                <?php echo $this->session->flashdata('warning'); ?>
+                                            </div>
+                                        <?php } ?>
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
                                             <tr>
@@ -61,10 +65,29 @@
                                                         <?php } ?>
                                                     </td>
                                                     <td>
-                                                        <a href=""><i class="far fa-edit" style="margin: 2px"></i></a> 
-                                                        <a href=""><i class="far fa-trash-alt" style="margin: 2px"></i></a>
+                                                        <a href="<?php echo base_url('alternative/show/'); echo $value->id; ?>"><i class="far fa-eye" style="margin: 2px"></i></a> 
+                                                        <a href="<?php echo base_url('alternative/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
                                                     </td>
                                                 </tr>
+                                                <!-- Static Backdrop Modal -->
+                                                <div class="modal fade" id="staticBackdrop-<?php echo $value->id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete Data</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Are you sure to delete this data?.</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                                                <a href="<?php echo base_url('alternative/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             <?php } ?>
                                             </tbody>
                                         </table>

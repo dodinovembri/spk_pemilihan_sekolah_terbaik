@@ -53,13 +53,59 @@ $route['default_controller'] = 'authcontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['home'] = 'homecontroller';
-$route['login'] = 'authcontroller';
-$route['ranking'] = 'rankingcontroller';
-$route['criteria'] = 'criteriacontroller';
-$route['user'] = 'usercontroller';
 
+$route['login'] = 'authcontroller';
+$route['register'] = 'authcontroller/register';
+
+
+$route['home'] = 'homecontroller';
+
+// routes for alternative
 $route['alternative'] = 'alternativecontroller';
+$route['alternative/create'] = 'alternativecontroller/create';
+$route['alternative/store'] = 'alternativecontroller/store';
+$route['alternative/edit/(:any)'] = 'alternativecontroller/edit/$1';
+$route['alternative/show/(:any)'] = 'alternativecontroller/show/$1';
+$route['alternative/update/(:any)'] = 'alternativecontroller/update/$1';
+$route['alternative/destroy/(:any)'] = 'alternativecontroller/destroy/$1';
+
 $route['alternative-value/(:any)'] = 'alternativevaluecontroller/index/$1';
 
+$route['ranking'] = 'rankingcontroller';
+
+// routes for criteria
+$route['criteria'] = 'criteriacontroller';
+$route['criteria/create'] = 'criteriacontroller/create';
+$route['criteria/store'] = 'criteriacontroller/store';
+$route['criteria/edit/(:any)'] = 'criteriacontroller/edit/$1';
+$route['criteria/update/(:any)'] = 'criteriacontroller/update/$1';
+$route['criteria/destroy/(:any)'] = 'criteriacontroller/destroy/$1';
+
+// routes for criterion value
+$route['criterion-value/(:any)'] = 'criterionvaluecontroller/index/$1';
+
+
+// routes for user
+$route['user'] = 'usercontroller';
+$route['user/create'] = 'usercontroller/create';
+$route['user/store'] = 'usercontroller/store';
+$route['user/edit/(:any)'] = 'usercontroller/edit/$1';
+$route['user/update/(:any)'] = 'usercontroller/update/$1';
+$route['user/destroy/(:any)'] = 'usercontroller/destroy/$1';
+
+
+
 $route['my-scale'] = 'myscalecontroller';
+$route['my-scale/create'] = 'myscalecontroller/create';
+$route['my-scale/store'] = 'myscalecontroller/store';
+$route['my-scale/edit/(:any)'] = 'myscalecontroller/edit/$1';
+$route['my-scale/update/(:any)'] = 'myscalecontroller/update/$1';
+$route['my-scale/destroy/(:any)'] = 'myscalecontroller/destroy/$1';
+
+$route['logout'] = 'authcontroller/logout';
+
+// profile route
+$route['profile'] = 'profilecontroller/index';
+$route['profile/update/(:any)'] = 'profilecontroller/update/$1';
+
+$route['total_importance_scale'] = 'helpercontroller/total_importance_scale';
