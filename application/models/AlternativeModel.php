@@ -32,4 +32,8 @@ class AlternativeModel extends CI_Model
         return $this->db->delete($this->_table);
     }            
 
+    public function count()
+    {        
+        return $this->db->query("SELECT COUNT(*) FROM alternative");
+    }
 }

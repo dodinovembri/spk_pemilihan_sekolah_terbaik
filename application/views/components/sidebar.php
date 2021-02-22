@@ -3,10 +3,23 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <span class="logo-lg">
-                                <a href="<?php  echo base_url('home') ?>"></u><p><h3 style="color: white; text-align: left; padding-top: 15px; font-family: Times New Roman">SPK System</h3></p></a>
-                                <hr style="color: white">
-                            </span>
+                            <a href="index.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url('assets/images/logo.svg') ?>" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url('assets/images/logo-dark.png') ?>" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="<?php echo base_url('assets/images/logo-light.svg') ?>" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="<?php echo base_url('assets/images/logo-light.png') ?>" alt="" height="19">
+                                </span>
+                            </a>
                         </div>
 
                         <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
@@ -74,6 +87,8 @@
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
+
+                            <li class="menu-title" key="t-apps">Menu</li>
 
                             <li>
                                 <a href="<?php echo base_url('home') ?>" class="waves-effect">
