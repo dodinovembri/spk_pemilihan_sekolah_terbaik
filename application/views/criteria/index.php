@@ -54,7 +54,7 @@
                                             <?php $no = 0; foreach ($criteria as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td><a href="<?php echo base_url('criterion-value/'); echo $value->id; ?>"><u><b><?php echo $value->criteria_code; ?></b></u></a></td>
+                                                    <td><a href="<?php echo base_url('criterion_value/'); echo $value->id; ?>"><u><b><?php echo $value->criteria_code; ?></b></u></a></td>
                                                     <td><?php echo $value->criteria_description; ?></td>
                                                     <td><?php echo $value->criteria_type; ?></td>
                                                     <td>

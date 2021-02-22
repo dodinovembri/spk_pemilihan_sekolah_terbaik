@@ -69,7 +69,13 @@ $route['alternative/show/(:any)'] = 'alternativecontroller/show/$1';
 $route['alternative/update/(:any)'] = 'alternativecontroller/update/$1';
 $route['alternative/destroy/(:any)'] = 'alternativecontroller/destroy/$1';
 
-$route['alternative-value/(:any)'] = 'alternativevaluecontroller/index/$1';
+// routes for alternative value
+$route['alternative-values/(:any)'] = 'alternativevaluecontroller/index/$1';
+$route['alternative-value/create'] = 'alternativevaluecontroller/create';
+$route['alternative-value/store'] = 'alternativevaluecontroller/store';
+$route['alternative-value/edit/(:any)'] = 'alternativevaluecontroller/edit/$1';
+$route['alternative-value/update/(:any)'] = 'alternativevaluecontroller/update/$1';
+$route['alternative-value/destroy/(:any)'] = 'alternativevaluecontroller/destroy/$1';
 
 $route['ranking'] = 'rankingcontroller';
 
@@ -82,8 +88,12 @@ $route['criteria/update/(:any)'] = 'criteriacontroller/update/$1';
 $route['criteria/destroy/(:any)'] = 'criteriacontroller/destroy/$1';
 
 // routes for criterion value
-$route['criterion-value/(:any)'] = 'criterionvaluecontroller/index/$1';
-
+$route['criterion_value/(:any)'] = 'criterionvaluecontroller/index/$1';
+$route['criterion/create'] = 'criterionvaluecontroller/create';
+$route['criterion/store'] = 'criterionvaluecontroller/store';
+$route['criterion/edit/(:any)'] = 'criterionvaluecontroller/edit/$1';
+$route['criterion/update/(:any)'] = 'criterionvaluecontroller/update/$1';
+$route['criterion/destroy/(:any)'] = 'criterionvaluecontroller/destroy/$1';
 
 // routes for user
 $route['user'] = 'usercontroller';

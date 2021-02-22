@@ -84,7 +84,7 @@
                                                 <div class="media">
                                                     <div class="media-body">
                                                         <p class="text-muted fw-medium">Alternative</p>
-                                                        <h4 class="mb-0"></h4>
+                                                        <h4 class="mb-0"><?php echo $alternative; ?></h4>
                                                     </div>
 
                                                     <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -102,7 +102,7 @@
                                                 <div class="media">
                                                     <div class="media-body">
                                                         <p class="text-muted fw-medium">Criteria</p>
-                                                        <h4 class="mb-0">$35, 723</h4>
+                                                        <h4 class="mb-0"><?php echo $criteria; ?></h4>
                                                     </div>
 
                                                     <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
@@ -120,7 +120,7 @@
                                                 <div class="media">
                                                     <div class="media-body">
                                                         <p class="text-muted fw-medium">Users</p>
-                                                        <h4 class="mb-0">$16.2</h4>
+                                                        <h4 class="mb-0"><?php echo $user; ?></h4>
                                                     </div>
 
                                                     <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">

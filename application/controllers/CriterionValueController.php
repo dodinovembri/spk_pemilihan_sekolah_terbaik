@@ -26,7 +26,7 @@ class CriterionValueController extends CI_Controller {
 
         $this->session->set_userdata($criteria);
 
-        $data['criterion_value'] = $this->criterionvaluemodel->get_criterion_value()->result();
+        $data['criterion_value'] = $this->criterionvaluemodel->get_criterion_value($id)->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('criterion_value/index', $data);
@@ -36,32 +36,28 @@ class CriterionValueController extends CI_Controller {
     public function create()
     {
         $this->load->view('templates/backend/header');
-        $this->load->view('criteria/create');
+        $this->load->view('criterion_value/create');
         $this->load->view('templates/backend/footer');
     }
 
     public function store()
     {
-        $criteria_code = $this->input->post('criteria_code');
-        $criteria_description = $this->input->post('criteria_description');
-        $criteria_type = $this->input->post('criteria_type');
+        $criteria_id = $this->session->userdata('criteria_id');
+        $description = $this->input->post('description');
+        $value = $this->input->post('value');
         $status = $this->input->post('status');
 
         $data = array(
-            'criteria_code' => $criteria_code,
-            'criteria_description' => $criteria_description,
-            'criteria_type' => $criteria_type,
+            'criteria_id' => $criteria_id,
+            'description' => $description,
+            'value' => $value,
             'status' => $status
         );
 
-        $insert = $this->criteriamodel->insert($data);
-        if ($insert) {
-            $this->session->set_flashdata('success', "Success create criteria!");
-            return redirect(base_url('criteria'));
-        }else{
-            $this->session->set_flashdata('warning', "Failed to create criteria!");
-            return redirect(base_url('criteria'));
-        }
+        $insert = $this->criterionvaluemodel->insert($data);
+        $this->session->set_flashdata('success', "Success create criterion value!");
+        return redirect("criterion_value/$criteria_id");
+   
     }
 
     public function show($id)
@@ -71,41 +67,36 @@ class CriterionValueController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['criteria'] = $this->criteriamodel->get_data($id)->row();
+        $data['criterion_value'] = $this->criterionvaluemodel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
-        $this->load->view('criteria/edit', $data);
+        $this->load->view('criterion_value/edit', $data);
         $this->load->view('templates/backend/footer');
     }
 
     public function update($id)
     {
-        $criteria_code = $this->input->post('criteria_code');
-        $criteria_description = $this->input->post('criteria_description');
-        $criteria_type = $this->input->post('criteria_type');
+        $criteria_id = $this->session->userdata('criteria_id');
+        $description = $this->input->post('description');
+        $value = $this->input->post('value');
         $status = $this->input->post('status');
 
         $data = array(
-            'criteria_code' => $criteria_code,
-            'criteria_description' => $criteria_description,
-            'criteria_type' => $criteria_type,
+            'description' => $description,
+            'value' => $value,
             'status' => $status
         );
 
-        $update = $this->criteriamodel->update($data, $id);
-        if ($update) {
-            $this->session->set_flashdata('success', "Success update data!");
-            return redirect(base_url('criteria'));
-        }else{
-            $this->session->set_flashdata('warning', "Update data is failed!");
-            return redirect(base_url('criteria'));
-        }        
+        $update = $this->criterionvaluemodel->update($data, $id);
+        $this->session->set_flashdata('success', "Success update data!");
+        return redirect(base_url("criterion_value/$criteria_id"));      
     }
 
     public function destroy($id)
     {
-        $delete = $this->criteriamodel->destroy($id);        
+        $criteria_id = $this->session->userdata('criteria_id');
+        $delete = $this->criterionvaluemodel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
-        return redirect(base_url('criteria'));
+        return redirect(base_url("criterion_value/$criteria_id"));
     }
 }

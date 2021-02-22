@@ -16,9 +16,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('criteria') ?>">Criteria</a> 
+                                        <a href="<?php echo base_url('criteria') ?>">Alternative</a> 
                                         <b>></b> 
-                                        <span>Criterion Value</span></h6>
+                                        <span>Alternative Value</span></h6>
                                     </h6>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('criterion/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
+                                        <a href="<?php echo base_url('alternative/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -53,7 +53,7 @@
         
         
                                             <tbody>
-                                            <?php $no = 0; foreach ($criterion_value as $key => $value) { $no++; ?>
+                                            <?php $no = 0; foreach ($alternative_value as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td><?php echo $value->criteria_code; ?></td>
