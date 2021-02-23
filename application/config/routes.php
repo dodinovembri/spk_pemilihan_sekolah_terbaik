@@ -70,12 +70,12 @@ $route['alternative/update/(:any)'] = 'alternativecontroller/update/$1';
 $route['alternative/destroy/(:any)'] = 'alternativecontroller/destroy/$1';
 
 // routes for alternative value
-$route['alternative-values/(:any)'] = 'alternativevaluecontroller/index/$1';
-$route['alternative-value/create'] = 'alternativevaluecontroller/create';
-$route['alternative-value/store'] = 'alternativevaluecontroller/store';
-$route['alternative-value/edit/(:any)'] = 'alternativevaluecontroller/edit/$1';
-$route['alternative-value/update/(:any)'] = 'alternativevaluecontroller/update/$1';
-$route['alternative-value/destroy/(:any)'] = 'alternativevaluecontroller/destroy/$1';
+$route['alternative_values/(:any)'] = 'alternativevaluecontroller/index/$1';
+$route['alternative_value/create'] = 'alternativevaluecontroller/create';
+$route['alternative_value/store'] = 'alternativevaluecontroller/store';
+$route['alternative_value/edit/(:any)'] = 'alternativevaluecontroller/edit/$1';
+$route['alternative_value/update/(:any)'] = 'alternativevaluecontroller/update/$1';
+$route['alternative_value/destroy/(:any)'] = 'alternativevaluecontroller/destroy/$1';
 
 $route['ranking'] = 'rankingcontroller';
 

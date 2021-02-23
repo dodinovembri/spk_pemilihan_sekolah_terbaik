@@ -29,7 +29,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('alternative/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
+                                        <a href="<?php echo base_url('alternative_value/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create and Reset</button></a><br><br>
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -43,10 +43,9 @@
                                             <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Alternative</th>
                                                 <th>Criteria</th>
-                                                <th>Description</th>
-                                                <th>Value</th>
-                                                <th>Status</th>
+                                                <th>Criteria Value</th>
                                                 <th>Actions</th>
                                             </tr>
                                             </thead>
@@ -56,39 +55,13 @@
                                             <?php $no = 0; foreach ($alternative_value as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
+                                                    <td><?php echo $value->alternative_code; ?></td>
                                                     <td><?php echo $value->criteria_code; ?></td>
                                                     <td><?php echo $value->description; ?></td>
-                                                    <td><?php echo $value->value; ?></td>
                                                     <td>
-                                                        <?php if ($value->status == 1) { ?>
-                                                            <span class="badge badge-pill badge-soft-success font-size-11">Active</span>
-                                                        <?php }elseif ($value->status == 0) { ?>
-                                                            <span class="badge badge-pill badge-soft-danger font-size-11">Inactive</span>
-                                                        <?php } ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="<?php echo base_url('criterion/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
-                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
+                                                        <a href="<?php echo base_url('alternative_value/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
                                                     </td>
                                                 </tr>
-                                                <!-- Static Backdrop Modal -->
-                                                <div class="modal fade" id="staticBackdrop-<?php echo $value->id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete Data</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Are you sure to delete this data?.</p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                                                <a href="<?php echo base_url('criterion/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                
                                             <?php } ?>
                                             </tbody>
                                         </table>

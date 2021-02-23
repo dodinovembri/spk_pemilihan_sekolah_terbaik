@@ -54,7 +54,7 @@
                                             <?php $no = 0; foreach ($alternative as $key => $value) { $no++; ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td><a href="alternative-values/<?php echo $value->id; ?>"><?php echo $value->alternative_code; ?></a></td>
+                                                    <td><a href="alternative_values/<?php echo $value->id; ?>"><?php echo $value->alternative_code; ?></a></td>
                                                     <td><?php echo $value->alternative_name; ?></td>
                                                     <td><?php echo $value->address; ?></td>
                                                     <td>

@@ -19,4 +19,9 @@ class HelperModel extends CI_Model
     	");
     }
 
+    public function get_criterion_value()
+    {
+        return $query = $this->db->get('criterion_value');
+    }
+
 }

@@ -6,7 +6,7 @@ class AlternativeValueModel extends CI_Model
 
     public function get_alternative_value($id)
     {
-    	return $this->db->query("SELECT criterion_value.*, criteria.criteria_code AS criteria_code FROM criterion_value JOIN criteria ON criterion_value.criteria_id = criteria.id WHERE criterion_value.criteria_id = $id");
+    	return $this->db->query("SELECT alternative_value.*, alternative.alternative_code AS alternative_code, criterion_value.description AS description, criteria.criteria_code AS criteria_code FROM alternative_value JOIN alternative ON alternative_value.alternative_id = alternative.id JOIN criteria ON alternative_value.criteria_id = criteria.id JOIN criterion_value ON alternative_value.criterion_value_id = criterion_value.id WHERE alternative_value.alternative_id = $id");
     }
 
     public function insert($data)
@@ -30,6 +30,12 @@ class AlternativeValueModel extends CI_Model
     {
         $this->db->where('id', $id);
         return $this->db->delete($this->_table);
-    }              
+    }     
+
+    public function destroy_by_alternative($id)
+    {
+        $this->db->where('alternative_id', $id);
+        return $this->db->delete($this->_table);
+    }                  
 
 }

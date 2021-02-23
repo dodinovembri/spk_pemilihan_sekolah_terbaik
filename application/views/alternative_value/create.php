@@ -30,34 +30,30 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form method="POST" action="<?php echo base_url('criterion/store') ?>">
-                                            <div class="mb-3 row">
-                                                <label for="example-email-input" class="col-md-2 col-form-label">Description</label>
-                                                <div class="col-md-10">
-                                                    <textarea class="form-control" rows="3" name="description"> </textarea>
+                                        <form method="POST" action="<?php echo base_url('alternative_value/store') ?>">
+                                            <?php foreach ($criteria as $key => $value) { ?>
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label"><?php echo $value->criteria_description; ?></label>
+                                                    <div class="col-md-10">
+                                                        <select class="form-select" name="criteria_criterion[]" required="">
+                                                            <option value="">Select</option>
+                                                            <?php 
+                                                                $criteria_id = $value->id;
+                                                                $sql ="SELECT * FROM criterion_value WHERE criteria_id = $criteria_id";
+                                                                $query = $this->db->query($sql); 
+                                                            ?>
+                                                            <?php foreach ($query->result() as $row) { ?>
+                                                                <option value="<?php echo $criteria_id; echo '&'; echo $row->id; ?>"><?php echo $row->description;; ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Value</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="value" placeholder="Enter code" required="">
-                                                </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Status</label>
-                                                <div class="col-md-10">
-                                                    <select class="form-select" name="status" required="">
-                                                        <option value="">Select</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </div><br><br>
+                                            <?php } ?><br><br>
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('criterion_value/'); echo $this->session->userdata('criteria_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <a href="<?php echo base_url('my-scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
                                                 </div>
                                             </div>
 
