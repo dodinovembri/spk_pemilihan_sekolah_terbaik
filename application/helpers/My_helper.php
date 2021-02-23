@@ -3,8 +3,8 @@
 if ( ! function_exists('total_importance_scale')){
    	function total_importance_scale(){
         $CI = get_instance();
-        $CI->load->model('helpermodel');
-     	$total_importance_scale = $CI->helpermodel->total_importance_scale()->row();
+        $CI->load->model('HelperModel');
+     	$total_importance_scale = $CI->HelperModel->total_importance_scale()->row();
      	return $total_importance_scale;
     }
 }
@@ -12,9 +12,9 @@ if ( ! function_exists('total_importance_scale')){
 if ( ! function_exists('weight_fixes')){
    	function weight_fixes(){
         $CI = get_instance();
-        $CI->load->model('helpermodel');
-     	$total_importance_scale = $CI->helpermodel->total_importance_scale()->row();
-     	$importance_scale = $CI->helpermodel->importance_scale()->result();      	     	
+        $CI->load->model('HelperModel');
+     	$total_importance_scale = $CI->HelperModel->total_importance_scale()->row();
+     	$importance_scale = $CI->HelperModel->importance_scale()->result();      	     	
      	
      	foreach ($importance_scale as $key => $value) {
 		    $criteria_id[] = $value->criteria_id;
@@ -33,9 +33,9 @@ if ( ! function_exists('weight_fixes')){
 if ( ! function_exists('s_vector')){
     function s_vector($weight_fixes){
         $CI = get_instance();
-        $CI->load->model('helpermodel');
+        $CI->load->model('HelperModel');
 
-        $each_alternative = $CI->helpermodel->each_alternative()->result(); 
+        $each_alternative = $CI->HelperModel->each_alternative()->result(); 
 
         $i = 0;
         $total_weight_fixes = count($weight_fixes);        
