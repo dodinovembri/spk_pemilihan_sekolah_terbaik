@@ -38,9 +38,10 @@ if ( ! function_exists('s_vector')){
         $each_alternative = $CI->helpermodel->each_alternative()->result(); 
 
         $i = 0;
+        $total_weight_fixes = count($weight_fixes);        
         foreach ($each_alternative as $key => $value) {                
             $weight_fixes = $weight_fixes[$i];
-            $weight_fixes = $weight_fixes['weight_fixes'];                  
+            $weight_fixes = $weight_fixes["weight_fixes"];                  
             $value_of_criteria = (int)$value->value_of_criteria;
 
             $alternative_id[] = $value->alternative_id;
@@ -49,7 +50,7 @@ if ( ! function_exists('s_vector')){
 
             // for reset to new
             $i++;
-            if ($i == 8) {
+            if ($i == $total_weight_fixes) {
                 $i = 0;
             }
 
