@@ -44,7 +44,7 @@
                                     <?php echo $this->session->flashdata('warning'); ?>
                                 </div>
                             <?php } ?>
-                            <form class="form-horizontal" action="<?php echo base_url('authcontroller/login'); ?>" method="POST">
+                            <form class="form-horizontal" action="<?php echo base_url('AuthController/login'); ?>" method="POST">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
