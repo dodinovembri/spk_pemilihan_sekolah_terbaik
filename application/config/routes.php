@@ -105,12 +105,12 @@ $route['user/destroy/(:any)'] = 'usercontroller/destroy/$1';
 
 
 
-$route['my-scale'] = 'myscalecontroller';
-$route['my-scale/create'] = 'myscalecontroller/create';
-$route['my-scale/store'] = 'myscalecontroller/store';
-$route['my-scale/edit/(:any)'] = 'myscalecontroller/edit/$1';
-$route['my-scale/update/(:any)'] = 'myscalecontroller/update/$1';
-$route['my-scale/destroy/(:any)'] = 'myscalecontroller/destroy/$1';
+$route['my_scale'] = 'myscalecontroller';
+$route['my_scale/create'] = 'myscalecontroller/create';
+$route['my_scale/store'] = 'myscalecontroller/store';
+$route['my_scale/edit/(:any)'] = 'myscalecontroller/edit/$1';
+$route['my_scale/update/(:any)'] = 'myscalecontroller/update/$1';
+$route['my_scale/destroy/(:any)'] = 'myscalecontroller/destroy/$1';
 
 $route['logout'] = 'authcontroller/logout';
 
