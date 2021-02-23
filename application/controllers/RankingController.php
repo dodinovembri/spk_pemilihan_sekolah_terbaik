@@ -22,6 +22,7 @@ class RankingController extends CI_Controller {
 	{
         $weight_fixes = weight_fixes();
         $s_vector = s_vector($weight_fixes);
+        var_dump($s_vector);
 
   //       $this->load->view('templates/backend/header');
 		// $this->load->view('ranking/index');

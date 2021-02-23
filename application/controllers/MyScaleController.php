@@ -53,7 +53,7 @@ class MyScaleController extends CI_Controller {
 
         $insert = $this->UserWeightModel->insert($data);
         $this->session->set_flashdata('success', "Success create my-scale!");
-        return redirect(base_url('my-scale'));    
+        return redirect(base_url('my_scale'));    
     }
 
     public function show($id)

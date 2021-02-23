@@ -34,20 +34,28 @@ if ( ! function_exists('s_vector')){
     function s_vector($weight_fixes){
         $CI = get_instance();
         $CI->load->model('helpermodel');
-        
-        $total_importance_scale = $CI->helpermodel->total_importance_scale()->row();
-        $importance_scale = $CI->helpermodel->importance_scale()->result();                 
-        
-        foreach ($importance_scale as $key => $value) {
+
+        $each_alternative = $CI->helpermodel->each_alternative()->result(); 
+
+        $i = 0;
+        foreach ($each_alternative as $key => $value) {                
+            $weight_fixes = $weight_fixes[$i];
+            $weight_fixes = $weight_fixes['weight_fixes'];                  
+            $value_of_criteria = (int)$value->value_of_criteria;
+
+            $alternative_id[] = $value->alternative_id;
             $criteria_id[] = $value->criteria_id;
-            if ($value->criteria_type == "benefit") {
-                $weight_fixes[]  = $value->importance_scale / $total_importance_scale->total_importance_scale;
-            }elseif ($value->criteria_type == "cost") {
-                $weight_fixes[]  = -($value->importance_scale) / $total_importance_scale->total_importance_scale;
-            }       
-            $array[] = array('criteria_id' => $value->criteria_id, 'weight_fixes' => $value->importance_scale / $total_importance_scale->total_importance_scale);
-        }       
+            $s_vector[] = pow($value_of_criteria, $weight_fixes);
+
+            // for reset to new
+            $i++;
+            if ($i == 8) {
+                $i = 0;
+            }
+
+            $array[] = array('alternative_id' => $alternative_id, 'criteria_id' => $criteria_id, 's_vector' => $s_vector);   
+        }    
         $data = $array;
-        return $data;       
+        return $data;
     }
 }
