@@ -116,7 +116,7 @@
                             <li class="menu-title" key="t-apps">Setup Management</li>
 
                             <li>
-                                <a href="<?php echo base_url('my-scale') ?>" class="waves-effect">
+                                <a href="<?php echo base_url('my_scale') ?>" class="waves-effect">
                                     <i class="bx bx-calendar"></i>
                                     <span key="t-calendar">My Scale</span>
                                 </a>
