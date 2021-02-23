@@ -53,68 +53,66 @@ $route['default_controller'] = 'AuthController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'authcontroller';
-$route['register'] = 'authcontroller/register';
+$route['login'] = 'AuthController';
+$route['register'] = 'AuthController/register';
 
 
-$route['home'] = 'homecontroller';
+$route['home'] = 'HomeController';
 
 // routes for alternative
-$route['alternative'] = 'alternativecontroller';
-$route['alternative/create'] = 'alternativecontroller/create';
-$route['alternative/store'] = 'alternativecontroller/store';
-$route['alternative/edit/(:any)'] = 'alternativecontroller/edit/$1';
-$route['alternative/show/(:any)'] = 'alternativecontroller/show/$1';
-$route['alternative/update/(:any)'] = 'alternativecontroller/update/$1';
-$route['alternative/destroy/(:any)'] = 'alternativecontroller/destroy/$1';
+$route['alternative'] = 'AlternativeController';
+$route['alternative/create'] = 'AlternativeController/create';
+$route['alternative/store'] = 'AlternativeController/store';
+$route['alternative/edit/(:any)'] = 'AlternativeController/edit/$1';
+$route['alternative/show/(:any)'] = 'AlternativeController/show/$1';
+$route['alternative/update/(:any)'] = 'AlternativeController/update/$1';
+$route['alternative/destroy/(:any)'] = 'AlternativeController/destroy/$1';
 
 // routes for alternative value
-$route['alternative_values/(:any)'] = 'alternativevaluecontroller/index/$1';
-$route['alternative_value/create'] = 'alternativevaluecontroller/create';
-$route['alternative_value/store'] = 'alternativevaluecontroller/store';
-$route['alternative_value/edit/(:any)'] = 'alternativevaluecontroller/edit/$1';
-$route['alternative_value/update/(:any)'] = 'alternativevaluecontroller/update/$1';
-$route['alternative_value/destroy/(:any)'] = 'alternativevaluecontroller/destroy/$1';
+$route['alternative_values/(:any)'] = 'AlternativeValueController/index/$1';
+$route['alternative_value/create'] = 'AlternativeValueController/create';
+$route['alternative_value/store'] = 'AlternativeValueController/store';
+$route['alternative_value/edit/(:any)'] = 'AlternativeValueController/edit/$1';
+$route['alternative_value/update/(:any)'] = 'AlternativeValueController/update/$1';
+$route['alternative_value/destroy/(:any)'] = 'AlternativeValueController/destroy/$1';
 
-$route['ranking'] = 'rankingcontroller';
+$route['ranking'] = 'RankingController';
 
 // routes for criteria
-$route['criteria'] = 'criteriacontroller';
-$route['criteria/create'] = 'criteriacontroller/create';
-$route['criteria/store'] = 'criteriacontroller/store';
-$route['criteria/edit/(:any)'] = 'criteriacontroller/edit/$1';
-$route['criteria/update/(:any)'] = 'criteriacontroller/update/$1';
-$route['criteria/destroy/(:any)'] = 'criteriacontroller/destroy/$1';
+$route['criteria'] = 'CriteriaController';
+$route['criteria/create'] = 'CriteriaController/create';
+$route['criteria/store'] = 'CriteriaController/store';
+$route['criteria/edit/(:any)'] = 'CriteriaController/edit/$1';
+$route['criteria/update/(:any)'] = 'CriteriaController/update/$1';
+$route['criteria/destroy/(:any)'] = 'CriteriaController/destroy/$1';
 
 // routes for criterion value
-$route['criterion_value/(:any)'] = 'criterionvaluecontroller/index/$1';
-$route['criterion/create'] = 'criterionvaluecontroller/create';
-$route['criterion/store'] = 'criterionvaluecontroller/store';
-$route['criterion/edit/(:any)'] = 'criterionvaluecontroller/edit/$1';
-$route['criterion/update/(:any)'] = 'criterionvaluecontroller/update/$1';
-$route['criterion/destroy/(:any)'] = 'criterionvaluecontroller/destroy/$1';
+$route['criterion_value/(:any)'] = 'CriterionValueController/index/$1';
+$route['criterion/create'] = 'CriterionValueController/create';
+$route['criterion/store'] = 'CriterionValueController/store';
+$route['criterion/edit/(:any)'] = 'CriterionValueController/edit/$1';
+$route['criterion/update/(:any)'] = 'CriterionValueController/update/$1';
+$route['criterion/destroy/(:any)'] = 'CriterionValueController/destroy/$1';
 
 // routes for user
-$route['user'] = 'usercontroller';
-$route['user/create'] = 'usercontroller/create';
-$route['user/store'] = 'usercontroller/store';
-$route['user/edit/(:any)'] = 'usercontroller/edit/$1';
-$route['user/update/(:any)'] = 'usercontroller/update/$1';
-$route['user/destroy/(:any)'] = 'usercontroller/destroy/$1';
+$route['user'] = 'UserController';
+$route['user/create'] = 'UserController/create';
+$route['user/store'] = 'UserController/store';
+$route['user/edit/(:any)'] = 'UserController/edit/$1';
+$route['user/update/(:any)'] = 'UserController/update/$1';
+$route['user/destroy/(:any)'] = 'UserController/destroy/$1';
 
 
 
-$route['my_scale'] = 'myscalecontroller';
-$route['my_scale/create'] = 'myscalecontroller/create';
-$route['my_scale/store'] = 'myscalecontroller/store';
-$route['my_scale/edit/(:any)'] = 'myscalecontroller/edit/$1';
-$route['my_scale/update/(:any)'] = 'myscalecontroller/update/$1';
-$route['my_scale/destroy/(:any)'] = 'myscalecontroller/destroy/$1';
+$route['my_scale'] = 'MyscaleController';
+$route['my_scale/create'] = 'MyscaleController/create';
+$route['my_scale/store'] = 'MyscaleController/store';
+$route['my_scale/edit/(:any)'] = 'MyscaleController/edit/$1';
+$route['my_scale/update/(:any)'] = 'MyscaleController/update/$1';
+$route['my_scale/destroy/(:any)'] = 'MyscaleController/destroy/$1';
 
-$route['logout'] = 'authcontroller/logout';
+$route['logout'] = 'AuthController/logout';
 
 // profile route
-$route['profile'] = 'profilecontroller/index';
-$route['profile/update/(:any)'] = 'profilecontroller/update/$1';
-
-$route['total_importance_scale'] = 'helpercontroller/total_importance_scale';
+$route['profile'] = 'ProfileController/index';
+$route['profile/update/(:any)'] = 'ProfileController/update/$1';
