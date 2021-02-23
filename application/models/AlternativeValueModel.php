@@ -36,6 +36,10 @@ class AlternativeValueModel extends CI_Model
     {
         $this->db->where('alternative_id', $id);
         return $this->db->delete($this->_table);
-    }                  
+    }              
 
+    public function get_data_join($id)
+    {
+        return $this->db->query("SELECT alternative_value.*, alternative.alternative_code AS alternative_code, criterion_value.description AS description, criteria.criteria_code AS criteria_code FROM alternative_value JOIN alternative ON alternative_value.alternative_id = alternative.id JOIN criteria ON alternative_value.criteria_id = criteria.id JOIN criterion_value ON alternative_value.criterion_value_id = criterion_value.id WHERE alternative_value.id = $id");
+    }
 }

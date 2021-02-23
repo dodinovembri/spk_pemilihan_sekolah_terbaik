@@ -21,8 +21,8 @@ class RankingController extends CI_Controller {
 
 	public function index()
 	{
-        $total_importance_scale = weight_fixes();
-        var_dump($total_importance_scale);
+        $weight_fixes = weight_fixes();
+        $s_vector = s_vector($weight_fixes);
 
   //       $this->load->view('templates/backend/header');
 		// $this->load->view('ranking/index');

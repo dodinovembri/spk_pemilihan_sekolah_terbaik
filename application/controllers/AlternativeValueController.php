@@ -6,7 +6,7 @@ class AlternativeValueController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel', 'alternativevaluemodel', 'criteriamodel']);
+        $this->load->model(['usermodel', 'alternativemodel', 'alternativevaluemodel', 'criteriamodel', 'criterionvaluemodel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -78,7 +78,9 @@ class AlternativeValueController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['alternative_value'] = $this->alternativevaluemodel->get_data($id)->row();
+        $alternative_value = $this->alternativevaluemodel->get_data($id)->row();
+        $data['criterion_value'] = $this->criterionvaluemodel->get_criterion_value($alternative_value->criteria_id)->result();
+        $data['alternative_value'] = $this->alternativevaluemodel->get_data_join($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('alternative_value/edit', $data);
