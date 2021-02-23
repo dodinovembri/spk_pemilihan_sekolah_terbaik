@@ -1,3 +1,5 @@
 - show criteria name when create criterion value
 - hapus model yang tidak terpakai
 - controller di seluruh view dibenerin
+- change profile without image
+- 

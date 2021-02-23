@@ -56,7 +56,7 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Role</label>
                                                 <div class="col-md-10">
-                                                    <select class="form-select" name="status" required="">
+                                                    <select class="form-select" name="role" required="">
                                                         <option value="">Select</option>
                                                         <option value="0">Administrator</option>
                                                         <option value="1">User</option>
