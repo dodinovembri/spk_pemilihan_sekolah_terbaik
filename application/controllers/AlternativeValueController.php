@@ -26,7 +26,7 @@ class AlternativeValueController extends CI_Controller {
 
         $this->session->set_userdata($alternative);
 
-        $data['alternative_value'] = $this->AlternativeModel->get_alternative_value($id)->result();
+        $data['alternative_value'] = $this->AlternativeValueModel->get_alternative_value($id)->result();
 
 
         $this->load->view('templates/backend/header');

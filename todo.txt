@@ -2,4 +2,5 @@
 - hapus model yang tidak terpakai
 - controller di seluruh view dibenerin
 - change profile without image
+- edit user role must required
 - 
