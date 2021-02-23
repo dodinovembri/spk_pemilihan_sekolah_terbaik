@@ -6,7 +6,7 @@ class MyScaleController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel', 'userweightmodel', 'criteriamodel']);
+        $this->load->model(['UserWeightModel', 'CriteriaModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -21,7 +21,7 @@ class MyScaleController extends CI_Controller {
 	public function index()
 	{
         $user_id = $this->session->userdata('id');
-        $data['myscale'] = $this->userweightmodel->get_my_scale($user_id)->result();
+        $data['myscale'] = $this->UserWeightModel->get_my_scale($user_id)->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('myscale/index', $data);
@@ -30,7 +30,7 @@ class MyScaleController extends CI_Controller {
 
     public function create()
     {
-        $data['criteria'] = $this->criteriamodel->get_criteria_with_not_in()->result();
+        $data['criteria'] = $this->CriteriaModel->get_criteria_with_not_in()->result();
 
         $this->load->view('templates/backend/header');
         $this->load->view('myscale/create', $data);
@@ -51,7 +51,7 @@ class MyScaleController extends CI_Controller {
             'status' => $status
         );
 
-        $insert = $this->userweightmodel->insert($data);
+        $insert = $this->UserWeightModel->insert($data);
         $this->session->set_flashdata('success', "Success create my-scale!");
         return redirect(base_url('my-scale'));    
     }
@@ -63,7 +63,7 @@ class MyScaleController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['scale'] = $this->userweightmodel->get_data($id)->row();
+        $data['scale'] = $this->UserWeightModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('myscale/edit', $data);
@@ -80,14 +80,14 @@ class MyScaleController extends CI_Controller {
             'status' => $status
         );
 
-        $update = $this->userweightmodel->update($data, $id);
+        $update = $this->UserWeightModel->update($data, $id);
         $this->session->set_flashdata('success', "Success update data!");
         return redirect(base_url('my-scale'));
     }
 
     public function destroy($id)
     {
-        $delete = $this->userweightmodel->destroy($id);        
+        $delete = $this->UserWeightModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url('my-scale'));
     }

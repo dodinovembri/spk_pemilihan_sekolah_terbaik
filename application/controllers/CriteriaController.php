@@ -6,7 +6,7 @@ class CriteriaController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'criteriamodel']);
+        $this->load->model(['UserModel', 'CriteriaModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,7 +20,7 @@ class CriteriaController extends CI_Controller {
 
 	public function index()
 	{
-        $data['criteria'] = $this->criteriamodel->get_criteria()->result();
+        $data['criteria'] = $this->CriteriaModel->get_criteria()->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('criteria/index', $data);
@@ -48,7 +48,7 @@ class CriteriaController extends CI_Controller {
             'status' => $status
         );
 
-        $insert = $this->criteriamodel->insert($data);
+        $insert = $this->CriteriaModel->insert($data);
         if ($insert) {
             $this->session->set_flashdata('success', "Success create criteria!");
             return redirect(base_url('criteria'));
@@ -65,7 +65,7 @@ class CriteriaController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['criteria'] = $this->criteriamodel->get_data($id)->row();
+        $data['criteria'] = $this->CriteriaModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('criteria/edit', $data);
@@ -86,7 +86,7 @@ class CriteriaController extends CI_Controller {
             'status' => $status
         );
 
-        $update = $this->criteriamodel->update($data, $id);
+        $update = $this->CriteriaModel->update($data, $id);
         if ($update) {
             $this->session->set_flashdata('success', "Success update data!");
             return redirect(base_url('criteria'));
@@ -98,7 +98,7 @@ class CriteriaController extends CI_Controller {
 
     public function destroy($id)
     {
-        $delete = $this->criteriamodel->destroy($id);        
+        $delete = $this->CriteriaModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url('criteria'));
     }

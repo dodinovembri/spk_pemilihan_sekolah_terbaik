@@ -28,7 +28,7 @@ class AuthController extends CI_Controller {
         $username = $this->input->post('username');
         $password = md5($this->input->post('password'));
 
-        $check_auth = $this->usermodel->check_auth($username, $password)->row();
+        $check_auth = $this->UserModel->check_auth($username, $password)->row();
         if ($check_auth) {
             $auth = array(
                     'id' => $check_auth->id,
@@ -78,7 +78,7 @@ class AuthController extends CI_Controller {
                 'password' => $password
             );
 
-            $insert = $this->usermodel->insert($data);
+            $insert = $this->UserModel->insert($data);
             if ($insert) {
                 $this->session->set_flashdata('success', "Success register, please login!");
                 return redirect(base_url('login'));

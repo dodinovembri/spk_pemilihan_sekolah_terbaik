@@ -1,2 +1,2 @@
 - show criteria name when create criterion value
--
+- hapus model yang tidak terpakai

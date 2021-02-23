@@ -6,7 +6,7 @@ class AlternativeController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel']);
+        $this->load->model(['UserModel', 'AlternativeModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,7 +20,7 @@ class AlternativeController extends CI_Controller {
 
 	public function index()
 	{
-        $data['alternative'] = $this->alternativemodel->get_alternative()->result();
+        $data['alternative'] = $this->AlternativeModel->get_alternative()->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('alternative/index', $data);
@@ -75,7 +75,7 @@ class AlternativeController extends CI_Controller {
                 'status' => $status
             );
 
-            $insert = $this->alternativemodel->insert($data);
+            $insert = $this->AlternativeModel->insert($data);
             $this->session->set_flashdata('success', "Success create alternative!");
             return redirect(base_url('alternative'));
         }
@@ -83,7 +83,7 @@ class AlternativeController extends CI_Controller {
 
     public function show($id)
     {
-        $data['alternative'] = $this->alternativemodel->get_data($id)->row();
+        $data['alternative'] = $this->AlternativeModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('alternative/show', $data);
@@ -92,7 +92,7 @@ class AlternativeController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['alternative'] = $this->alternativemodel->get_data($id)->row();
+        $data['alternative'] = $this->AlternativeModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('alternative/edit', $data);
@@ -141,7 +141,7 @@ class AlternativeController extends CI_Controller {
                     'status' => $status
                 );
 
-                $update = $this->alternativemodel->update($data, $id);
+                $update = $this->AlternativeModel->update($data, $id);
                 $this->session->set_flashdata('success', "Success update alternative!");
                 return redirect(base_url('alternative'));
             }            
@@ -158,7 +158,7 @@ class AlternativeController extends CI_Controller {
                 'status' => $status
             );
 
-            $update = $this->alternativemodel->update($data, $id);
+            $update = $this->AlternativeModel->update($data, $id);
             $this->session->set_flashdata('success', "Success update alternative!");
             return redirect(base_url('alternative'));
         }
@@ -166,7 +166,7 @@ class AlternativeController extends CI_Controller {
 
     public function destroy($id)
     {
-        $delete = $this->alternativemodel->destroy($id);        
+        $delete = $this->AlternativeModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url('alternative'));
     }

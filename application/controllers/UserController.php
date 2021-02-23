@@ -6,7 +6,7 @@ class UserController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('usermodel');
+        $this->load->model('UserModel');
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,7 +20,7 @@ class UserController extends CI_Controller {
 
 	public function index()
 	{
-        $data['user'] = $this->usermodel->get_user()->result();
+        $data['user'] = $this->UserModel->get_user()->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('user/index', $data);
@@ -56,7 +56,7 @@ class UserController extends CI_Controller {
                 'status' => $status
             );
 
-            $insert = $this->usermodel->insert($data);
+            $insert = $this->UserModel->insert($data);
             if ($insert) {
                 $this->session->set_flashdata('success', "Success create new user!");
                 return redirect(base_url('user'));
@@ -74,7 +74,7 @@ class UserController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['user'] = $this->usermodel->get_data($id)->row();
+        $data['user'] = $this->UserModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('user/edit', $data);
@@ -103,7 +103,7 @@ class UserController extends CI_Controller {
                 'status' => $status
             );
 
-            $update = $this->usermodel->update($data, $id);
+            $update = $this->UserModel->update($data, $id);
             if ($update) {
                 $this->session->set_flashdata('success', "Success update user!");
                 return redirect(base_url('user'));
@@ -116,7 +116,7 @@ class UserController extends CI_Controller {
 
     public function destroy($id)
     {
-        $delete = $this->usermodel->destroy($id);        
+        $delete = $this->UserModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url('user'));
     }

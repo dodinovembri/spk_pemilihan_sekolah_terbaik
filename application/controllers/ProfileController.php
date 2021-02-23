@@ -6,7 +6,7 @@ class ProfileController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel']);
+        $this->load->model(['UserModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -21,7 +21,7 @@ class ProfileController extends CI_Controller {
 	public function index()
 	{
         $user_id = $this->session->userdata('id');
-        $data['profile'] = $this->usermodel->get_data($user_id)->row();        
+        $data['profile'] = $this->UserModel->get_data($user_id)->row();        
 
         $this->load->view('templates/backend/header');
 		$this->load->view('profile/index', $data);
@@ -82,7 +82,7 @@ class ProfileController extends CI_Controller {
                     'image' => $this->upload->data('file_name')
                 );
 
-                $update = $this->usermodel->update($data, $id);
+                $update = $this->UserModel->update($data, $id);
                 if ($update) {
                     $this->session->set_flashdata('success', "Success update data!");
                     return redirect(base_url('profile'));

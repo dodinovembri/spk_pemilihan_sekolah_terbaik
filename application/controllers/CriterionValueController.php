@@ -6,7 +6,7 @@ class CriterionValueController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'criteriamodel', 'criterionvaluemodel']);
+        $this->load->model(['UserModel', 'CriteriaModel', 'CriterionValueModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -26,7 +26,7 @@ class CriterionValueController extends CI_Controller {
 
         $this->session->set_userdata($criteria);
 
-        $data['criterion_value'] = $this->criterionvaluemodel->get_criterion_value($id)->result();
+        $data['criterion_value'] = $this->CriterionValueModel->get_criterion_value($id)->result();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('criterion_value/index', $data);
@@ -54,7 +54,7 @@ class CriterionValueController extends CI_Controller {
             'status' => $status
         );
 
-        $insert = $this->criterionvaluemodel->insert($data);
+        $insert = $this->CriterionValueModel->insert($data);
         $this->session->set_flashdata('success', "Success create criterion value!");
         return redirect("criterion_value/$criteria_id");
    
@@ -67,7 +67,7 @@ class CriterionValueController extends CI_Controller {
 
     public function edit($id)
     {
-        $data['criterion_value'] = $this->criterionvaluemodel->get_data($id)->row();
+        $data['criterion_value'] = $this->CriterionValueModel->get_data($id)->row();
 
         $this->load->view('templates/backend/header');
         $this->load->view('criterion_value/edit', $data);
@@ -87,7 +87,7 @@ class CriterionValueController extends CI_Controller {
             'status' => $status
         );
 
-        $update = $this->criterionvaluemodel->update($data, $id);
+        $update = $this->CriterionValueModel->update($data, $id);
         $this->session->set_flashdata('success', "Success update data!");
         return redirect(base_url("criterion_value/$criteria_id"));      
     }
@@ -95,7 +95,7 @@ class CriterionValueController extends CI_Controller {
     public function destroy($id)
     {
         $criteria_id = $this->session->userdata('criteria_id');
-        $delete = $this->criterionvaluemodel->destroy($id);        
+        $delete = $this->CriterionValueModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url("criterion_value/$criteria_id"));
     }

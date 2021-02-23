@@ -6,7 +6,7 @@ class HomeController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['usermodel', 'alternativemodel', 'criteriamodel']);
+        $this->load->model(['UserModel', 'AlternativeModel', 'CriteriaModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -20,9 +20,9 @@ class HomeController extends CI_Controller {
 
 	public function index()
 	{
-        $data['alternative'] = $this->alternativemodel->count_alternative();
-        $data['criteria'] = $this->criteriamodel->count_criteria();
-        $data['user'] = $this->usermodel->count_user();
+        $data['alternative'] = $this->AlternativeModel->count_alternative();
+        $data['criteria'] = $this->CriteriaModel->count_criteria();
+        $data['user'] = $this->UserModel->count_user();
 
         $this->load->view('templates/backend/header');
 		$this->load->view('home/index', $data);
