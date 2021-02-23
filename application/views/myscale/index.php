@@ -27,7 +27,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('my-scale/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
+                                        <a href="<?php echo base_url('my_scale/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -75,7 +75,7 @@
                                                         <?php } ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?php echo base_url('my-scale/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
+                                                        <a href="<?php echo base_url('my_scale/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
                                                         <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
                                                     </td>
                                                 </tr>
@@ -92,7 +92,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                                                <a href="<?php echo base_url('my-scale/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                                                                <a href="<?php echo base_url('my_scale/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
                                                             </div>
                                                         </div>
                                                     </div>

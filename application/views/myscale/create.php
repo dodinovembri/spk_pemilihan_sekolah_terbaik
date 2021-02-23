@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('my-scale') ?>">My Scale</a> 
+                                        <a href="<?php echo base_url('my_scale') ?>">My Scale</a> 
                                         <b>></b> 
                                         <span>Create My Scale</span></h6>
                                 </div>
@@ -28,7 +28,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form method="POST" action="<?php echo base_url('my-scale/store') ?>">
+                                        <form method="POST" action="<?php echo base_url('my_scale/store') ?>">
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Criteria</label>
                                                 <div class="col-md-10">
@@ -67,7 +67,7 @@
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('my-scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <a href="<?php echo base_url('my_scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
                                                 </div>
                                             </div>
 
