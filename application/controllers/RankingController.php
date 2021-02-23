@@ -6,7 +6,7 @@ class RankingController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('My_Helper');
+        $this->load->helper('my_helper');
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
