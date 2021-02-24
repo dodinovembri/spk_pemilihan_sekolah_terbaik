@@ -57,13 +57,8 @@ class UserController extends CI_Controller {
             );
 
             $insert = $this->UserModel->insert($data);
-            if ($insert) {
-                $this->session->set_flashdata('success', "Success create new user!");
-                return redirect(base_url('user'));
-            }else{
-                $this->session->set_flashdata('warning', "Failed to create new user!");
-                return redirect(base_url('user'));
-            }
+            $this->session->set_flashdata('success', "Success create new user!");
+            return redirect(base_url('user'));
         }
     }
 
@@ -104,13 +99,8 @@ class UserController extends CI_Controller {
             );
 
             $update = $this->UserModel->update($data, $id);
-            if ($update) {
-                $this->session->set_flashdata('success', "Success update user!");
-                return redirect(base_url('user'));
-            }else{
-                $this->session->set_flashdata('warning', "Failed to update user!");
-                return redirect(base_url('user'));
-            }
+            $this->session->set_flashdata('success', "Success update user!");
+            return redirect(base_url('user'));
         }
     }
 

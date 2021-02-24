@@ -60,7 +60,9 @@ class ProfileController extends CI_Controller {
             $this->session->set_flashdata('warning', "Your password is doesn't match");
             return redirect(base_url('profile'));
         }else{
-            $password = md5($password);            
+            $password = md5($password);    
+
+            // for image
             $image = uniqid();
             $config['upload_path']          = './uploads/user/';
             $config['allowed_types']        = 'gif|jpg|png';            
@@ -68,14 +70,9 @@ class ProfileController extends CI_Controller {
 
             $this->load->library('upload', $config); 
 
-            if (!$this->upload->do_upload('userfile'))
+            if ($this->upload->do_upload('image'))
             {
-                $this->session->set_flashdata('warning', "Image is not valid!");
-                return redirect(base_url('profile'));
-            }
-            else
-            {                          
-                $data = array(
+                 $data = array(
                     'name' => $name,
                     'email' => $email,
                     'password' => $password,
@@ -83,13 +80,20 @@ class ProfileController extends CI_Controller {
                 );
 
                 $update = $this->UserModel->update($data, $id);
-                if ($update) {
-                    $this->session->set_flashdata('success', "Success update data!");
-                    return redirect(base_url('profile'));
-                }else{
-                    $this->session->set_flashdata('warning', "Update data is failed!");
-                    return redirect(base_url('profile'));
-                }
+                $this->session->set_flashdata('success', "Success update data!");
+                return redirect(base_url('profile'));
+            }
+            else
+            {                          
+                $data = array(
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => $password
+                );
+
+                $update = $this->UserModel->update($data, $id);
+                $this->session->set_flashdata('success', "Success update data!");
+                return redirect(base_url('profile'));
             }
         }
     }

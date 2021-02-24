@@ -53,7 +53,7 @@
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('my-scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
                                                 </div>
                                             </div>
 

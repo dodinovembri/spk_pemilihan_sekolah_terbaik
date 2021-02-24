@@ -41,7 +41,7 @@
                                                 <label for="example-text-input" class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <img height="150px" src="<?php echo base_url('uploads/user/'); echo $profile->image ?>">
-                                                    <input type="file" name="userfile">
+                                                    <input type="file" name="image">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

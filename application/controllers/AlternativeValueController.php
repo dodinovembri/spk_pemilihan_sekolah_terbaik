@@ -6,7 +6,7 @@ class AlternativeValueController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['UserModel', 'AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel']);
+        $this->load->model(['AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {

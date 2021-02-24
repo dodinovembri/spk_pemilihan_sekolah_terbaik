@@ -79,13 +79,8 @@ class AuthController extends CI_Controller {
             );
 
             $insert = $this->UserModel->insert($data);
-            if ($insert) {
-                $this->session->set_flashdata('success', "Success register, please login!");
-                return redirect(base_url('login'));
-            }else{
-                $this->session->set_flashdata('warning', "Register new user is not successfully");
-                return redirect(base_url('register'));
-            }
+            $this->session->set_flashdata('success', "Success register, please login!");
+            return redirect(base_url('login'));
         }
 
     }

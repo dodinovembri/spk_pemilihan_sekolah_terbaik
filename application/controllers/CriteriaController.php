@@ -6,7 +6,7 @@ class CriteriaController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['UserModel', 'CriteriaModel']);
+        $this->load->model(['CriteriaModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -49,13 +49,8 @@ class CriteriaController extends CI_Controller {
         );
 
         $insert = $this->CriteriaModel->insert($data);
-        if ($insert) {
-            $this->session->set_flashdata('success', "Success create criteria!");
-            return redirect(base_url('criteria'));
-        }else{
-            $this->session->set_flashdata('warning', "Failed to create criteria!");
-            return redirect(base_url('criteria'));
-        }
+        $this->session->set_flashdata('success', "Success create criteria!");
+        return redirect(base_url('criteria'));
     }
 
     public function show($id)
@@ -87,13 +82,8 @@ class CriteriaController extends CI_Controller {
         );
 
         $update = $this->CriteriaModel->update($data, $id);
-        if ($update) {
-            $this->session->set_flashdata('success', "Success update data!");
-            return redirect(base_url('criteria'));
-        }else{
-            $this->session->set_flashdata('warning', "Update data is failed!");
-            return redirect(base_url('criteria'));
-        }        
+        $this->session->set_flashdata('success', "Success update data!");
+        return redirect(base_url('criteria'));
     }
 
     public function destroy($id)

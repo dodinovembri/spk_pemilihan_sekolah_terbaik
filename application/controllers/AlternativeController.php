@@ -6,7 +6,7 @@ class AlternativeController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['UserModel', 'AlternativeModel']);
+        $this->load->model(['AlternativeModel']);
 
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
@@ -44,7 +44,6 @@ class AlternativeController extends CI_Controller {
         $email = $this->input->post('email');
         $voice_number = $this->input->post('voice_number');
         $description = $this->input->post('description');
-        $image = $this->input->post('image');
         $status = $this->input->post('status');
 
         // for image
@@ -55,9 +54,23 @@ class AlternativeController extends CI_Controller {
 
         $this->load->library('upload', $config); 
 
-        if (!$this->upload->do_upload('image'))
+        if ($this->upload->do_upload('image'))
         {
-            $this->session->set_flashdata('warning', "Image is not valid!");
+            $data = array(
+                'alternative_code' => $alternative_code,
+                'alternative_name' => $alternative_name,
+                'address' => $address,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'email' => $email,
+                'voice_number' => $voice_number,
+                'description' => $description,
+                'image' => $this->upload->data('file_name'),
+                'status' => $status
+            );
+
+            $insert = $this->AlternativeModel->insert($data);
+            $this->session->set_flashdata('success', "Success create alternative!");
             return redirect(base_url('alternative'));
         }
         else
@@ -71,7 +84,6 @@ class AlternativeController extends CI_Controller {
                 'email' => $email,
                 'voice_number' => $voice_number,
                 'description' => $description,
-                'image' => $this->upload->data('file_name'),
                 'status' => $status
             );
 
@@ -109,43 +121,37 @@ class AlternativeController extends CI_Controller {
         $email = $this->input->post('email');
         $voice_number = $this->input->post('voice_number');
         $description = $this->input->post('description');
-        $image = $this->input->post('image');
         $status = $this->input->post('status');
 
-        if (isset($image)) {
-            // for image
-            $image = uniqid();
-            $config['upload_path']          = './uploads/alternative/';
-            $config['allowed_types']        = 'gif|jpg|png';            
-            $config['file_name']            = $image;
+        // for image
+        $image = uniqid();
+        $config['upload_path']          = './uploads/alternative/';
+        $config['allowed_types']        = 'gif|jpg|png';            
+        $config['file_name']            = $image;
 
-            $this->load->library('upload', $config); 
+        $this->load->library('upload', $config); 
 
-            if (!$this->upload->do_upload('image'))
-            {
-                $this->session->set_flashdata('warning', "Image is not valid!");
-                return redirect(base_url('alternative'));
-            }
-            else
-            {                          
-                $data = array(
-                    'alternative_code' => $alternative_code,
-                    'alternative_name' => $alternative_name,
-                    'address' => $address,
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'email' => $email,
-                    'voice_number' => $voice_number,
-                    'description' => $description,
-                    'image' => $this->upload->data('file_name'),
-                    'status' => $status
-                );
+        if ($this->upload->do_upload('image'))
+        {
+            $data = array(
+                'alternative_code' => $alternative_code,
+                'alternative_name' => $alternative_name,
+                'address' => $address,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'email' => $email,
+                'voice_number' => $voice_number,
+                'description' => $description,
+                'image' => $this->upload->data('file_name'),
+                'status' => $status
+            );
 
-                $update = $this->AlternativeModel->update($data, $id);
-                $this->session->set_flashdata('success', "Success update alternative!");
-                return redirect(base_url('alternative'));
-            }            
-        }else{
+            $update = $this->AlternativeModel->update($data, $id);
+            $this->session->set_flashdata('success', "Success update alternative!");
+            return redirect(base_url('alternative'));
+        }
+        else
+        {                          
             $data = array(
                 'alternative_code' => $alternative_code,
                 'alternative_name' => $alternative_name,

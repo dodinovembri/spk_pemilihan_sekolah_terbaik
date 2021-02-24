@@ -80,7 +80,7 @@
                                             <div class="mb-3 row">
                                                 <label for="example-email-input" class="col-md-2 col-form-label">Image</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" name="image" type="file" name="longitude">
+                                                    <input class="form-control" name="image" type="file">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

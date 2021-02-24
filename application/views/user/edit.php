@@ -56,7 +56,7 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Role</label>
                                                 <div class="col-md-10">
-                                                    <select class="form-select" name="role_id" required="">
+                                                    <select class="form-select" name="role" required="">
                                                         <option value="<?php echo $user->role_id; ?>"><?php echo $user->role_id == 0 ? "Administrator" : "User" ?></option>
                                                         <?php if ($user->role_id == 0) {?>
                                                             <option value="1">User</option>
