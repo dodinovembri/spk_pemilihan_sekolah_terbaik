@@ -39,9 +39,9 @@ if ( ! function_exists('s_vector')){
 
         $i = 0;
         $total_weight_fixes = count($weight_fixes);        
-        foreach ($each_alternative as $key => $value) {                
-            $weight_fixes = $weight_fixes[$i];
-            $weight_fixes = $weight_fixes["weight_fixes"];                  
+        foreach ($each_alternative as $key => $value) {            
+            $weight_fixes = $weight_fixes[2];
+            $weight_fixes = $weight_fixes["weight_fixes"];                
             $value_of_criteria = (int)$value->value_of_criteria;
 
             $alternative_id[] = $value->alternative_id;
