@@ -16,10 +16,10 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('criteria') ?>">Criteria</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
                                         <b>></b> 
-                                        <span><a href="<?php echo base_url('alternative_value/'); echo $this->session->userdata('criteria_id'); ?>">Criterion Value</a></span>
-                                        <b>></b> Edit Criterion Value</h6>
+                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Alternative Value</a></span>
+                                        <b>></b> Edit Alternative Value</h6>
                                     </h6>
                                 </div>
                             </div>
@@ -34,13 +34,13 @@
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Alternative</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->alternative_code ?>" placeholder="Enter code" required="">
+                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->alternative_code ?>" placeholder="Enter code" readonly="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Criteria</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->criteria_code ?>" placeholder="Enter code" required="">
+                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->criteria_code ?>" placeholder="Enter code" readonly="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

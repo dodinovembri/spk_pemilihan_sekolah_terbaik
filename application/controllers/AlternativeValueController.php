@@ -89,20 +89,16 @@ class AlternativeValueController extends CI_Controller {
 
     public function update($id)
     {
-        $criteria_id = $this->session->userdata('criteria_id');
-        $description = $this->input->post('description');
-        $value = $this->input->post('value');
-        $status = $this->input->post('status');
+        $alternative_id = $this->session->userdata('alternative_id');
+        $criterion_value_id = $this->input->post('criterion_value_id');
 
         $data = array(
-            'description' => $description,
-            'value' => $value,
-            'status' => $status
+            'criterion_value_id' => $criterion_value_id
         );
 
-        $update = $this->CriterionValueModel->update($data, $id);
+        $update = $this->AlternativeValueModel->update($data, $id);
         $this->session->set_flashdata('success', "Success update data!");
-        return redirect(base_url("criterion_value/$criteria_id"));      
+        return redirect(base_url("alternative_values/$alternative_id"));      
     }
 
     public function destroy($id)

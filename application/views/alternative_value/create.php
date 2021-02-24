@@ -16,10 +16,10 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('criteria') ?>">Criteria</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
                                         <b>></b> 
-                                        <span><a href="<?php echo base_url('criterion_value/'); echo $this->session->userdata('criteria_id'); ?>">Criterion Value</a></span>
-                                        <b>></b> Create Criterion Value</h6>
+                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Alternative Value</a></span>
+                                        <b>></b> Create Alternative Value</h6>
                                     </h6>
                                 </div>
                             </div>
