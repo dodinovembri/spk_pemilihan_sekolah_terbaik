@@ -60,19 +60,56 @@ if ( ! function_exists('s_vector')){
 }
 
 if ( ! function_exists('s_vector_total')){
-    function s_vector_total($s_vector_params){
+    function s_vector_total($s_vector_params, $total_weight_fixes){ 
+        $alternative_id = 0;
+        $i = 0;
+        $max = $total_weight_fixes;
+        $pushed = [];
         foreach ($s_vector_params as $key => $value) {
             $alternative_id = $value['alternative_id'];
-            if ($key == 0) {
-                $temp_s_vector = $value['s_vector'];
+
+            if ($i == 0) {
+                $temp_s_vector = $value['s_vector'];                
             }else{
-                $temp_s_vector = $temp_s_vector * $value['s_vector'];
+                if ($value['alternative_id'] == $alternative_id) {
+                    $temp_s_vector = $temp_s_vector * $value['s_vector']; 
+                }
             }
-            $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector);
-        }
-        $data = $array;
-        var_dump($data);
-        die();
+
+            $i++;
+            if ($i == $max) {
+                $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector);
+                array_push($pushed, $array);
+                $i = 0;
+            }
+        }       
+        $data = $array;        
         return $data;
     }
 }
+
+
+if ( ! function_exists('sum_s_vector_total')){
+    function sum_s_vector_total($s_vector_total){
+        $total = 0;
+        foreach ($s_vector_total as $key => $value) {
+            $total = $total + $value['total_s_vector'];
+        }       
+        $data = $total;
+        return $data;
+    }
+}
+
+if ( ! function_exists('v_vector')){
+    function v_vector($s_vector_total, $sum_s_vector_total){
+        foreach ($s_vector_total as $key => $value) {
+            $alternative_id = $value['alternative_id'];
+            $v_vector = $value['total_s_vector'] / $sum_s_vector_total;
+
+            $array[] = array('alternative_id' => $alternative_id, 'v_vector' => $v_vector); 
+        }
+        $data = $array;
+        return $data;
+    }
+}
+

@@ -20,14 +20,21 @@ class RankingController extends CI_Controller {
 
 	public function index()
 	{
+        // weight fixes
         $weight_fixes = weight_fixes();
-        $s_vector = s_vector($weight_fixes);
-        $s_vector_total = s_vector_total($s_vector);
-        var_dump($s_vector_total);
+        $total_weight_fixes = count($weight_fixes);
 
-  //       $this->load->view('templates/backend/header');
-		// $this->load->view('ranking/index');
-  //       $this->load->view('templates/backend/footer');
+        // determine the s vector
+        $s_vector = s_vector($weight_fixes);
+        $s_vector_total = s_vector_total($s_vector, $total_weight_fixes);
+        $sum_s_vector_total = sum_s_vector_total($s_vector_total);
+
+        // determine the v vector
+        $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
+
+        $this->load->view('templates/backend/header');
+		$this->load->view('ranking/index', $data);
+        $this->load->view('templates/backend/footer');
 	}
 
     public function create()

@@ -35,6 +35,7 @@
 
         <!-- Datatable init js -->
         <script src="<?php echo base_url('assets/js/pages/datatables.init.js') ?>"></script>         
+        <script src="<?php echo base_url('assets/js/myjs.js') ?>"></script>         
     </body>
 
 </html>   
