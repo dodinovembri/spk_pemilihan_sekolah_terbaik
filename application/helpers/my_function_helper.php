@@ -63,15 +63,16 @@ if ( ! function_exists('s_vector_total')){
     function s_vector_total($s_vector_params){
         foreach ($s_vector_params as $key => $value) {
             $alternative_id = $value['alternative_id'];
-            $temp_s_vector = $value['s_vector'];
             if ($key == 0) {
-                $temp_s_vector_result = $temp_s_vector;
+                $temp_s_vector = $value['s_vector'];
             }else{
-                $temp_s_vector_result = $temp_s_vector * $value['s_vector'];
+                $temp_s_vector = $temp_s_vector * $value['s_vector'];
             }
-            $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector_result);
+            $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector);
         }
         $data = $array;
+        var_dump($data);
+        die();
         return $data;
     }
 }
