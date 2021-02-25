@@ -42,9 +42,9 @@ if ( ! function_exists('s_vector')){
             $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];              
             $value_of_criteria = (int)$value->value_of_criteria;
 
-            $alternative_id[] = $value->alternative_id;
-            $criteria_id[] = $value->criteria_id;
-            $s_vector[] = pow($value_of_criteria, $weight_fixes_result);
+            $alternative_id = $value->alternative_id;
+            $criteria_id = $value->criteria_id;
+            $s_vector = pow($value_of_criteria, $weight_fixes_result);
 
             // for reset to new
             $i++;
@@ -54,6 +54,23 @@ if ( ! function_exists('s_vector')){
 
             $array[] = array('alternative_id' => $alternative_id, 'criteria_id' => $criteria_id, 's_vector' => $s_vector);   
         }    
+        $data = $array;
+        return $data;
+    }
+}
+
+if ( ! function_exists('s_vector_total')){
+    function s_vector_total($s_vector_params){
+        foreach ($s_vector_params as $key => $value) {
+            $alternative_id = $value['alternative_id'];
+            $temp_s_vector = $value['s_vector'];
+            if ($key == 0) {
+                $temp_s_vector_result = $temp_s_vector;
+            }else{
+                $temp_s_vector_result = $temp_s_vector * $value['s_vector'];
+            }
+            $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector_result);
+        }
         $data = $array;
         return $data;
     }
