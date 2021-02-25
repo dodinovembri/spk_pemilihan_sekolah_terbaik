@@ -34,19 +34,17 @@ if ( ! function_exists('s_vector')){
     function s_vector($weight_fixes){
         $CI = get_instance();
         $CI->load->model('HelperModel');
-
         $each_alternative = $CI->HelperModel->each_alternative()->result(); 
 
         $i = 0;
-        $total_weight_fixes = count($weight_fixes);        
+        $total_weight_fixes = count($weight_fixes);  
         foreach ($each_alternative as $key => $value) {            
-            $weight_fixes = $weight_fixes[2];
-            $weight_fixes = $weight_fixes["weight_fixes"];                
+            $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];              
             $value_of_criteria = (int)$value->value_of_criteria;
 
             $alternative_id[] = $value->alternative_id;
             $criteria_id[] = $value->criteria_id;
-            $s_vector[] = pow($value_of_criteria, $weight_fixes);
+            $s_vector[] = pow($value_of_criteria, $weight_fixes_result);
 
             // for reset to new
             $i++;
