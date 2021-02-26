@@ -18,6 +18,7 @@
                                     <h6 class="mb-sm-0">
                                         Ranking
                                     </h6>
+                                    <p id="demo"></p>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +28,8 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <table id="ranking" class="table table-bordered dt-responsive  nowrap w-100">
+                                        <button onclick="getLocation()" class="btn btn-primary waves-effect waves-light">Refresh Location</button><br><br>
+                                        <table id="ranking" class="table table-bordered dt-responsive  nowrap">
                                             <thead>
                                             <tr>
                                                 <th>Alternative Code</th>
@@ -72,3 +74,20 @@
 
         </div>
         <!-- END layout-wrapper -->
+
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        </script>

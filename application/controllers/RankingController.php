@@ -8,19 +8,15 @@ class RankingController extends CI_Controller {
         parent::__construct();
         $this->load->helper('my_function');
 
-        // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
         }
-        // else{
-        //     if ($this->session->userdata('role_id') != 0) {
-        //         return redirect(base_url('login'));
-        //     }
-        // }
     }
 
 	public function index()
 	{
+        // $data = getDistanceBetweenPointsNew(-2.985557, 104.728721, -2.961740, 104.736820);  
+        
         // weight fixes
         $weight_fixes = weight_fixes();
         $total_weight_fixes = count($weight_fixes);
@@ -32,6 +28,9 @@ class RankingController extends CI_Controller {
 
         // determine the v vector
         $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
+
+        // count criteria
+        // $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
 
         $this->load->view('templates/backend/header');
 		$this->load->view('ranking/index', $data);
