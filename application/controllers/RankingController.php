@@ -11,11 +11,12 @@ class RankingController extends CI_Controller {
         // check login status and role id  as administrator(0) or not
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
-        }else{
-            if ($this->session->userdata('role_id') != 0) {
-                return redirect(base_url('login'));
-            }
         }
+        // else{
+        //     if ($this->session->userdata('role_id') != 0) {
+        //         return redirect(base_url('login'));
+        //     }
+        // }
     }
 
 	public function index()

@@ -32,7 +32,7 @@
                                             <?php echo $this->session->flashdata('warning'); ?>
                                         </div>
                                     <?php } ?>
-                                    <form class="needs-validation" method="POST" action="<?php echo base_url('authcontroller/store') ?>">
+                                    <form class="needs-validation" method="POST" action="<?php echo base_url('register/store') ?>">
 
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Name</label>
