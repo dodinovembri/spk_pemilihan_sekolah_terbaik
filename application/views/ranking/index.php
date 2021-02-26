@@ -19,16 +19,25 @@
                                         Ranking
                                     </h6>
                                     <p id="demo"></p>
+                                    
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
-
+                        <body onload="getLocation()"></body>
+                        <p><?php
+                            echo "<script>document.writeln(x);</script>";
+                            // $str = '<p id="demo"></p>';
+                            // $string_value = strval( $str ) ;
+                            // $expl = explode(" ", $string_value);
+                            // var_dump($expl);
+                            // die();
+                            // echo $expl[0];
+                        ?></p>
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <button onclick="getLocation()" class="btn btn-primary waves-effect waves-light">Refresh Location</button><br><br>
                                         <table id="ranking" class="table table-bordered dt-responsive  nowrap">
                                             <thead>
                                             <tr>
@@ -76,7 +85,8 @@
         <!-- END layout-wrapper -->
 
         <script>
-        var x = document.getElementById("demo");
+        // var x = document.getElementById("demo");
+        x = a;
 
         function getLocation() {
           if (navigator.geolocation) {
@@ -87,7 +97,6 @@
         }
 
         function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude;
+          a = position.coords.latitude + " " + position.coords.longitude;
         }
         </script>
