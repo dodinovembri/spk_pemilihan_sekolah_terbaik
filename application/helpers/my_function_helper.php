@@ -19,11 +19,11 @@ if ( ! function_exists('weight_fixes')){
      	foreach ($importance_scale as $key => $value) {
 		    $criteria_id[] = $value->criteria_id;
      		if ($value->criteria_type == "benefit") {
-		    	$weight_fixes[]  = $value->importance_scale / $total_importance_scale->total_importance_scale;
+		    	$weight_fixed  = $value->importance_scale / $total_importance_scale->total_importance_scale;
      		}elseif ($value->criteria_type == "cost") {
-		    	$weight_fixes[]  = -($value->importance_scale) / $total_importance_scale->total_importance_scale;
+		    	$weight_fixed  = -($value->importance_scale) / $total_importance_scale->total_importance_scale;
      		}	    
-		    $array[] = array('criteria_id' => $value->criteria_id, 'weight_fixes' => $value->importance_scale / $total_importance_scale->total_importance_scale);
+		    $array[] = array('criteria_id' => $value->criteria_id, 'weight_fixes' => $weight_fixed);
      	} 		
 		$data = $array;
 		return $data;     	
@@ -38,27 +38,29 @@ if ( ! function_exists('s_vector')){
 
         $i = 0;
         $total_weight_fixes = count($weight_fixes);  
-        foreach ($each_alternative as $key => $value) {            
-            $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];              
-            $value_of_criteria = (int)$value->value_of_criteria;
+        foreach ($each_alternative as $key => $value) {      
+            $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];            
 
-
-            if (!empty($latitude)) {
+            if (isset($latitude)) {
                 if ($value->criteria_code == "C9") {
-                    $distance = getDistanceBetweenPointsNew($value->latitude, $value->longitude, $latitude, $longitude);
-
+                    $distances = getDistanceBetweenPointsNew($value->latitude, $value->longitude, $latitude, $longitude);
+                    $distance = (int)$distances;
                     if ($distance < 2) {
-                      $value_of_criteria = 5;
+                        $value_of_criteria = 5;
                     }elseif ($distance >= 2 && $distance < 4) {
-                      $value_of_criteria = 4;
+                        $value_of_criteria = 4;
                     }elseif ($distance >= 4 && $distance < 6) {
-                      $value_of_criteria = 3;
+                        $value_of_criteria = 3;
                     }elseif ($distance >= 6 && $distance < 8) {
-                      $value_of_criteria = 2;
-                    }else{
-                      $value_of_criteria = 1;
+                        $value_of_criteria = 2;
+                    }elseif ($distance > 8){
+                        $value_of_criteria = 1;
                     }
+                }else{
+                    $value_of_criteria = (int)$value->value_of_criteria;
                 }
+            }else{
+                $value_of_criteria = (int)$value->value_of_criteria;
             }
 
 
@@ -71,7 +73,7 @@ if ( ! function_exists('s_vector')){
             if ($i == $total_weight_fixes) {
                 $i = 0;
             }
-
+  
             $array[] = array('alternative_id' => $alternative_id, 'criteria_id' => $criteria_id, 's_vector' => $s_vector);   
         }    
         $data = $array;
@@ -103,7 +105,7 @@ if ( ! function_exists('s_vector_total')){
                 $i = 0;
             }
         }       
-        $data = $array;        
+        $data = $array;      
         return $data;
     }
 }

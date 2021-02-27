@@ -27,16 +27,21 @@ class RankingController extends CI_Controller {
             $longitude_form = $this->input->post('longitude');
             $longitude = floatval($longitude_form);
 
+            // determine the s vector
             $s_vector = s_vector($weight_fixes, $latitude, $longitude);
+        }else{
+            // determine the s vector
+            $s_vector = s_vector($weight_fixes);
         }
 
         // determine the s vector
-        $s_vector = s_vector($weight_fixes);
         $s_vector_total = s_vector_total($s_vector, $total_weight_fixes);
         $sum_s_vector_total = sum_s_vector_total($s_vector_total);
 
         // determine the v vector
         $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
+
+        $data['total_weight_fixes'] = $total_weight_fixes;
 
         // count criteria
         // $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
