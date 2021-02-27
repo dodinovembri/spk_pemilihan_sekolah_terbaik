@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('criteria') ?>">Alternative</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
                                         <b>></b> 
                                         <span>Alternative Value</span></h6>
                                     </h6>

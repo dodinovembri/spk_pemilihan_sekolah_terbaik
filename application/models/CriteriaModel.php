@@ -42,4 +42,9 @@ class CriteriaModel extends CI_Model
     {        
         return $this->db->count_all_results($this->_table);
     }
+
+    public function get_total()
+    {
+        return $this->db->count_all_results($this->_table);
+    }
 }

@@ -7,6 +7,7 @@ class RankingController extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('my_function');
+        $this->load->model(['CriteriaModel', 'HelperModel']);
 
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
@@ -16,35 +17,38 @@ class RankingController extends CI_Controller {
 	public function index()
 	{        
         $btn_submit = $this->input->post('btn_submit');
+        $total_criteria = $this->CriteriaModel->get_total();
+        $total_importance_scale = $this->HelperModel->get_total();
+        $total_importance_scale = (int)$total_importance_scale->total;
 
-        // weight fixes
-        $weight_fixes = weight_fixes();
-        $total_weight_fixes = count($weight_fixes);
-        
-        if (isset($btn_submit)) {
-            $latitude_form = $this->input->post('latitude');
-            $latitude = floatval($latitude_form);
-            $longitude_form = $this->input->post('longitude');
-            $longitude = floatval($longitude_form);
+        if ($total_criteria == $total_importance_scale) {
+            // weight fixes
+            $weight_fixes = weight_fixes();
+            $total_weight_fixes = count($weight_fixes);
+            
+            if (isset($btn_submit)) {
+                $latitude_form = $this->input->post('latitude');
+                $latitude = floatval($latitude_form);
+                $longitude_form = $this->input->post('longitude');
+                $longitude = floatval($longitude_form);
+
+                // determine the s vector
+                $s_vector = s_vector($weight_fixes, $latitude, $longitude);
+            }else{
+                // determine the s vector
+                $s_vector = s_vector($weight_fixes);
+            }
 
             // determine the s vector
-            $s_vector = s_vector($weight_fixes, $latitude, $longitude);
-        }else{
-            // determine the s vector
-            $s_vector = s_vector($weight_fixes);
+            $s_vector_total = s_vector_total($s_vector, $total_weight_fixes);
+            $sum_s_vector_total = sum_s_vector_total($s_vector_total);
+
+            // determine the v vector
+            $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
         }
-
-        // determine the s vector
-        $s_vector_total = s_vector_total($s_vector, $total_weight_fixes);
-        $sum_s_vector_total = sum_s_vector_total($s_vector_total);
-
-        // determine the v vector
-        $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
-
-        $data['total_weight_fixes'] = $total_weight_fixes;
-
-        // count criteria
-        // $data['v_vector'] = v_vector($s_vector_total, $sum_s_vector_total);
+        
+        $data['total_weight_fixes'] = $total_importance_scale;        
+        $data['total_criteria'] = $total_criteria;
 
         $this->load->view('templates/backend/header');
 		$this->load->view('ranking/index', $data);
