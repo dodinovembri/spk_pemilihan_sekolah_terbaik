@@ -77,13 +77,13 @@ class MyScaleController extends CI_Controller {
 
         $update = $this->UserWeightModel->update($data, $id);
         $this->session->set_flashdata('success', "Success update data!");
-        return redirect(base_url('my-scale'));
+        return redirect(base_url('my_scale'));
     }
 
     public function destroy($id)
     {
         $delete = $this->UserWeightModel->destroy($id);        
         $this->session->set_flashdata('success', "Success deleted data!");
-        return redirect(base_url('my-scale'));
+        return redirect(base_url('my_scale'));
     }
 }
