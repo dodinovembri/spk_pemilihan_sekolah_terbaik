@@ -26,6 +26,6 @@ class HelperModel extends CI_Model
 
     public function each_alternative()
     {
-        return $this->db->query("SELECT alternative_value.*, criterion_value.description AS description, criterion_value.value AS value_of_criteria FROM alternative_value JOIN criterion_value ON alternative_value.criterion_value_id = criterion_value.id");
+        return $this->db->query("SELECT alternative_value.*, criterion_value.description AS description, criterion_value.value AS value_of_criteria, alternative.latitude AS latitude, alternative.longitude AS longitude, criteria.criteria_code AS criteria_code FROM alternative_value JOIN criterion_value ON alternative_value.criterion_value_id = criterion_value.id JOIN alternative ON alternative_value.alternative_id = alternative.id JOIN criteria ON alternative_value.criteria_id = criteria.id");
     }
 }

@@ -31,16 +31,36 @@ if ( ! function_exists('weight_fixes')){
 }
 
 if ( ! function_exists('s_vector')){
-    function s_vector($weight_fixes){
+    function s_vector($weight_fixes, $latitude = null, $longitude = null){
         $CI = get_instance();
         $CI->load->model('HelperModel');
-        $each_alternative = $CI->HelperModel->each_alternative()->result(); 
+        $each_alternative = $CI->HelperModel->each_alternative()->result();
 
         $i = 0;
         $total_weight_fixes = count($weight_fixes);  
         foreach ($each_alternative as $key => $value) {            
             $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];              
             $value_of_criteria = (int)$value->value_of_criteria;
+
+
+            if (!empty($latitude)) {
+                if ($value->criteria_code == "C9") {
+                    $distance = getDistanceBetweenPointsNew($value->latitude, $value->longitude, $latitude, $longitude);
+
+                    if ($distance < 2) {
+                      $value_of_criteria = 5;
+                    }elseif ($distance >= 2 && $distance < 4) {
+                      $value_of_criteria = 4;
+                    }elseif ($distance >= 4 && $distance < 6) {
+                      $value_of_criteria = 3;
+                    }elseif ($distance >= 6 && $distance < 8) {
+                      $value_of_criteria = 2;
+                    }else{
+                      $value_of_criteria = 1;
+                    }
+                }
+            }
+
 
             $alternative_id = $value->alternative_id;
             $criteria_id = $value->criteria_id;

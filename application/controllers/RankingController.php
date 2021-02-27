@@ -14,12 +14,21 @@ class RankingController extends CI_Controller {
     }
 
 	public function index()
-	{
-        // $data = getDistanceBetweenPointsNew(-2.985557, 104.728721, -2.961740, 104.736820);  
-        
+	{        
+        $btn_submit = $this->input->post('btn_submit');
+
         // weight fixes
         $weight_fixes = weight_fixes();
         $total_weight_fixes = count($weight_fixes);
+        
+        if (isset($btn_submit)) {
+            $latitude_form = $this->input->post('latitude');
+            $latitude = floatval($latitude_form);
+            $longitude_form = $this->input->post('longitude');
+            $longitude = floatval($longitude_form);
+
+            $s_vector = s_vector($weight_fixes, $latitude, $longitude);
+        }
 
         // determine the s vector
         $s_vector = s_vector($weight_fixes);

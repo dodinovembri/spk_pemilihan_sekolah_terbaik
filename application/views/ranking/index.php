@@ -24,20 +24,17 @@
                             </div>
                         </div>
                         <!-- end page title -->
-                        <body onload="getLocation()"></body>
-                        <p><?php
-                            echo "<script>document.writeln(x);</script>";
-                            // $str = '<p id="demo"></p>';
-                            // $string_value = strval( $str ) ;
-                            // $expl = explode(" ", $string_value);
-                            // var_dump($expl);
-                            // die();
-                            // echo $expl[0];
-                        ?></p>
+                        <body onload="getLocation()"></body>                        
+                        <!-- <h1>Latitude: <span id="latitude"></span></h1> -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
+                                        <form method="POST", action="<?php echo base_url('ranking') ?>">
+                                            <input type="hidden" name="latitude" id="latitude">
+                                            <input type="hidden" name="longitude" id="longitude">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light" name="btn_submit">Refresh Location</button><br><br>
+                                        </form>
                                         <table id="ranking" class="table table-bordered dt-responsive  nowrap">
                                             <thead>
                                             <tr>
@@ -86,7 +83,6 @@
 
         <script>
         // var x = document.getElementById("demo");
-        x = a;
 
         function getLocation() {
           if (navigator.geolocation) {
@@ -97,6 +93,16 @@
         }
 
         function showPosition(position) {
-          a = position.coords.latitude + " " + position.coords.longitude;
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+
+            var elem = document.getElementById("latitude");
+            elem.value = latitude;
+
+            var elem = document.getElementById("longitude");
+            elem.value = longitude;
+
         }
+
+
         </script>
