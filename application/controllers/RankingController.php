@@ -15,7 +15,9 @@ class RankingController extends CI_Controller {
     }
 
 	public function index()
-	{        
+	{
+        $this->output->delete_cache();
+                
         $btn_submit = $this->input->post('btn_submit');
         $total_criteria = $this->CriteriaModel->get_total();
         $total_importance_scale = $this->HelperModel->get_total();
