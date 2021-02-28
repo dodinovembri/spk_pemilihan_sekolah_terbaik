@@ -40,7 +40,7 @@
                                             <div class="mb-3 row">
                                                 <label for="example-password-input" class="col-md-2 col-form-label">Password</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password" required="">
+                                                    <input class="form-control" type="password" name="password" placeholder="Masukkan password" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
