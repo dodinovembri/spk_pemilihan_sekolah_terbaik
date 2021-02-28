@@ -54,26 +54,26 @@
                                             <table id="ranking" class="table table-bordered dt-responsive  nowrap">
                                                 <thead>
                                                 <tr>
+                                                    <th>Ranking</th>
                                                     <th>Kode Alternatif</th>
                                                     <th>Nama Alternatif</th>
                                                     <th>Vector V</th>
-                                                    <th>Ranking</th>
                                                 </tr>
                                                 </thead>
             
             
                                                 <tbody>
-                                                <?php $no = 0; foreach ($v_vector as $key => $value) { $no++; ?>
+                                                <?php foreach ($v_vector as $key => $value) { ?>
                                                     <?php 
                                                         $alternative_id = $value['alternative_id'];
                                                         $sql ="SELECT * FROM alternative WHERE id = $alternative_id";
                                                         $query = $this->db->query($sql); 
                                                     ?>
                                                     <tr>
+                                                        <td></td>
                                                         <td><?php echo $query->row()->alternative_code; ?></td>
                                                         <td><?php echo $query->row()->alternative_name; ?></td>
                                                         <td><?php echo $value['v_vector']; ?></td>
-                                                        <td><?php echo $no; ?></td>
                                                     </tr>
                                                 <?php } ?>
                                                 </tbody>
