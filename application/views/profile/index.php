@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        Profile
+                                        Profil
                                     </h6>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Name</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Nama</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control" type="text" name="name" value="<?php echo $profile->name ?>"
                                                         id="example-search-input">
@@ -65,9 +65,9 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-password-input" class="col-md-2 col-form-label">Password Confirm</label>
+                                                <label for="example-password-input" class="col-md-2 col-form-label">Konfirmasi Password</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Enter Password Confirm" required="">
+                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Masukkan password konfirmasi" required="">
                                                 </div>
                                             </div> <br><br>
                                             <div class="mb-3 row">

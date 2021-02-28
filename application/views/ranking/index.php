@@ -54,9 +54,9 @@
                                             <table id="ranking" class="table table-bordered dt-responsive  nowrap">
                                                 <thead>
                                                 <tr>
-                                                    <th>Alternative Code</th>
-                                                    <th>Alternative Name</th>
-                                                    <th>V Vector</th>
+                                                    <th>Kode Alternatif</th>
+                                                    <th>Nama Alternatif</th>
+                                                    <th>Vector V</th>
                                                     <th>Ranking</th>
                                                 </tr>
                                                 </thead>

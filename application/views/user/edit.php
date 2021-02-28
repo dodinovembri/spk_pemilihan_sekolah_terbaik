@@ -30,27 +30,27 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('user/update/'); echo $user->id; ?>">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Name</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Nama</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="name" placeholder="Enter name" value="<?php echo $user->name; ?>" required="">
+                                                    <input class="form-control" type="text" name="name" placeholder="Masukkan nama" value="<?php echo $user->name; ?>" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Email</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="email" name="email" value="<?php echo $user->email; ?>" placeholder="Enter email" required="">
+                                                    <input class="form-control" type="email" name="email" value="<?php echo $user->email; ?>" placeholder="Masukkan email" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Password</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password" placeholder="Enter password" required="">
+                                                    <input class="form-control" type="password" name="password" placeholder="Masukkan password" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Password Confirm</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Enter password confirm" required="">
+                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Masukkan password konfirmasi" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -70,11 +70,11 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
-                                                        <option value="<?php echo $user->status; ?>"><?php echo $user->status == 1 ? "Active" : "Inactive" ?></option>
+                                                        <option value="<?php echo $user->status; ?>"><?php echo $user->status == 1 ? "Aktif" : "Non Aktif" ?></option>
                                                         <?php if ($user->status == 1) {?>
-                                                            <option value="0">Inactive</option>
+                                                            <option value="0">Non Aktif</option>
                                                         <?php }else{ ?>
-                                                            <option value="1">Active</option>
+                                                            <option value="1">Aktif</option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>
@@ -82,8 +82,8 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('user') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('user') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

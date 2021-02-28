@@ -16,10 +16,10 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
                                         <b>></b> 
-                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Alternative Value</a></span>
-                                        <b>></b> Edit Alternative Value</h6>
+                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Nilai Alternatif</a></span>
+                                        <b>></b> Edit Nilai Alternatif</h6>
                                     </h6>
                                 </div>
                             </div>
@@ -32,19 +32,19 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('alternative_value/update/'); echo $alternative_value->id; ?>">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Alternative</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Alternatif</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->alternative_code ?>" placeholder="Enter code" readonly="">
+                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->alternative_code ?>" placeholder="Masukkan nilai alternatif" readonly="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Criteria</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Kriteria</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->criteria_code ?>" placeholder="Enter code" readonly="">
+                                                    <input class="form-control" type="text" name="value" value="<?php echo $alternative_value->criteria_code ?>" placeholder="Masukkan nilai kriteria" readonly="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Value</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Nilai</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="criterion_value_id" required="">
                                                     <?php foreach ($criterion_value as $key => $value) { ?>
@@ -56,8 +56,8 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('alternative_value/'); echo $this->session->userdata('criteria_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('alternative_value/'); echo $this->session->userdata('criteria_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

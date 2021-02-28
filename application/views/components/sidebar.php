@@ -97,19 +97,19 @@
                                 </a>
                             </li>
 
-                            <li class="menu-title" key="t-apps">Transaction</li>
+                            <li class="menu-title" key="t-apps">Transaksi</li>
 
                             <li>
                                 <a href="<?php echo base_url('alternative') ?>" class="waves-effect">
                                     <i class="bx bx-detail"></i>
-                                    <span key="t-calendar">Alternative</span>
+                                    <span key="t-calendar">Alternatif</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="<?php echo base_url('ranking') ?>" class="waves-effect">
                                     <i class="bx bx-chat"></i>
-                                    <span key="t-chat">Ranking List</span>
+                                    <span key="t-chat">List Ranking</span>
                                 </a>
                             </li>
 
@@ -118,7 +118,7 @@
                             <li>
                                 <a href="<?php echo base_url('my_scale') ?>" class="waves-effect">
                                     <i class="bx bx-calendar"></i>
-                                    <span key="t-calendar">My Scale</span>
+                                    <span key="t-calendar">Skala Kepentingan</span>
                                 </a>
                             </li>
 
@@ -126,13 +126,13 @@
                                 <li>
                                     <a href="<?php echo base_url('criteria') ?>" class="waves-effect">
                                         <i class="bx bx-file"></i>
-                                        <span key="t-file-manager">Criteria</span>
+                                        <span key="t-file-manager">Kriteria</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('user') ?>" class="waves-effect">
                                         <i class="bx bxs-user-detail"></i>
-                                        <span key="t-file-manager">User Account List</span>
+                                        <span key="t-file-manager">List Akun User</span>
                                     </a>
                                 </li>
                             <?php } ?>

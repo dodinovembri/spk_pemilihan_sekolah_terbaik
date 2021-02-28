@@ -29,7 +29,7 @@
                                         <div class="row">
                                             <div class="col-7">
                                                 <div class="text-primary p-3">
-                                                    <h5 class="text-primary">Welcome Back !</h5>
+                                                    <h5 class="text-primary">Selamat Datang !</h5>
                                                     <p>SPK Dashboard</p>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                             <div class="card-body">
                                                 <div class="media">
                                                     <div class="media-body">
-                                                        <p class="text-muted fw-medium">Alternative</p>
+                                                        <p class="text-muted fw-medium">Alternatif</p>
                                                         <h4 class="mb-0"><?php echo $alternative; ?></h4>
                                                     </div>
 
@@ -92,7 +92,7 @@
                                             <div class="card-body">
                                                 <div class="media">
                                                     <div class="media-body">
-                                                        <p class="text-muted fw-medium">Criteria</p>
+                                                        <p class="text-muted fw-medium">Kriteria</p>
                                                         <h4 class="mb-0"><?php echo $criteria; ?></h4>
                                                     </div>
 

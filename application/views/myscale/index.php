@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        My Scale
+                                        Skala Kepentingan
                                     </h6>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('my_scale/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create New</button></a><br><br>
+                                        <a href="<?php echo base_url('my_scale/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat Baru</button></a><br><br>
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -69,9 +69,9 @@
                                                     </td>
                                                     <td>
                                                         <?php if ($value->status == 1) { ?>
-                                                            <span class="badge badge-pill badge-soft-success font-size-11">Active</span>
+                                                            <span class="badge badge-pill badge-soft-success font-size-11">Actif</span>
                                                         <?php }elseif ($value->status == 0) { ?>
-                                                            <span class="badge badge-pill badge-soft-danger font-size-11">Inactive</span>
+                                                            <span class="badge badge-pill badge-soft-danger font-size-11">Non Aktif</span>
                                                         <?php } ?>
                                                     </td>
                                                     <td>
@@ -84,15 +84,15 @@
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete Data</h5>
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Hapus Data</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>Are you sure to delete this data?.</p>
+                                                                <p>Anda yakin ingin menghapus data ini?.</p>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                                                                <a href="<?php echo base_url('my_scale/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                                                                <a href="<?php echo base_url('my_scale/destroy/'); echo $value->id; ?>"><button type="button" class="btn btn-danger">Hapus</button></a>
                                                             </div>
                                                         </div>
                                                     </div>

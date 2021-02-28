@@ -18,7 +18,7 @@
                                     <h6 class="mb-sm-0">
                                         <a href="<?php echo base_url('user') ?>">User</a> 
                                         <b>></b> 
-                                        <span>Create User</span></h6>
+                                        <span>Buat User</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -30,34 +30,34 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('user/store') ?>">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Name</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Nama</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="name" placeholder="Enter name" required="">
+                                                    <input class="form-control" type="text" name="name" placeholder="Masukkan nama" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Email</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="email" name="email" placeholder="Enter email" required="">
+                                                    <input class="form-control" type="email" name="email" placeholder="Masukkan email" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Password</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password" placeholder="Enter password" required="">
+                                                    <input class="form-control" type="password" name="password" placeholder="Masukkan password" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Password Confirm</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Enter password confirm" required="">
+                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Masukkan password konfirmasi" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Role</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="role" required="">
-                                                        <option value="">Select</option>
+                                                        <option value="">Pilih</option>
                                                         <option value="0">Administrator</option>
                                                         <option value="1">User</option>
                                                     </select>
@@ -67,7 +67,7 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
-                                                        <option value="">Select</option>
+                                                        <option value="">Pilih</option>
                                                         <option value="1">Active</option>
                                                         <option value="0">Inactive</option>
                                                     </select>
@@ -76,8 +76,8 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('user') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('user') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

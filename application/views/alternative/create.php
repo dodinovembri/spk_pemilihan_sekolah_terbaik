@@ -16,9 +16,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
                                         <b>></b> 
-                                        <span>Create Alternative</span></h6>
+                                        <span>Buat Alternatif</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -30,55 +30,55 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('alternative/store') ?>" enctype="multipart/form-data">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Alternative Code</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Kode Alternatif</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_code" placeholder="Enter alternative code" required="">
+                                                    <input class="form-control" type="text" name="alternative_code" placeholder="Masukkan kode alternatif" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Alternative Name</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Nama Alternatif</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_name" placeholder="Enter alternative name" required="">
+                                                    <input class="form-control" type="text" name="alternative_name" placeholder="Masukkan nama alternatif" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-email-input" class="col-md-2 col-form-label">Address</label>
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Alamat</label>
                                                 <div class="col-md-10">
-                                                    <textarea class="form-control" rows="3" name="address" placeholder="Enter address"> </textarea>
+                                                    <textarea class="form-control" rows="3" name="address" placeholder="Masukkan alamat"> </textarea>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Latitude</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="latitude" placeholder="Enter latitude" required="">
+                                                    <input class="form-control" type="text" name="latitude" placeholder="Masukkan latitude" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Longitude</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="longitude" placeholder="Enter longitude" required="">
+                                                    <input class="form-control" type="text" name="longitude" placeholder="Masukkan longitude" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Email</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="email" name="email" placeholder="Enter email">
+                                                    <input class="form-control" type="email" name="email" placeholder="Masukkan email">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Call Number</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">No Telepon</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="voice_number" placeholder="Enter longitude">
+                                                    <input class="form-control" type="text" name="voice_number" placeholder="Masukkan no telepon">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-email-input" class="col-md-2 col-form-label">Description</label>
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Deskripsi</label>
                                                 <div class="col-md-10">
-                                                    <textarea class="form-control" rows="3" name="description" placeholder="Enter description"> </textarea>
+                                                    <textarea class="form-control" rows="3" name="description" placeholder="Masukkan deskripsi"> </textarea>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-email-input" class="col-md-2 col-form-label">Image</label>
+                                                <label for="example-email-input" class="col-md-2 col-form-label">Gambar</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control" name="image" type="file">
                                                 </div>
@@ -87,17 +87,17 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
-                                                        <option value="">Select</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
+                                                        <option value="">Pilih</option>
+                                                        <option value="1">Aktif</option>
+                                                        <option value="0">Non Aktif</option>
                                                     </select>
                                                 </div>
                                             </div><br><br>
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('alternative') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('alternative') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

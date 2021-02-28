@@ -16,10 +16,10 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
                                         <b>></b> 
-                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Alternative Value</a></span>
-                                        <b>></b> Create Alternative Value</h6>
+                                        <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Nilai Alternatif</a></span>
+                                        <b>></b> Buat Nilai Alternatif</h6>
                                     </h6>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                                     <label class="col-md-2 col-form-label"><?php echo $value->criteria_description; ?></label>
                                                     <div class="col-md-10">
                                                         <select class="form-select" name="criteria_criterion[]" required="">
-                                                            <option value="">Select</option>
+                                                            <option value="">Pilih</option>
                                                             <?php 
                                                                 $criteria_id = $value->id;
                                                                 $sql ="SELECT * FROM criterion_value WHERE criteria_id = $criteria_id";
@@ -52,8 +52,8 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

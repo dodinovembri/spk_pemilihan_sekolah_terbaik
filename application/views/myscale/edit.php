@@ -16,9 +16,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('my_scale') ?>">My Scale</a> 
+                                        <a href="<?php echo base_url('my_scale') ?>">Skala Kepentingan</a> 
                                         <b>></b> 
-                                        <span>Edit My Scale</span></h6>
+                                        <span>Edit Skala Kepentingan</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -30,13 +30,13 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('my_scale/update/'); echo $scale->id; ?>">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Criteria</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Kriteria</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control" type="text" name="criteria_code" value="<?php echo $scale->criteria_code ." - ". $scale->criteria_description; ?>" placeholder="Enter code" readonly>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Importance Scale</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Skala Kepentingan</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="importance_scale" required="">
                                                         <option value="<?php echo $scale->importance_scale; ?>">
@@ -64,7 +64,7 @@
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
-                                                        <option value="<?php echo $scale->status; ?>"><?php echo $scale->status == 1 ? "Active" : "Inactive" ?></option>
+                                                        <option value="<?php echo $scale->status; ?>"><?php echo $scale->status == 1 ? "Aktif" : "Non Aktif" ?></option>
                                                         <?php if ($scale->status == 1) {?>
                                                             <option value="0">Inactive</option>
                                                         <?php }else{ ?>
@@ -76,8 +76,8 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
-                                                    <a href="<?php echo base_url('my_scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                    <a href="<?php echo base_url('my_scale') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

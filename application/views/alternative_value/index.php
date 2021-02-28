@@ -16,9 +16,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternative</a> 
+                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
                                         <b>></b> 
-                                        <span>Alternative Value</span></h6>
+                                        <span>Nilai Alternatif</span></h6>
                                     </h6>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('alternative_value/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Create and Reset</button></a><br><br>
+                                        <a href="<?php echo base_url('alternative_value/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat dan Set Ulang</button></a><br><br>
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -43,10 +43,10 @@
                                             <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Alternative</th>
-                                                <th>Criteria</th>
-                                                <th>Criteria Value</th>
-                                                <th>Actions</th>
+                                                <th>Alternatif</th>
+                                                <th>Kriteria</th>
+                                                <th>Nilai Kriteria</th>
+                                                <th>Aksi</th>
                                             </tr>
                                             </thead>
         
