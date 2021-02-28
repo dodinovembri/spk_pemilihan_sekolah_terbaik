@@ -29,15 +29,17 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('alternative_value/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat dan Set Ulang</button></a><br><br>
-                                        <?php if($this->session->flashdata('success')){ ?>
-                                            <div class="alert alert-success" role="alert">
-                                                <?php echo $this->session->flashdata('success'); ?>
-                                            </div>
-                                        <?php } elseif ($this->session->flashdata('warning')){ ?>
-                                            <div class="alert alert-warning" role="alert">
-                                                <?php echo $this->session->flashdata('warning'); ?>
-                                            </div>
+                                        <?php if ($this->session->userdata('role_id') == 0) { ?>
+                                            <a href="<?php echo base_url('alternative_value/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat dan Set Ulang</button></a><br><br>
+                                            <?php if($this->session->flashdata('success')){ ?>
+                                                <div class="alert alert-success" role="alert">
+                                                    <?php echo $this->session->flashdata('success'); ?>
+                                                </div>
+                                            <?php } elseif ($this->session->flashdata('warning')){ ?>
+                                                <div class="alert alert-warning" role="alert">
+                                                    <?php echo $this->session->flashdata('warning'); ?>
+                                                </div>
+                                            <?php } ?>
                                         <?php } ?>
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
@@ -46,7 +48,9 @@
                                                 <th>Alternatif</th>
                                                 <th>Kriteria</th>
                                                 <th>Nilai Kriteria</th>
-                                                <th>Aksi</th>
+                                                <?php if ($this->session->userdata('role_id') == 0) { ?>
+                                                    <th>Aksi</th>
+                                                <?php } ?>
                                             </tr>
                                             </thead>
         
@@ -58,9 +62,11 @@
                                                     <td><?php echo $value->alternative_code; ?></td>
                                                     <td><?php echo $value->criteria_code; ?></td>
                                                     <td><?php echo $value->description; ?></td>
-                                                    <td>
-                                                        <a href="<?php echo base_url('alternative_value/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
-                                                    </td>
+                                                    <?php if ($this->session->userdata('role_id') == 0) { ?>
+                                                        <td>
+                                                            <a href="<?php echo base_url('alternative_value/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
+                                                        </td>
+                                                    <?php } ?>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>

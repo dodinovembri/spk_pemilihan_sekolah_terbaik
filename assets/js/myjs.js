@@ -2,6 +2,7 @@ $(document).ready(function() {
 	// $('#ranking').DataTable({
 	// 	"order": [1, 'desc']
 	// })
+	
     var t = $('#ranking').DataTable( {
         "order": [ 3, 'desc' ]
     } );
@@ -11,4 +12,5 @@ $(document).ready(function() {
             cell.innerHTML = i+1;
         } );
     } ).draw();
+	table.clear();
 } );
