@@ -58,7 +58,7 @@
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
                                                         <option value="">Pilih</option>
-                                                        <option value="1">Altif</option>
+                                                        <option value="1">Aktif</option>
                                                         <option value="0">Non Aktif</option>
                                                     </select>
                                                 </div>
