@@ -47,9 +47,7 @@
                                                 <th>Nama</th>
                                                 <!-- <th>Alamat</th> -->
                                                 <th>Status</th>
-                                                <?php if ($this->session->userdata('role_id') == 0) { ?>
-                                                    <th>Aksi</th>
-                                                <?php } ?>
+                                                <th>Aksi</th>   
                                             </tr>
                                             </thead>
         
@@ -68,13 +66,13 @@
                                                             <span class="badge badge-pill badge-soft-danger font-size-11">Inactive</span>
                                                         <?php } ?>
                                                     </td>
+                                                    <td>
+                                                        <a href="<?php echo base_url('alternative/show/'); echo $value->id; ?>"><i class="far fa-eye" style="margin: 2px"></i></a> 
                                                     <?php if ($this->session->userdata('role_id') == 0) { ?>
-                                                        <td>
-                                                            <a href="<?php echo base_url('alternative/show/'); echo $value->id; ?>"><i class="far fa-eye" style="margin: 2px"></i></a> 
-                                                            <a href="<?php echo base_url('alternative/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
-                                                        </td>
+                                                        <a href="<?php echo base_url('alternative/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a> 
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
                                                     <?php } ?>
+                                                    </td>
                                                 </tr>
                                                 <!-- Static Backdrop Modal -->
                                                 <div class="modal fade" id="staticBackdrop-<?php echo $value->id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
