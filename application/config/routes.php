@@ -116,4 +116,6 @@ $route['logout'] = 'AuthController/logout';
 
 // profile route
 $route['profile'] = 'ProfileController/index';
+$route['profile/change_password'] = 'ProfileController/change_password';
+$route['profile/update_password/(:any)'] = 'ProfileController/update_password/$1';
 $route['profile/update/(:any)'] = 'ProfileController/update/$1';

@@ -36,33 +36,24 @@
                                                 <?php echo $this->session->flashdata('warning'); ?>
                                             </div>
                                         <?php } ?>
-                                        <form method="POST" action="<?php echo base_url('profile/update/'); echo $profile->id; ?>"  enctype="multipart/form-data">
+                                        <form method="POST" action="<?php echo base_url('profile/update_password/'); echo $profile->id; ?>"  enctype="multipart/form-data">
                                             <div class="mb-3 row">
-                                                <label for="example-text-input" class="col-md-2 col-form-label"></label>
+                                                <label for="example-password-input" class="col-md-2 col-form-label">Password</label>
                                                 <div class="col-md-10">
-                                                    <img height="150px" src="<?php echo base_url('uploads/user/'); echo $profile->image ?>">
-                                                    <input type="file" name="image">
+                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password" required="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Nama</label>
+                                                <label for="example-password-input" class="col-md-2 col-form-label">Konfirmasi Password</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="name" value="<?php echo $profile->name ?>"
-                                                        id="example-search-input">
+                                                    <input class="form-control" type="password" name="password_confirm" placeholder="Masukkan password konfirmasi" required="">
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label for="example-email-input" class="col-md-2 col-form-label">Email</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="email" name="email" value="<?php echo $profile->email ?>" placeholder="Enter Email"
-                                                        id="example-email-input">
-                                                </div>
-                                            </div><br><br>
+                                            </div> <br><br>
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
-                                                    <a href="<?php echo base_url('profile') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Reset</button></a>
+                                                    <a href="<?php echo base_url('home') ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Cancel</button></a>
                                                 </div>
                                             </div>
                                         </form>
