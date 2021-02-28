@@ -69,7 +69,7 @@
                                                     </td>
                                                     <td>
                                                         <?php if ($value->status == 1) { ?>
-                                                            <span class="badge badge-pill badge-soft-success font-size-11">Actif</span>
+                                                            <span class="badge badge-pill badge-soft-success font-size-11">Aktif</span>
                                                         <?php }elseif ($value->status == 0) { ?>
                                                             <span class="badge badge-pill badge-soft-danger font-size-11">Non Aktif</span>
                                                         <?php } ?>
