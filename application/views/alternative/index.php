@@ -43,7 +43,7 @@
                                                 <th>No</th>
                                                 <th>Kode</th>
                                                 <th>Nama</th>
-                                                <th>Alamat</th>
+                                                <!-- <th>Alamat</th> -->
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -56,7 +56,7 @@
                                                     <td><?php echo $no; ?></td>
                                                     <td><a href="alternative_values/<?php echo $value->id; ?>"><?php echo $value->alternative_code; ?></a></td>
                                                     <td><?php echo $value->alternative_name; ?></td>
-                                                    <td><?php echo $value->address; ?></td>
+                                                    <!-- <td><?php echo $value->address; ?></td> -->
                                                     <td>
                                                         <?php if ($value->status == 1) { ?>
                                                             <span class="badge badge-pill badge-soft-success font-size-11">Active</span>
