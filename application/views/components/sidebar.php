@@ -80,42 +80,34 @@
                     <div id="sidebar-menu">
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
-
-                            <li class="menu-title" key="t-apps">Menu</li>
-
-                            <li>
-                                <a href="<?php echo base_url('home') ?>" class="waves-effect">
-                                    <i class="bx bx-home"></i>
-                                    <span key="t-home">Dashboard</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-title" key="t-apps">Transaksi</li>
-
-                            <li>
-                                <a href="<?php echo base_url('alternative') ?>" class="waves-effect">
-                                    <i class="bx bx-detail"></i>
-                                    <span key="t-calendar">Alternatif</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="<?php echo base_url('ranking') ?>" class="waves-effect">
-                                    <i class="bx bx-chat"></i>
-                                    <span key="t-chat">List Ranking</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-title" key="t-apps">Setup Management</li>
-
-                            <li>
-                                <a href="<?php echo base_url('my_scale') ?>" class="waves-effect">
-                                    <i class="bx bx-calendar"></i>
-                                    <span key="t-calendar">Skala Kepentingan</span>
-                                </a>
-                            </li>
-
                             <?php if ($this->session->userdata('role_id') == 0) { ?>
+                                <li class="menu-title" key="t-apps">Menu</li>
+                                <li>
+                                    <a href="<?php echo base_url('home') ?>" class="waves-effect">
+                                        <i class="bx bx-home"></i>
+                                        <span key="t-home">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title" key="t-apps">Transaksi</li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Alternatif</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('ranking') ?>" class="waves-effect">
+                                        <i class="bx bx-chat"></i>
+                                        <span key="t-chat">List Ranking</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title" key="t-apps">Setup Management</li>
+                                <li>
+                                    <a href="<?php echo base_url('my_scale') ?>" class="waves-effect">
+                                        <i class="bx bx-calendar"></i>
+                                        <span key="t-calendar">Skala Kepentingan</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="<?php echo base_url('criteria') ?>" class="waves-effect">
                                         <i class="bx bx-file"></i>
@@ -126,6 +118,50 @@
                                     <a href="<?php echo base_url('user') ?>" class="waves-effect">
                                         <i class="bx bxs-user-detail"></i>
                                         <span key="t-file-manager">List Akun User</span>
+                                    </a>
+                                </li>                                
+                            <?php } ?>
+                            <?php if ($this->session->userdata('role_id') == 1) { ?>
+                                <li class="menu-title" key="t-apps">Menu</li>
+                                <li>
+                                    <a href="<?php echo base_url('home') ?>" class="waves-effect">
+                                        <i class="bx bx-home"></i>
+                                        <span key="t-home">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title" key="t-apps">Transaksi</li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Alternatif</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('ranking') ?>" class="waves-effect">
+                                        <i class="bx bx-chat"></i>
+                                        <span key="t-chat">List Ranking</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title" key="t-apps">Setup Management</li>
+                                <li>
+                                    <a href="<?php echo base_url('my_scale') ?>" class="waves-effect">
+                                        <i class="bx bx-calendar"></i>
+                                        <span key="t-calendar">Skala Kepentingan</span>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                            <?php if ($this->session->userdata('role_id') == 2) { ?>
+                                <li class="menu-title" key="t-apps">Menu</li>
+                                <li>
+                                    <a href="<?php echo base_url('home') ?>" class="waves-effect">
+                                        <i class="bx bx-home"></i>
+                                        <span key="t-home">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('school') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Data Sekolah</span>
                                     </a>
                                 </li>
                             <?php } ?>

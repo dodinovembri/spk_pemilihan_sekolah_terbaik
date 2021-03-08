@@ -30,6 +30,7 @@ Server Requirements
 *******************
 
 PHP version 5.6 or newer is recommended.
+For this code use PHP 7.3
 
 It should work on 5.3.7 as well, but we strongly advise you NOT to run
 such old versions of PHP, because of potential security and performance

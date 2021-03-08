@@ -20,6 +20,12 @@ class AlternativeModel extends CI_Model
         return $query = $this->db->get($this->_table);
     }
 
+    public function get_data_by_email($email)
+    {
+        $this->db->where('email', $email);
+        return $query = $this->db->get($this->_table);
+    }    
+
     public function update($data, $id)
     {
         $this->db->where('id', $id);

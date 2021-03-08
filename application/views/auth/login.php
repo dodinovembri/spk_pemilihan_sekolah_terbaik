@@ -73,6 +73,7 @@
                                 <div class="mt-4 text-center">
                                     <div>
                                         <p>Don't have an account ? <a href="<?php echo base_url('register') ?>" class="fw-medium text-primary"> Signup now </a> </p>
+                                        <p>You're a school institution ? <a href="<?php echo base_url('school_register') ?>" class="fw-medium text-primary"> Register now </a> </p>
                                         <p>© 2021 Ulfa. Crafted with <i class="mdi mdi-heart text-danger"></i></p>
                                     </div>
                                 </div>

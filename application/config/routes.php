@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'AuthController';
 $route['register'] = 'AuthController/register';
 $route['register/store'] = 'AuthController/store';
+$route['school_register'] = 'AuthController/school_register';
+$route['school_register/store'] = 'AuthController/school_register_store';
 
 
 $route['home'] = 'HomeController';
@@ -119,3 +121,12 @@ $route['profile'] = 'ProfileController/index';
 $route['profile/change_password'] = 'ProfileController/change_password';
 $route['profile/update_password/(:any)'] = 'ProfileController/update_password/$1';
 $route['profile/update/(:any)'] = 'ProfileController/update/$1';
+
+// routes for schools
+$route['school'] = 'SchoolController';
+$route['school/create'] = 'SchoolController/create';
+$route['school/store'] = 'SchoolController/store';
+$route['school/edit/(:any)'] = 'SchoolController/edit/$1';
+$route['school/show/(:any)'] = 'SchoolController/show/$1';
+$route['school/update/(:any)'] = 'SchoolController/update/$1';
+$route['school/destroy/(:any)'] = 'SchoolController/destroy/$1';
