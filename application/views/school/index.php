@@ -136,7 +136,8 @@
                                                               });
                                                             }
                                                         }
-                                                    </script>                                                    
+                                                    </script>      
+                                                    <div id="map-canvas" class="col-sm-12" style="height:380px;"></div>                                              
                                                 </div>
                                             </div><br><br>
                                             <div class="mb-3 row">
