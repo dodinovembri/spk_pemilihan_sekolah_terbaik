@@ -1,5 +1,49 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
+            <?php clearstatcache(); header("Cache-Control: no-cache, must-revalidate"); ?>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALNbmorugOm3RIAold_BxvMcKVLCauPqc&callback=initialize" async defer></script>
+            <script type="text/javascript">   
+                var marker;
+                function initialize(){
+                    // Variabel untuk menyimpan informasi lokasi
+                    var infoWindow = new google.maps.InfoWindow;
+                    //  Variabel berisi properti tipe peta
+                    var mapOptions = {
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    } 
+                    // Pembuatan peta
+                    var peta = new google.maps.Map(document.getElementById('googleMap'), mapOptions);      
+                    // Variabel untuk menyimpan batas kordinat
+                    var bounds = new google.maps.LatLngBounds();
+                    // Pengambilan data dari database MySQL
+                           <?php 
+                            $lat  = (float)$school->latitude;
+                            $long = (float)$school->longitude;
+                            $info = $school->alternative_name;
+                            echo "addMarker($lat, $long, '$info');";
+                         ?>         
+                    // Proses membuat marker 
+                    function addMarker(lat, lng, info){
+                        var lokasi = new google.maps.LatLng(lat, lng);
+                        bounds.extend(lokasi);
+                        var marker = new google.maps.Marker({
+                            map: peta,
+                            position: lokasi
+                        });       
+                        peta.setOptions({ minZoom: 5, maxZoom: 15 });                        
+                        peta.fitBounds(bounds);
+                        bindInfoWindow(marker, peta, infoWindow, info);
+                     }
+                    // Menampilkan informasi pada masing-masing marker yang diklik
+                    function bindInfoWindow(marker, peta, infoWindow, html){
+                        google.maps.event.addListener(marker, 'click', function() {
+                        infoWindow.setContent(html);
+                        infoWindow.open(peta, marker);
+                      });
+                    }
+                }
+            </script>
+
 
             <?php $this->load->view('components/sidebar'); ?>
 
@@ -98,46 +142,7 @@
                                             <div class="mb-3 row">
                                                 <label for="example-email-input" class="col-md-2 col-form-label">Peta Lokasi Sekolah</label>
                                                 <div class="col-md-10">
-                                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS6KoD898AvsSqfs5jLfZaMFyQz6H4RW8&callback=initialize" async defer></script>     
-                                                    <script type="text/javascript">   
-                                                        var marker;
-                                                        function initialize(){
-                                                            // Variabel untuk menyimpan informasi lokasi
-                                                            var infoWindow = new google.maps.InfoWindow;
-                                                            //  Variabel berisi properti tipe peta
-                                                            var mapOptions = {
-                                                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                                                            } 
-                                                            // Pembuatan peta
-                                                            var peta = new google.maps.Map(document.getElementById('googleMap'), mapOptions);      
-                                                            // Variabel untuk menyimpan batas kordinat
-                                                            var bounds = new google.maps.LatLngBounds();
-
-                                                            <?php
-                                                                echo "addMarker($school->latitude, $school->longitude, $school->alternative_name);";
-                                                            ?>
-
-                                                            // Proses membuat marker 
-                                                            function addMarker(lat, lng, info){
-                                                                var lokasi = new google.maps.LatLng(lat, lng);
-                                                                bounds.extend(lokasi);
-                                                                var marker = new google.maps.Marker({
-                                                                    map: peta,
-                                                                    position: lokasi
-                                                                });       
-                                                                peta.fitBounds(bounds);
-                                                                bindInfoWindow(marker, peta, infoWindow, info);
-                                                             }
-                                                            // Menampilkan informasi pada masing-masing marker yang diklik
-                                                            function bindInfoWindow(marker, peta, infoWindow, html){
-                                                                google.maps.event.addListener(marker, 'click', function() {
-                                                                infoWindow.setContent(html);
-                                                                infoWindow.open(peta, marker);
-                                                              });
-                                                            }
-                                                        }
-                                                    </script>      
-                                                    <div id="map-canvas" class="col-sm-12" style="height:380px;"></div>                                              
+                                                     <div id="googleMap" style="width:100%  ;height:500px;"></div>
                                                 </div>
                                             </div><br><br>
                                             <div class="mb-3 row">

@@ -164,6 +164,30 @@
                                         <span key="t-calendar">Data Sekolah</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url('facility') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Data Fasilitas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('extracurricular') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Data Ekstrakurikuler</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('location') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Data Lokasi</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('accessibility') ?>" class="waves-effect">
+                                        <i class="bx bx-detail"></i>
+                                        <span key="t-calendar">Data Aksesibilitas</span>
+                                    </a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>
