@@ -132,37 +132,37 @@ $route['school/update/(:any)'] = 'SchoolController/update/$1';
 $route['school/destroy/(:any)'] = 'SchoolController/destroy/$1';
 
 // routes for facility
-$route['facility'] = 'FacilityController';
-$route['facility/create'] = 'FacilityController/create';
-$route['facility/store'] = 'FacilityController/store';
-$route['facility/edit/(:any)'] = 'FacilityController/edit/$1';
-$route['facility/show/(:any)'] = 'FacilityController/show/$1';
-$route['facility/update/(:any)'] = 'FacilityController/update/$1';
-$route['facility/destroy/(:any)'] = 'FacilityController/destroy/$1';
+$route['alternative_facility'] = 'AlternativeFacilityController';
+$route['alternative_facility/create'] = 'AlternativeFacilityController/create';
+$route['alternative_facility/store'] = 'AlternativeFacilityController/store';
+$route['alternative_facility/edit/(:any)'] = 'AlternativeFacilityController/edit/$1';
+$route['alternative_facility/show/(:any)'] = 'AlternativeFacilityController/show/$1';
+$route['alternative_facility/update/(:any)'] = 'AlternativeFacilityController/update/$1';
+$route['alternative_facility/destroy/(:any)'] = 'AlternativeFacilityController/destroy/$1';
 
 // routes for extracurricular
-$route['extracurricular'] = 'ExtracurricularController';
-$route['extracurricular/create'] = 'ExtracurricularController/create';
-$route['extracurricular/store'] = 'ExtracurricularController/store';
-$route['extracurricular/edit/(:any)'] = 'ExtracurricularController/edit/$1';
-$route['extracurricular/show/(:any)'] = 'ExtracurricularController/show/$1';
-$route['extracurricular/update/(:any)'] = 'ExtracurricularController/update/$1';
-$route['extracurricular/destroy/(:any)'] = 'ExtracurricularController/destroy/$1';
+$route['alternative_extracurricular'] = 'AlternativeExtracurricularController';
+$route['alternative_extracurricular/create'] = 'AlternativeExtracurricularController/create';
+$route['alternative_extracurricular/store'] = 'AlternativeExtracurricularController/store';
+$route['alternative_extracurricular/edit/(:any)'] = 'AlternativeExtracurricularController/edit/$1';
+$route['alternative_extracurricular/show/(:any)'] = 'AlternativeExtracurricularController/show/$1';
+$route['alternative_extracurricular/update/(:any)'] = 'AlternativeExtracurricularController/update/$1';
+$route['alternative_extracurricular/destroy/(:any)'] = 'AlternativeExtracurricularController/destroy/$1';
 
 // routes for location
-$route['location'] = 'LocationController';
-$route['location/create'] = 'LocationController/create';
-$route['location/store'] = 'LocationController/store';
-$route['location/edit/(:any)'] = 'LocationController/edit/$1';
-$route['location/show/(:any)'] = 'LocationController/show/$1';
-$route['location/update/(:any)'] = 'LocationController/update/$1';
-$route['location/destroy/(:any)'] = 'LocationController/destroy/$1';
+$route['alternative_location'] = 'AlternativeLocationController';
+$route['alternative_location/create'] = 'AlternativeLocationController/create';
+$route['alternative_location/store'] = 'AlternativeLocationController/store';
+$route['alternative_location/edit/(:any)'] = 'AlternativeLocationController/edit/$1';
+$route['alternative_location/show/(:any)'] = 'AlternativeLocationController/show/$1';
+$route['alternative_location/update/(:any)'] = 'AlternativeLocationController/update/$1';
+$route['alternative_location/destroy/(:any)'] = 'AlternativeLocationController/destroy/$1';
 
 // routes for accessibility
-$route['accessibility'] = 'AccessibilityController';
-$route['accessibility/create'] = 'AccessibilityController/create';
-$route['accessibility/store'] = 'AccessibilityController/store';
-$route['accessibility/edit/(:any)'] = 'AccessibilityController/edit/$1';
-$route['accessibility/show/(:any)'] = 'AccessibilityController/show/$1';
-$route['accessibility/update/(:any)'] = 'AccessibilityController/update/$1';
-$route['accessibility/destroy/(:any)'] = 'AccessibilityController/destroy/$1';
+$route['alternative_accessibility'] = 'AlternativeAccessibilityController';
+$route['alternative_accessibility/create'] = 'AlternativeAccessibilityController/create';
+$route['alternative_accessibility/store'] = 'AlternativeAccessibilityController/store';
+$route['alternative_accessibility/edit/(:any)'] = 'AlternativeAccessibilityController/edit/$1';
+$route['alternative_accessibility/show/(:any)'] = 'AlternativeAccessibilityController/show/$1';
+$route['alternative_accessibility/update/(:any)'] = 'AlternativeAccessibilityController/update/$1';
+$route['alternative_accessibility/destroy/(:any)'] = 'AlternativeAccessibilityController/destroy/$1';

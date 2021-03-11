@@ -32,13 +32,13 @@
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Kode Alternatif</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_code" value="<?php echo $alternative->alternative_code ?>" placeholder="Masukkan kode alternatif" required="">
+                                                    <input class="form-control" type="text" name="alternative_code" value="<?php echo $alternative->alternative_code ?>" placeholder="Masukkan kode alternatif">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Nama Alternatif</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_name" value="<?php echo $alternative->alternative_name ?>" placeholder="Masukkan nama alternatif" required="">
+                                                    <input class="form-control" type="text" name="alternative_name" value="<?php echo $alternative->alternative_name ?>" placeholder="Masukkan nama alternatif">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -50,13 +50,13 @@
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Latitude</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="latitude" value="<?php echo $alternative->latitude ?>" placeholder="Masukkan latitude" required="">
+                                                    <input class="form-control" type="text" name="latitude" value="<?php echo $alternative->latitude ?>" placeholder="Masukkan latitude">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Longitude</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="longitude" value="<?php echo $alternative->longitude ?>" placeholder="Masukkan longitude" required="">
+                                                    <input class="form-control" type="text" name="longitude" value="<?php echo $alternative->longitude ?>" placeholder="Masukkan longitude">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -86,12 +86,22 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Status</label>
                                                 <div class="col-md-10">
-                                                    <select class="form-select" name="status" required="">
-                                                        <option value="<?php echo $alternative->status; ?>"><?php echo $alternative->status == 1 ? "Aktif" : "Non Aktif" ?></option>
+                                                    <select class="form-select" name="status">
+                                                        <option value="<?php echo $alternative->status; ?>">
+                                                            <?php if ($alternative->status == 0) {
+                                                                echo "Non Aktif";
+                                                            }elseif ($alternative->status == 1) {
+                                                                echo "Aktif/ Verified";
+                                                            }elseif ($alternative->status == 2) {
+                                                                echo "Belum Diverifikasi";
+                                                            } ?>
+                                                        </option>
                                                         <?php if ($alternative->status == 1) {?>
                                                             <option value="0">Non Aktif</option>
-                                                        <?php }else{ ?>
-                                                            <option value="1">Aktif</option>
+                                                            <option value="2">Belum Diverifikasi</option>
+                                                        <?php }elseif ($alternative->status == 2){ ?>
+                                                            <option value="1">Aktif/ Verified</option>
+                                                            <option value="0">Non Aktif</option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>

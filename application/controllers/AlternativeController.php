@@ -6,7 +6,7 @@ class AlternativeController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['AlternativeModel']);
+        $this->load->model(['AlternativeModel', 'AlternativeFacilityModel', 'AlternativeExtracurricularModel', 'AlternativeLocationModel', 'AlternativeAccessibilityModel']);
 
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
@@ -90,7 +90,13 @@ class AlternativeController extends CI_Controller {
 
     public function show($id)
     {
+        $this->output->delete_cache();
+        
         $data['alternative'] = $this->AlternativeModel->get_data($id)->row();
+        $data['alternative_facility'] = $this->AlternativeFacilityModel->get_alternative_facility($id)->result();
+        $data['alternative_extracurricular'] = $this->AlternativeExtracurricularModel->get_data($id)->result();
+        $data['alternative_location'] = $this->AlternativeLocationModel->get_data($id)->result();
+        $data['alternative_accessibility'] = $this->AlternativeAccessibilityModel->get_data($id)->result();
 
         $this->load->view('templates/backend/header');
         $this->load->view('alternative/show', $data);

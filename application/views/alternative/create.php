@@ -90,6 +90,7 @@
                                                         <option value="">Pilih</option>
                                                         <option value="1">Aktif</option>
                                                         <option value="0">Non Aktif</option>
+                                                        <option value="2">Belum diverifikasi</option>
                                                     </select>
                                                 </div>
                                             </div><br><br>

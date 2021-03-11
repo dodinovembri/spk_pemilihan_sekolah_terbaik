@@ -165,25 +165,25 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('facility') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('alternative_facility') ?>" class="waves-effect">
                                         <i class="bx bx-detail"></i>
                                         <span key="t-calendar">Data Fasilitas</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('extracurricular') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('alternative_extracurricular') ?>" class="waves-effect">
                                         <i class="bx bx-detail"></i>
                                         <span key="t-calendar">Data Ekstrakurikuler</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('location') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('alternative_location') ?>" class="waves-effect">
                                         <i class="bx bx-detail"></i>
                                         <span key="t-calendar">Data Lokasi</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('accessibility') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('alternative_accessibility') ?>" class="waves-effect">
                                         <i class="bx bx-detail"></i>
                                         <span key="t-calendar">Data Aksesibilitas</span>
                                     </a>

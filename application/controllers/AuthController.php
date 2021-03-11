@@ -98,10 +98,6 @@ class AuthController extends CI_Controller {
         $school_name = $this->input->post('school_name');
         $email = $this->input->post('email');
         $address = $this->input->post('address');
-        $latitude = $this->input->post('latitude');
-        $longitude = $this->input->post('longitude');
-        $call_number = $this->input->post('call_number');
-        $description = $this->input->post('description');
         $password = $this->input->post('password');
         $password_confirm = $this->input->post('password_confirm');
 
@@ -109,71 +105,27 @@ class AuthController extends CI_Controller {
             $this->session->set_flashdata('warning', "Your password is doesn't match");
             return redirect(base_url('register'));
         }else{
-            // for image
-            $image = uniqid();
-            $config['upload_path']          = './uploads/alternative/';
-            $config['allowed_types']        = 'gif|jpg|png';            
-            $config['file_name']            = $image;
+            $data = array(
+                'alternative_code' => $school_code,
+                'alternative_name' => $school_name,
+                'email' => $email,
+                'address' => $address,                
+                'status' => 2
+            );
 
-            $this->load->library('upload', $config); 
+            $password = md5($this->input->post('password'));
+            $data_user = array(
+                'name' => $school_name,
+                'email' => $email,
+                'password' => $password,
+                'role_id' => 2
+            );
 
-            if ($this->upload->do_upload('image'))
-            {
-                $data = array(
-                    'alternative_code' => $school_code,
-                    'alternative_name' => $school_name,
-                    'address' => $address,
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'email' => $email,
-                    'voice_number' => $call_number,
-                    'description' => $description,
-                    'image' => $this->upload->data('file_name'),
-                    'status' => 2
-                );
+            $insert_user = $this->UserModel->insert($data_user);
+            $insert_alternative = $this->AlternativeModel->insert($data);
 
-                $password = md5($this->input->post('password'));
-                $data_user = array(
-                    'name' => $school_name,
-                    'email' => $email,
-                    'password' => $password,
-                    'role_id' => 2
-                );
-
-                $insert_user = $this->UserModel->insert($data_user);
-                $insert_alternative = $this->AlternativeModel->insert($data);
-
-                $this->session->set_flashdata('success', "Success register your school!");
-                return redirect(base_url('login'));
-            }
-            else
-            {                          
-                $data = array(
-                    'alternative_code' => $school_code,
-                    'alternative_name' => $school_name,
-                    'address' => $address,
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'email' => $email,
-                    'voice_number' => $call_number,
-                    'description' => $description,
-                    'status' => 2
-                );
-
-                $password = md5($this->input->post('password'));
-                $data_user = array(
-                    'name' => $school_name,
-                    'email' => $email,
-                    'password' => $password,
-                    'role_id' => 2
-                );
-
-                $insert_user = $this->UserModel->insert($data_user);
-                $insert_alternative = $this->AlternativeModel->insert($data);
-
-                $this->session->set_flashdata('success', "Success register your school!");
-                return redirect(base_url('login'));
-            }
+            $this->session->set_flashdata('success', "Success register your school!");
+            return redirect(base_url('login'));
         }
 
     }

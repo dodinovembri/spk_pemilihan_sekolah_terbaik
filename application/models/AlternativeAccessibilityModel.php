@@ -1,12 +1,12 @@
 <?php
 
-class AlternativeModel extends CI_Model
+class AlternativeAccessibilityModel extends CI_Model
 {
-    private $_table = "alternative";
+    private $_table = "alternative_accessibility";
 
-    public function get_alternative()
+    public function get_alternative_accessibility($id)
     {
-        $this->db->order_by('id', 'DESC');
+        $this->db->where('alternative_id', $id);
     	return $query = $this->db->get($this->_table);
     }
 

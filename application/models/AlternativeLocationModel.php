@@ -1,12 +1,12 @@
 <?php
 
-class AlternativeModel extends CI_Model
+class AlternativeLocationModel extends CI_Model
 {
-    private $_table = "alternative";
+    private $_table = "alternative_location";
 
-    public function get_alternative()
+    public function get_alternative_location($id)
     {
-        $this->db->order_by('id', 'DESC');
+        $this->db->where('alternative_id', $id);        
     	return $query = $this->db->get($this->_table);
     }
 

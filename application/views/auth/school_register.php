@@ -65,47 +65,7 @@
                                                 Please Enter Address
                                             </div>      
                                         </div>
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Latitude</label>
-                                            <input type="text" class="form-control" name="latitude" placeholder="Enter Latitude" required>  
-                                            <div class="invalid-feedback">
-                                                Please Enter Latitude
-                                            </div>      
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Longitude</label>
-                                            <input type="text" class="form-control" name="longitude" placeholder="Enter Longitude" required>  
-                                            <div class="invalid-feedback">
-                                                Please Enter Longitude
-                                            </div>      
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Call Number</label>
-                                            <input type="text" class="form-control" name="call_number" placeholder="Enter Call Number" required>  
-                                            <div class="invalid-feedback">
-                                                Please Enter Call Number
-                                            </div>      
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Description</label>
-                                            <textarea class="form-control" rows="3" name="description" placeholder="Enter Description"> </textarea>
-                                            <div class="invalid-feedback">
-                                                Please Enter Description
-                                            </div>      
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Image</label>
-                                            <input class="form-control" name="image" type="file"> 
-                                            <div class="invalid-feedback">
-                                                Please Enter Image
-                                            </div>      
-                                        </div>
-                
+                                        
                                         <div class="mb-3">
                                             <label for="userpassword" class="form-label">Password</label>
                                             <input type="password" class="form-control" name="password" placeholder="Enter password" required>

@@ -58,7 +58,8 @@
                                                     <th>Ranking</th>
                                                     <th>Kode Alternatif</th>
                                                     <th>Nama Alternatif</th>
-                                                    <th>Vector V</th>
+                                                    <th>Hasil Perhitungan</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                                 </thead>
             
@@ -75,6 +76,7 @@
                                                         <td><?php echo $query->row()->alternative_code; ?></td>
                                                         <td><?php echo $query->row()->alternative_name; ?></td>
                                                         <td><?php echo $value['v_vector']; ?></td>
+                                                        <td><a href="<?php echo base_url('alternative/show/'); echo $query->row()->id; ?>"><i class="far fa-eye" style="margin: 2px"></i></a> </td>
                                                     </tr>
                                                 <?php } ?>
                                                 </tbody>
