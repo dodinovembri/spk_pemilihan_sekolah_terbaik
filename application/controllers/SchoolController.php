@@ -84,7 +84,6 @@ class SchoolController extends CI_Controller {
                 'spp_cost' => $spp_cost,
                 'entry_fee' => $entry_fee,
                 'distance' => $distance,
-                'status' => $status
             );
 
             $update = $this->AlternativeModel->update($data, $id);
@@ -106,7 +105,6 @@ class SchoolController extends CI_Controller {
                 'spp_cost' => $spp_cost,
                 'entry_fee' => $entry_fee,
                 'distance' => $distance,                
-                'status' => $status
             );
 
             $update = $this->AlternativeModel->update($data, $id);

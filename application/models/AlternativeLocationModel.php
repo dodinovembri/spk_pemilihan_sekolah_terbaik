@@ -21,6 +21,12 @@ class AlternativeLocationModel extends CI_Model
         return $query = $this->db->get($this->_table);
     }
 
+    public function get_data_by_alt($id)
+    {
+        $this->db->where('alternative_id', $id);
+        return $query = $this->db->get($this->_table);
+    }    
+
     public function get_data_by_email($email)
     {
         $this->db->where('email', $email);

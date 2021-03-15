@@ -47,9 +47,11 @@
                                                 <h5 class="font-size-15 text-truncate"><?php echo $this->session->userdata('name') ?></h5>
                                                 <p class="text-muted mb-0 text-truncate">
                                                     <?php if ($this->session->userdata('role_id') == 0) {?>
-                                                        <option value="1">Administrator</option>
-                                                    <?php }else{ ?>
-                                                        <option value="0">User</option>
+                                                        <option value="0">Administrator</option>
+                                                    <?php }elseif($this->session->userdata('role_id') == 1){ ?>
+                                                        <option value="1">User</option>
+                                                    <?php }elseif($this->session->userdata('role_id') == 2){ ?>
+                                                        <option value="2">School</option>
                                                     <?php } ?>
                                                 </p>
                                             </div>

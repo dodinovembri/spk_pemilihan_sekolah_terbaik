@@ -61,6 +61,8 @@
                                                             <span class="badge badge-pill badge-soft-success font-size-11">Administrator</span>
                                                         <?php }elseif ($value->role_id == 1) { ?>
                                                             <span class="badge badge-pill badge-soft-danger font-size-11">User</span>
+                                                        <?php }elseif($value->role_id == 2){ ?>
+                                                            <span class="badge badge-pill badge-soft-info font-size-11">School</span>
                                                         <?php } ?>
                                                     </td>
                                                     <td>

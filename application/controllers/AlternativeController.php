@@ -94,9 +94,9 @@ class AlternativeController extends CI_Controller {
         
         $data['alternative'] = $this->AlternativeModel->get_data($id)->row();
         $data['alternative_facility'] = $this->AlternativeFacilityModel->get_alternative_facility($id)->result();
-        $data['alternative_extracurricular'] = $this->AlternativeExtracurricularModel->get_data($id)->result();
-        $data['alternative_location'] = $this->AlternativeLocationModel->get_data($id)->result();
-        $data['alternative_accessibility'] = $this->AlternativeAccessibilityModel->get_data($id)->result();
+        $data['alternative_extracurricular'] = $this->AlternativeExtracurricularModel->get_data_by_alt($id)->result();
+        $data['alternative_location'] = $this->AlternativeLocationModel->get_data_by_alt($id)->result();
+        $data['alternative_accessibility'] = $this->AlternativeAccessibilityModel->get_data_by_alt($id)->result();
 
         $this->load->view('templates/backend/header');
         $this->load->view('alternative/show', $data);

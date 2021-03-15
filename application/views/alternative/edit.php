@@ -102,6 +102,9 @@
                                                         <?php }elseif ($alternative->status == 2){ ?>
                                                             <option value="1">Aktif/ Verified</option>
                                                             <option value="0">Non Aktif</option>
+                                                        <?php }elseif ($alternative->status == 0) { ?>
+                                                            <option value="1">Aktif/ Diverifikasi</option>
+                                                            <option value="2">Belum Diverifikasi</option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>

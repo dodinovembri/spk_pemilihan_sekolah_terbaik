@@ -16,6 +16,8 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
+                                        <a href="<?php echo base_url('home') ?>">Home</a>
+                                        <b>></b> 
                                         <a href="<?php echo base_url('alternative_extracurricular') ?>">Ekstrakurikuler</a> 
                                         <b>></b> 
                                         <span>Buat Ekstrakurikuler</span></h6>
@@ -30,7 +32,7 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo base_url('alternative_extracurricular/store') ?>" enctype="multipart/form-data">
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Fasilitas</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Ekstrakurikuler</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control" type="text" name="alternative_extracurricular" placeholder="Masukkan ekstrakurikuler" required="">
                                                 </div>

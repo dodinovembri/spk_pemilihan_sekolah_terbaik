@@ -16,9 +16,12 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
-                                        <b>></b> 
-                                        <span>Buat Alternatif</span></h6>
+                                        <a href="<?php echo base_url('home') ?>">Home</a>
+                                        <b>></b>
+                                        <a href="<?php echo base_url('alternative_facility') ?>">Fasilitas</a>
+                                        <b>></b>
+                                        <span>Buat Fasilitas</span>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -53,19 +56,19 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                         </form>
                                     </div>
                                 </div>
                             </div> <!-- end col -->
                         </div>
-        
+
 
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
 
-                
+
                 <?php $this->load->view('components/footer'); ?>
             </div>
             <!-- end main content-->
