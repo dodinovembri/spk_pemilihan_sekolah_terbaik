@@ -36,7 +36,13 @@
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Aksesibilitas</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_accessibility" value="<?php echo $alternative_accessibility->accessibility ?>" placeholder="Masukkan aksesibilitas" required="">
+                                                    <select class="form-select" name="alternative_accessibility">
+                                                        <option value="<?php echo $alternative_accessibility->accessibility ?>"><?php echo $alternative_accessibility->accessibility ?></option>
+                                                        <option value="Terdapat Akses Kendaraan Umum">Terdapat Akses Kendaraan Umum</option>
+                                                        <option value="Terdapat Akses Kendaraan Umum Namun Tidak Setiap Saat">Terdapat Akses Kendaraan Umum Namun Tidak Setiap Saat</option>
+                                                        <option value="Tidak Terdapat Akses Kendaraan Umum Namun Lalu Lintas Lancar">Tidak Terdapat Akses Kendaraan Umum Namun Lalu Lintas Lancar</option>
+                                                        <option value="Tidak Terdapat Akses Kendaraan Umum Dan Lalu Lintas Tidak Lancar">Tidak Terdapat Akses Kendaraan Umum Dan Lalu Lintas Tidak Lancar</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

@@ -36,7 +36,14 @@
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Lokasi</label>
                                                 <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="alternative_location" value="<?php echo $alternative_location->location ?>" placeholder="Masukkan lokasi" required="">
+                                                    <select class="form-select" name="alternative_location">
+                                                        <option value="<?php echo $alternative_location->location ?>"><?php echo $alternative_location->location ?></option>
+                                                        <option value="Di pinggir jalan besar (jalan raya)">Di pinggir jalan besar (jalan raya)</option>
+                                                        <option value="Di dekat wilayah perkantoran">Di dekat wilayah perkantoran</option>
+                                                        <option value="Di dekat wilayah permukiman warga">Di dekat wilayah permukiman warga</option>
+                                                        <option value="Di pinggir jalan kecil (lorong/gang)">Di pinggir jalan kecil (lorong/gang)</option>
+                                                        <option value="Di dekat wilayah pertokoan">Di dekat wilayah pertokoan</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

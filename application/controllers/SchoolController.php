@@ -58,7 +58,6 @@ class SchoolController extends CI_Controller {
         $spp_cost = $this->input->post('spp_cost');
         $entry_fee = $this->input->post('entry_fee');
         $distance = $this->input->post('distance');
-        $status = $this->input->post('status');
 
         // for image
         $image = uniqid();
@@ -83,7 +82,7 @@ class SchoolController extends CI_Controller {
                 'age' => $age,
                 'spp_cost' => $spp_cost,
                 'entry_fee' => $entry_fee,
-                'distance' => $distance,
+                'distance' => $distance
             );
 
             $update = $this->AlternativeModel->update($data, $id);
@@ -104,7 +103,7 @@ class SchoolController extends CI_Controller {
                 'age' => $age,
                 'spp_cost' => $spp_cost,
                 'entry_fee' => $entry_fee,
-                'distance' => $distance,                
+                'distance' => $distance           
             );
 
             $update = $this->AlternativeModel->update($data, $id);
