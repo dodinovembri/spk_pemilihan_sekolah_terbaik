@@ -16,9 +16,10 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('user') ?>">User</a> 
-                                        <b>></b> 
-                                        <span>Edit User</span></h6>
+                                        <a href="<?php echo base_url('user') ?>">User</a>
+                                        <b>></b>
+                                        <span>Edit User</span>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +29,8 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form method="POST" action="<?php echo base_url('user/update/'); echo $user->id; ?>">
+                                        <form method="POST" action="<?php echo base_url('user/update/');
+                                                                    echo $user->id; ?>">
                                             <div class="mb-3 row">
                                                 <label for="example-search-input" class="col-md-2 col-form-label">Nama</label>
                                                 <div class="col-md-10">
@@ -57,11 +59,23 @@
                                                 <label class="col-md-2 col-form-label">Role</label>
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="role" required="">
-                                                        <option value="<?php echo $user->role_id; ?>"><?php echo $user->role_id == 0 ? "Administrator" : "User" ?></option>
-                                                        <?php if ($user->role_id == 0) {?>
+                                                        <option value="<?php echo $user->role_id; ?>">
+                                                        <?php if($user->role_id == 0){
+                                                            echo "Administrator";
+                                                        }elseif($user->role_id == 1){
+                                                            echo "User";
+                                                        }else{
+                                                            echo "School";
+                                                        } ?></option>
+                                                        <?php if ($user->role_id == 0) { ?>
                                                             <option value="1">User</option>
-                                                        <?php }else{ ?>
+                                                            <option value="2">School</option>
+                                                        <?php } elseif ($user->role_id == 1) { ?>
                                                             <option value="0">Administrator</option>
+                                                            <option value="2">School</option>
+                                                        <?php } else { ?>
+                                                            <option value="0">Administrator</option>
+                                                            <option value="1">User</option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>
@@ -71,9 +85,9 @@
                                                 <div class="col-md-10">
                                                     <select class="form-select" name="status" required="">
                                                         <option value="<?php echo $user->status; ?>"><?php echo $user->status == 1 ? "Aktif" : "Non Aktif" ?></option>
-                                                        <?php if ($user->status == 1) {?>
+                                                        <?php if ($user->status == 1) { ?>
                                                             <option value="0">Non Aktif</option>
-                                                        <?php }else{ ?>
+                                                        <?php } else { ?>
                                                             <option value="1">Aktif</option>
                                                         <?php } ?>
                                                     </select>
@@ -87,19 +101,19 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                         </form>
                                     </div>
                                 </div>
                             </div> <!-- end col -->
                         </div>
-        
+
 
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
 
-                
+
                 <?php $this->load->view('components/footer'); ?>
             </div>
             <!-- end main content-->

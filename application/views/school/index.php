@@ -115,7 +115,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Lama Berdiri</label>
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Lama Berdiri (tahun)</label>
                                                 <div class="col-md-10">
                                                     <input class="form-control" type="text" name="age" value="<?php echo $school->age ?>">
                                                 </div>

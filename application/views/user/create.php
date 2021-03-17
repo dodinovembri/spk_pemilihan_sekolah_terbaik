@@ -60,6 +60,7 @@
                                                         <option value="">Pilih</option>
                                                         <option value="0">Administrator</option>
                                                         <option value="1">User</option>
+                                                        <option value="2">School</option>
                                                     </select>
                                                 </div>
                                             </div>
