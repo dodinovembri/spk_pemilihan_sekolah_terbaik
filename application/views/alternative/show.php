@@ -141,6 +141,30 @@
                                                      } ?></span>
                                                 </div>
                                             </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Akreditasi</label>
+                                                <div class="col-md-10" style="margin-top: 10px">
+                                                    <span ><?php echo $alternative->accreditation ?></span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Lama Berdiri</label>
+                                                <div class="col-md-10" style="margin-top: 10px">
+                                                    <span ><?php echo $alternative->age ?> Tahun</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Biaya SPP</label>
+                                                <div class="col-md-10" style="margin-top: 10px">
+                                                    Rp. <span ><?php echo $alternative->spp_cost ?></span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label for="example-search-input" class="col-md-2 col-form-label">Biaya Masuk</label>
+                                                <div class="col-md-10" style="margin-top: 10px">
+                                                    Rp. <span ><?php echo $alternative->entry_fee ?></span>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
