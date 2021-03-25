@@ -16,7 +16,11 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h6 class="mb-sm-0">
-                                        <a href="<?php echo base_url('alternative') ?>">Alternatif</a> 
+                                        <a href="<?php if ($this->session->userdata('role_id') == 0) {
+                                            echo base_url('alternative');  
+                                        }elseif ($this->session->userdata('role_id') == 2) {
+                                            echo base_url('school_alternative');
+                                        }  ?>">Alternatif</a> 
                                         <b>></b> 
                                         <span><a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>">Nilai Alternatif</a></span>
                                         <b>></b> Edit Nilai Alternatif</h6>
@@ -57,7 +61,7 @@
                                                 <label class="col-md-2 col-form-label"></label>
                                                 <div class="col-md-10">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
-                                                    <a href="<?php echo base_url('alternative_value/'); echo $this->session->userdata('criteria_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
+                                                    <a href="<?php echo base_url('alternative_values/'); echo $this->session->userdata('alternative_id'); ?>"><button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
                                                 </div>
                                             </div>
 

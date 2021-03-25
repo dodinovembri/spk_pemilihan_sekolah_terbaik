@@ -188,6 +188,12 @@
                                         <span key="t-calendar">Data Aksesibilitas</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url('school_alternative') ?>" class="waves-effect">
+                                        <i class="bx bxs-school"></i>
+                                        <span key="t-calendar">Alternatif</span>
+                                    </a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>

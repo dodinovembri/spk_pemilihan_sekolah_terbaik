@@ -70,6 +70,7 @@ $route['alternative/edit/(:any)'] = 'AlternativeController/edit/$1';
 $route['alternative/show/(:any)'] = 'AlternativeController/show/$1';
 $route['alternative/update/(:any)'] = 'AlternativeController/update/$1';
 $route['alternative/destroy/(:any)'] = 'AlternativeController/destroy/$1';
+$route['school_alternative'] = 'AlternativeController/school_alternative';
 
 // routes for alternative value
 $route['alternative_values/(:any)'] = 'AlternativeValueController/index/$1';

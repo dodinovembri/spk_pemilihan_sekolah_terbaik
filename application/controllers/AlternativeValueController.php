@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class AlternativeValueController extends CI_Controller {
+class AlternativeValueController extends CI_Controller
+{
 
     function __construct()
     {
@@ -40,6 +41,10 @@ class AlternativeValueController extends CI_Controller {
 
     public function store()
     {
+        $requirement_document = $this->input->post('requirement_document');
+        $location_document = $this->input->post('location_document');
+        $accessibility_document = $this->input->post('accessibility_document');
+
         $alternative_id = $this->session->userdata('alternative_id');
         $criteria_criterion = $this->input->post('criteria_criterion');
         $count = count($criteria_criterion);
@@ -47,7 +52,7 @@ class AlternativeValueController extends CI_Controller {
         $delete = $this->AlternativeValueModel->destroy_by_alternative($alternative_id);
 
         foreach ($criteria_criterion as $key => $value) {
-            $data = explode("&" , $value);
+            $data = explode("&", $value);
 
             $alternative_id = $this->session->userdata('alternative_id');
             $criteria_id = $data[0];
@@ -61,9 +66,55 @@ class AlternativeValueController extends CI_Controller {
 
             $insert = $this->AlternativeValueModel->insert($data);
         }
-        $this->session->set_flashdata('success', "Success create criteria!");
-        return redirect(base_url("alternative_values/$alternative_id"));
 
+        foreach ($requirement_document as $key => $value) {
+            // for image
+            $image = uniqid();
+            $config['upload_path']          = './alternative/requirement_document/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['file_name']            = $image;
+
+            $this->load->library('upload', $config);
+            $data_rd = array(
+                'alternative_id' => $alternative_id,
+                'image' => $this->upload->data('file_name')
+            );
+
+            $insert = $this->AlternativeValueModel->insert_requirement_document($data_rd);
+        }
+        foreach ($location_document as $key => $value) {
+            // for image
+            $image = uniqid();
+            $config['upload_path']          = './uploads/alternative/location_document/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['file_name']            = $image;
+
+            $this->load->library('upload', $config);
+            $data_ld = array(
+                'alternative_id' => $alternative_id,
+                'image' => $this->upload->data('file_name')
+            );
+
+            $insert = $this->AlternativeValueModel->insert_location_document($data_ld);
+        }
+        foreach ($accessibility_document as $key => $value) {
+            // for image
+            $image = uniqid();
+            $config['upload_path']          = './uploads/alternative/accessibility_dcoument/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['file_name']            = $image;
+
+            $this->load->library('upload', $config);
+            $data_ad = array(
+                'alternative_id' => $alternative_id,
+                'image' => $this->upload->data('file_name')
+            );
+
+            $insert = $this->AlternativeValueModel->insert_accessibility_document($data_ad);
+        }
+
+        $this->session->set_flashdata('success', "Success create alternative value!");
+        return redirect(base_url("alternative_values/$alternative_id"));
     }
 
     public function show($id)
@@ -93,7 +144,7 @@ class AlternativeValueController extends CI_Controller {
 
         $update = $this->AlternativeValueModel->update($data, $id);
         $this->session->set_flashdata('success', "Success update data!");
-        return redirect(base_url("alternative_values/$alternative_id"));      
+        return redirect(base_url("alternative_values/$alternative_id"));
     }
 
     public function destroy($id)

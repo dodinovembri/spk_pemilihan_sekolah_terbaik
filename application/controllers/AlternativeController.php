@@ -22,6 +22,16 @@ class AlternativeController extends CI_Controller {
         $this->load->view('templates/backend/footer');
 	}
 
+	public function school_alternative()
+	{
+        $email = $this->session->userdata('email');
+        $data['alternative'] = $this->AlternativeModel->get_data_by_email($email)->result();
+
+        $this->load->view('templates/backend/header');
+		$this->load->view('alternative/school_alternative', $data);
+        $this->load->view('templates/backend/footer');
+	}
+    
     public function create()
     {
         $this->load->view('templates/backend/header');
