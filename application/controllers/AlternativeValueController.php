@@ -7,7 +7,7 @@ class AlternativeValueController extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel']);
+        $this->load->model(['AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel', 'AlternativeAccessibilityAssetModel', 'AlternativeLocationAssetModel', 'AlternativeRequirementDocumentAssetModel']);
 
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
@@ -67,21 +67,47 @@ class AlternativeValueController extends CI_Controller
             $insert = $this->AlternativeValueModel->insert($data);
         }
 
-        foreach ($requirement_document as $key => $value) {
-            // for image
-            $image = uniqid();
-            $config['upload_path']          = './alternative/requirement_document/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['file_name']            = $image;
+        $this->load->library('upload');
+        $dataInfo = array();
+        $files = $_FILES;
+        $cpt = count($_FILES['requirement_document']['name']);
+        for($i=0; $i<$cpt; $i++)
+        {           
+            $_FILES['requirement_document']['name']= $files['requirement_document']['name'][$i];
+            $_FILES['requirement_document']['type']= $files['requirement_document']['type'][$i];
+            $_FILES['requirement_document']['tmp_name']= $files['requirement_document']['tmp_name'][$i];
+            $_FILES['requirement_document']['error']= $files['requirement_document']['error'][$i];
+            $_FILES['requirement_document']['size']= $files['userfile']['size'][$i];    
 
-            $this->load->library('upload', $config);
+            $this->upload->initialize($this->set_upload_options());
+            $this->upload->do_upload();
+            $dataInfo[] = $this->upload->data();
+
             $data_rd = array(
                 'alternative_id' => $alternative_id,
-                'image' => $this->upload->data('file_name')
+                'image' => $dataInfo[$key]['file_name'],
             );
-
-            $insert = $this->AlternativeValueModel->insert_requirement_document($data_rd);
+            $insert = $this->AlternativeRequirementDocumentAssetModel->insert($data_rd);
         }
+
+
+
+        // foreach ($requirement_document as $key => $value) {
+        //     // for image
+        //     $image = $value;
+        //     $config['upload_path']          = './uploads/alternative/requirement_document/';
+        //     $config['allowed_types']        = 'gif|jpg|png';
+        //     $config['file_name']            = $image;
+
+        //     $this->load->library('upload', $config);
+        //     $data_rd = array(
+        //         'alternative_id' => $alternative_id,
+        //         'image' => $this->upload->data('file_name')
+        //     );
+
+        //     $insert = $this->AlternativeRequirementDocumentAssetModel->insert($data_rd);
+            
+        // }
         foreach ($location_document as $key => $value) {
             // for image
             $image = uniqid();
@@ -95,7 +121,7 @@ class AlternativeValueController extends CI_Controller
                 'image' => $this->upload->data('file_name')
             );
 
-            $insert = $this->AlternativeValueModel->insert_location_document($data_ld);
+            $insert = $this->AlternativeLocationAssetModel->insert($data_ld);
         }
         foreach ($accessibility_document as $key => $value) {
             // for image
@@ -110,7 +136,7 @@ class AlternativeValueController extends CI_Controller
                 'image' => $this->upload->data('file_name')
             );
 
-            $insert = $this->AlternativeValueModel->insert_accessibility_document($data_ad);
+            $insert = $this->AlternativeAccessibilityAssetModel->insert($data_ad);
         }
 
         $this->session->set_flashdata('success', "Success create alternative value!");
@@ -150,5 +176,15 @@ class AlternativeValueController extends CI_Controller
     public function destroy($id)
     {
         // 
+    }
+
+    private function set_upload_options()
+    {   
+        //upload an image options
+        $config = array();
+        $config['upload_path'] = './public/alternative/requirement_document/';
+        $config['allowed_types'] = 'gif|jpg|png';
+
+        return $config;
     }
 }

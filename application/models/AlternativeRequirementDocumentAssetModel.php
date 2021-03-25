@@ -1,8 +1,8 @@
 <?php
 
-class AlternativeRequirementDocumentModel extends CI_Model
+class AlternativeRequirementDocumentAssetModel extends CI_Model
 {
-    private $_table = "alternative_requirement_document";
+    private $_table = "alternative_requirement_document_asset";
 
     public function get_alternative_accessibility($id)
     {
