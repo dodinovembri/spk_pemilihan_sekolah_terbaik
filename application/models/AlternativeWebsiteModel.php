@@ -44,6 +44,12 @@ class AlternativeWebsiteModel extends CI_Model
         return $this->db->count_all_results($this->_table);
     }
 
+    public function destroy_by_alternative($id)
+    {
+        $this->db->where('alternative_id', $id);
+        return $this->db->delete($this->_table);
+    }       
+
     public function get_alternative_value($id)
     {
     	return $this->db->query("SELECT alternative_website.*, alternative.alternative_code AS alternative_code FROM alternative_website JOIN alternative ON alternative_website.alternative_id = alternative.id  WHERE alternative_website.alternative_id = $id");

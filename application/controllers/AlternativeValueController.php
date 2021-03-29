@@ -121,6 +121,7 @@ class AlternativeValueController extends CI_Controller
         // save to table alternative website
         $website = $this->input->post('website_url');
         $explode = explode(";", $website);
+        $this->AlternativeWebsiteModel->destroy_by_alternative($alternative_id);
         foreach ($explode as $key => $value) {
             $data_website = array(
                 'alternative_id' => $alternative_id,

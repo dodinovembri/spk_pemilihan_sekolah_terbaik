@@ -165,7 +165,7 @@
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
                                                     <?php foreach ($website as $key => $value_link) { ?>
-                                                    <li><a href="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>" target="_link"><?php echo $value_link->url; ?></a></li>
+                                                    <li><a href="<?php echo $value_link->url; ?>" target="_link"><?php echo $value_link->url; ?></a></li>
                                                     <?php } ?>
                                                 </ul>
                                             </div>
