@@ -36,7 +36,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form method="POST" action="<?php echo base_url('alternative_value/store') ?>">
+                                        <form method="POST" action="<?php echo base_url('alternative_value/store') ?>" enctype="multipart/form-data">
                                             <h4>Nilai Alternatif</h4>
                                             <hr><br>
                                             <?php foreach ($criteria as $key => $value) { ?>
@@ -64,7 +64,7 @@
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Dokumen Persyaratan</label>
                                                 <div class="col-md-10">
-                                                    <input type="file" id="files" name="requirement_document[]" class="form-control" multiple>
+                                                    <input type="file" name="requirement_document[]" class="form-control" multiple>
                                                     <label for="files"><i style="color: blue;">*notes: bisa berupa brosur, foto/dokumen</i></label>
                                                 </div>
                                             </div>

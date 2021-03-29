@@ -7,8 +7,8 @@ class AlternativeValueController extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel', 'AlternativeAccessibilityAssetModel', 'AlternativeLocationAssetModel', 'AlternativeRequirementDocumentAssetModel']);
-
+        $this->load->model(['AlternativeValueModel', 'CriteriaModel', 'CriterionValueModel', 'AlternativeAccessibilityAssetModel', 'AlternativeLocationAssetModel', 'AlternativeRequirementDocumentAssetModel', 'AlternativeWebsiteModel']);
+        $this->load->library('upload');
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
         }
@@ -21,7 +21,10 @@ class AlternativeValueController extends CI_Controller
         );
 
         $this->session->set_userdata($alternative);
-
+        $data['requirement'] = $this->AlternativeRequirementDocumentAssetModel->get_alternative_value($id)->result();
+        $data['location'] = $this->AlternativeLocationAssetModel->get_alternative_value($id)->result();
+        $data['accessibility'] = $this->AlternativeAccessibilityAssetModel->get_alternative_value($id)->result();
+        $data['website'] = $this->AlternativeWebsiteModel->get_alternative_value($id)->result();
         $data['alternative_value'] = $this->AlternativeValueModel->get_alternative_value($id)->result();
 
 
@@ -41,15 +44,9 @@ class AlternativeValueController extends CI_Controller
 
     public function store()
     {
-        $requirement_document = $this->input->post('requirement_document');
-        $location_document = $this->input->post('location_document');
-        $accessibility_document = $this->input->post('accessibility_document');
-
         $alternative_id = $this->session->userdata('alternative_id');
         $criteria_criterion = $this->input->post('criteria_criterion');
-        $count = count($criteria_criterion);
-
-        $delete = $this->AlternativeValueModel->destroy_by_alternative($alternative_id);
+        $this->AlternativeValueModel->destroy_by_alternative($alternative_id);
 
         foreach ($criteria_criterion as $key => $value) {
             $data = explode("&", $value);
@@ -67,76 +64,70 @@ class AlternativeValueController extends CI_Controller
             $insert = $this->AlternativeValueModel->insert($data);
         }
 
-        $this->load->library('upload');
-        $dataInfo = array();
+        // upload requirement document
         $files = $_FILES;
         $cpt = count($_FILES['requirement_document']['name']);
-        for($i=0; $i<$cpt; $i++)
-        {           
-            $_FILES['requirement_document']['name']= $files['requirement_document']['name'][$i];
-            $_FILES['requirement_document']['type']= $files['requirement_document']['type'][$i];
-            $_FILES['requirement_document']['tmp_name']= $files['requirement_document']['tmp_name'][$i];
-            $_FILES['requirement_document']['error']= $files['requirement_document']['error'][$i];
-            $_FILES['requirement_document']['size']= $files['userfile']['size'][$i];    
-
-            $this->upload->initialize($this->set_upload_options());
+        for ($i = 0; $i < $cpt; $i++) {
+            $_FILES['requirement_document']['name'] = $files['requirement_document']['name'][$i];
+            $_FILES['requirement_document']['type'] = $files['requirement_document']['type'][$i];
+            $_FILES['requirement_document']['tmp_name'] = $files['requirement_document']['tmp_name'][$i];
+            $_FILES['requirement_document']['error'] = $files['requirement_document']['error'][$i];
+            $_FILES['requirement_document']['size'] = $files['requirement_document']['size'][$i];
+            move_uploaded_file($_FILES['requirement_document']['tmp_name'],"uploads/alternative/". $_FILES['requirement_document']['name']);
             $this->upload->do_upload();
-            $dataInfo[] = $this->upload->data();
-
-            $data_rd = array(
-                'alternative_id' => $alternative_id,
-                'image' => $dataInfo[$key]['file_name'],
-            );
-            $insert = $this->AlternativeRequirementDocumentAssetModel->insert($data_rd);
+            $fileName = $_FILES['requirement_document']['name'];
+            $images[] = $fileName;
         }
+        $fileName = implode(',', $images);
+        $this->AlternativeRequirementDocumentAssetModel->destroy_by_alternative($alternative_id);
+        $this->AlternativeRequirementDocumentAssetModel->insert_rd($alternative_id, $fileName);
 
-
-
-        // foreach ($requirement_document as $key => $value) {
-        //     // for image
-        //     $image = $value;
-        //     $config['upload_path']          = './uploads/alternative/requirement_document/';
-        //     $config['allowed_types']        = 'gif|jpg|png';
-        //     $config['file_name']            = $image;
-
-        //     $this->load->library('upload', $config);
-        //     $data_rd = array(
-        //         'alternative_id' => $alternative_id,
-        //         'image' => $this->upload->data('file_name')
-        //     );
-
-        //     $insert = $this->AlternativeRequirementDocumentAssetModel->insert($data_rd);
-            
-        // }
-        foreach ($location_document as $key => $value) {
-            // for image
-            $image = uniqid();
-            $config['upload_path']          = './uploads/alternative/location_document/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['file_name']            = $image;
-
-            $this->load->library('upload', $config);
-            $data_ld = array(
-                'alternative_id' => $alternative_id,
-                'image' => $this->upload->data('file_name')
-            );
-
-            $insert = $this->AlternativeLocationAssetModel->insert($data_ld);
+        // save location document
+        $files = $_FILES;
+        $cpt_ld = count($_FILES['location_document']['name']);
+        for ($i = 0; $i < $cpt_ld; $i++) {
+            $_FILES['location_document']['name'] = $files['location_document']['name'][$i];
+            $_FILES['location_document']['type'] = $files['location_document']['type'][$i];
+            $_FILES['location_document']['tmp_name'] = $files['location_document']['tmp_name'][$i];
+            $_FILES['location_document']['error'] = $files['location_document']['error'][$i];
+            $_FILES['location_document']['size'] = $files['location_document']['size'][$i];
+            move_uploaded_file($_FILES['location_document']['tmp_name'],"uploads/alternative/". $_FILES['location_document']['name']);
+            $this->upload->do_upload();
+            $fileNameLd = $_FILES['location_document']['name'];
+            $imagesLd[] = $fileNameLd;
         }
-        foreach ($accessibility_document as $key => $value) {
-            // for image
-            $image = uniqid();
-            $config['upload_path']          = './uploads/alternative/accessibility_dcoument/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['file_name']            = $image;
+        $fileNameLd = implode(',', $imagesLd);
+        $this->AlternativeLocationAssetModel->destroy_by_alternative($alternative_id);
+        $this->AlternativeLocationAssetModel->insert_ld($alternative_id, $fileNameLd);        
 
-            $this->load->library('upload', $config);
-            $data_ad = array(
+        // save accessibility document
+        $files = $_FILES;
+        $cpt_ad = count($_FILES['accessibility_document']['name']);
+        for ($i = 0; $i < $cpt_ad; $i++) {
+            $_FILES['accessibility_document']['name'] = $files['accessibility_document']['name'][$i];
+            $_FILES['accessibility_document']['type'] = $files['accessibility_document']['type'][$i];
+            $_FILES['accessibility_document']['tmp_name'] = $files['accessibility_document']['tmp_name'][$i];
+            $_FILES['accessibility_document']['error'] = $files['accessibility_document']['error'][$i];
+            $_FILES['accessibility_document']['size'] = $files['accessibility_document']['size'][$i];
+            move_uploaded_file($_FILES['accessibility_document']['tmp_name'],"uploads/alternative/". $_FILES['accessibility_document']['name']);
+            $this->upload->do_upload();
+            $fileNameAd = $_FILES['accessibility_document']['name'];
+            $imagesAd[] = $fileNameAd;
+        }
+        $fileNameAd = implode(',', $imagesAd);
+        $this->AlternativeAccessibilityAssetModel->destroy_by_alternative($alternative_id);
+        $this->AlternativeAccessibilityAssetModel->insert_ad($alternative_id, $fileNameAd);
+
+        // save to table alternative website
+        $website = $this->input->post('website_url');
+        $explode = explode(";", $website);
+        foreach ($explode as $key => $value) {
+            $data_website = array(
                 'alternative_id' => $alternative_id,
-                'image' => $this->upload->data('file_name')
+                'url' => $value,
             );
 
-            $insert = $this->AlternativeAccessibilityAssetModel->insert($data_ad);
+            $this->AlternativeWebsiteModel->insert($data_website);
         }
 
         $this->session->set_flashdata('success', "Success create alternative value!");
@@ -176,15 +167,5 @@ class AlternativeValueController extends CI_Controller
     public function destroy($id)
     {
         // 
-    }
-
-    private function set_upload_options()
-    {   
-        //upload an image options
-        $config = array();
-        $config['upload_path'] = './public/alternative/requirement_document/';
-        $config['allowed_types'] = 'gif|jpg|png';
-
-        return $config;
     }
 }
