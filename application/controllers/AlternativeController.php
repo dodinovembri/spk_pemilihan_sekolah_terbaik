@@ -187,4 +187,9 @@ class AlternativeController extends CI_Controller {
         $this->session->set_flashdata('success', "Success deleted data!");
         return redirect(base_url('alternative'));
     }
+
+    public function alternative_document()
+    {
+        # code...
+    }
 }

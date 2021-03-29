@@ -194,6 +194,12 @@
                                         <span key="t-calendar">Alternatif</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_document') ?>" class="waves-effect">
+                                        <i class="bx bxs-school"></i>
+                                        <span key="t-calendar">Data Dokumen</span>
+                                    </a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>

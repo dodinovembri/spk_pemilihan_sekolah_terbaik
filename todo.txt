@@ -1,3 +1,0 @@
-- get data where status 1
-- created & updated by
-- delete column weight fixes in user weight
