@@ -59,36 +59,6 @@
                                                     </div>
                                                 </div>
                                             <?php } ?><br><br>
-                                            <h4>Dokumen Persyaratan</h4>
-                                            <hr>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Dokumen Persyaratan</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" name="requirement_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: bisa berupa brosur, foto/dokumen</i></label>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Bukti Lokasi</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" id="files" name="location_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
-                                                </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Bukti Aksesibilitas</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" id="files" name="accessibility_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
-                                                </div>
-                                            </div>                                            
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Link Webstite</label>
-                                                <div class="col-md-10">
-                                                    <input type="text" id="files" name="website_url" class="form-control" placeholder="example: https://www.google.com/; https://www.school.com/">
-                                                    <label for="files"><i style="color: red;">*notes: pisahkan antar link dengan yg lain dengan titik koma</i></label>
-                                                </div>
-                                            </div>
                                             
                                             <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label"></label>

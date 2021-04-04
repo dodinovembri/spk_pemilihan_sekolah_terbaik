@@ -58,8 +58,6 @@
                                                     <?php } ?>
                                                 </tr>
                                             </thead>
-
-
                                             <tbody>
                                                 <?php $no = 0;
                                                 foreach ($alternative_value as $key => $value) {
@@ -71,8 +69,7 @@
                                                         <td><?php echo $value->description; ?></td>
                                                         <?php if ($this->session->userdata('role_id') == 0 || $this->session->userdata('role_id') == 2) { ?>
                                                             <td>
-                                                                <a href="<?php echo base_url('alternative_value/edit/');
-                                                                            echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a>
+                                                                <a href="<?php echo base_url('alternative_value/edit/'); echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a>
                                                             </td>
                                                         <?php } ?>
                                                     </tr>
@@ -96,10 +93,13 @@
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
                                                     <?php foreach ($requirement as $key => $value) { ?>
-                                                        <li><a href="<?php echo base_url('uploads/alternative/');
-                                                                        echo $value->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/');
-                                                                                                                                                                                    echo $value->image ?>"></a></li>
+                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value->image ?>"></a></li>
                                                     <?php } ?>
+                                                </ul>
+                                                <ul>
+                                                    <li>
+                                                        <p><?php echo $alternative->requirement_document_description; ?></p>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -107,7 +107,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card border border-primary">
@@ -119,10 +118,13 @@
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
                                                     <?php foreach ($location as $key => $value_l) { ?>
-                                                        <li><a href="<?php echo base_url('uploads/alternative/');
-                                                                        echo $value_l->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/');
-                                                                                                                                                                                    echo $value_l->image ?>"></a></li>
+                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>"></a></li>
                                                     <?php } ?>
+                                                </ul>
+                                                <ul>
+                                                    <li>
+                                                        <p><?php echo $alternative->accessibility_document_description; ?></p>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -130,22 +132,24 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card border border-primary">
                                     <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Lokosi</h5>
+                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Lokasi</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="mb-3 row">
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
                                                     <?php foreach ($accessibility as $key => $value_a) { ?>
-                                                        <li><a href="<?php echo base_url('uploads/alternative/');
-                                                                        echo $value_a->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/');
-                                                                                                                                                                                    echo $value_a->image ?>"></a></li>
+                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>"></a></li>
                                                     <?php } ?>
+                                                </ul>
+                                                <ul>
+                                                    <li>
+                                                        <p><?php echo $alternative->location_document_description; ?></p>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -153,7 +157,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card border border-primary">
@@ -165,7 +168,7 @@
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
                                                     <?php foreach ($website as $key => $value_link) { ?>
-                                                    <li><a href="<?php echo $value_link->url; ?>" target="_link"><?php echo $value_link->url; ?></a></li>
+                                                        <li><a href="<?php echo $value_link->url; ?>" target="_link"><?php echo $value_link->url; ?></a></li>
                                                     <?php } ?>
                                                 </ul>
                                             </div>
@@ -174,16 +177,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
-
-
                 <?php $this->load->view('components/footer'); ?>
             </div>
             <!-- end main content-->
-
         </div>
         <!-- END layout-wrapper -->

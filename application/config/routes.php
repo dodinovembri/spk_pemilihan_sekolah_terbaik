@@ -71,7 +71,6 @@ $route['alternative/show/(:any)'] = 'AlternativeController/show/$1';
 $route['alternative/update/(:any)'] = 'AlternativeController/update/$1';
 $route['alternative/destroy/(:any)'] = 'AlternativeController/destroy/$1';
 $route['school_alternative'] = 'AlternativeController/school_alternative';
-$route['alternative_document'] = 'AlternativeController/alternative_document';
 
 // routes for alternative value
 $route['alternative_values/(:any)'] = 'AlternativeValueController/index/$1';
@@ -168,3 +167,12 @@ $route['alternative_accessibility/edit/(:any)'] = 'AlternativeAccessibilityContr
 $route['alternative_accessibility/show/(:any)'] = 'AlternativeAccessibilityController/show/$1';
 $route['alternative_accessibility/update/(:any)'] = 'AlternativeAccessibilityController/update/$1';
 $route['alternative_accessibility/destroy/(:any)'] = 'AlternativeAccessibilityController/destroy/$1';
+
+// routes for alternative document
+$route['alternative_document'] = 'AlternativeDocumentController';
+$route['alternative_document/create'] = 'AlternativeDocumentController/create';
+$route['alternative_document/store'] = 'AlternativeDocumentController/store';
+$route['alternative_document/edit/(:any)'] = 'AlternativeDocumentController/edit/$1';
+$route['alternative_document/show/(:any)'] = 'AlternativeDocumentController/show/$1';
+$route['alternative_document/update/(:any)'] = 'AlternativeDocumentController/update/$1';
+$route['alternative_document/destroy/(:any)'] = 'AlternativeDocumentController/destroy/$1';
