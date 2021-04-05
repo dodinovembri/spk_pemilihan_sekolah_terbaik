@@ -69,7 +69,7 @@
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
                                                     <div class="card-header bg-transparent border-primary">
-                                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Lokasi</h5>
+                                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Aksesibilitas</h5>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="mb-3 row">
@@ -81,7 +81,7 @@
                                                                 </ul>
                                                                 <ul>
                                                                     <li>
-                                                                        <p><?php echo $alternative->location_document_description; ?></p>
+                                                                        <p><?php echo $alternative->accessibility_document_description; ?></p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -94,7 +94,7 @@
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
                                                     <div class="card-header bg-transparent border-primary">
-                                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Aksesibilitas</h5>
+                                                        <h5 class="my-0 text-primary"><i class="mdi mdi-bullseye-arrow me-3"></i>Dokumen Lokasi</h5>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="mb-3 row">
@@ -106,7 +106,7 @@
                                                                 </ul>
                                                                 <ul>
                                                                     <li>
-                                                                        <p><?php echo $alternative->accessibility_document_description; ?></p>
+                                                                        <p><?php echo $alternative->location_document_description; ?></p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -147,19 +147,19 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Bukti Lokasi</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" id="files" name="location_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
-                                                    <input type="text" name="location_document_description" class="form-control" placeholder="Keterangan Bukti Lokasi">
-                                                </div>
-                                            </div>
-                                            <div class="mb-3 row">
                                                 <label class="col-md-2 col-form-label">Bukti Aksesibilitas</label>
                                                 <div class="col-md-10">
                                                     <input type="file" id="files" name="accessibility_document[]" class="form-control" multiple>
                                                     <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
                                                     <input type="text" name="accessibility_document_description" class="form-control" placeholder="Keterangan Bukti Aksesibilitas">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-md-2 col-form-label">Bukti Lokasi</label>
+                                                <div class="col-md-10">
+                                                    <input type="file" id="files" name="location_document[]" class="form-control" multiple>
+                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
+                                                    <input type="text" name="location_document_description" class="form-control" placeholder="Keterangan Bukti Lokasi">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">

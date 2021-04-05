@@ -117,8 +117,8 @@
                                         <div class="mb-3 row">
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
-                                                    <?php foreach ($location as $key => $value_l) { ?>
-                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>"></a></li>
+                                                    <?php foreach ($accessibility as $key => $value_a) { ?>
+                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>"></a></li>
                                                     <?php } ?>
                                                 </ul>
                                                 <ul>
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card border border-primary">
@@ -142,8 +142,8 @@
                                         <div class="mb-3 row">
                                             <div class="col-md-10" style="margin-top: 10px">
                                                 <ul type="circle">
-                                                    <?php foreach ($accessibility as $key => $value_a) { ?>
-                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_a->image ?>"></a></li>
+                                                    <?php foreach ($location as $key => $value_l) { ?>
+                                                        <li style="display: inline-block;"><a href="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>" target="_link"><img height="150px" src="<?php echo base_url('uploads/alternative/'); echo $value_l->image ?>"></a></li>
                                                     <?php } ?>
                                                 </ul>
                                                 <ul>
