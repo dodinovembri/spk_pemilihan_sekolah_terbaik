@@ -64,18 +64,27 @@
                                                             echo "Administrator";
                                                         }elseif($user->role_id == 1){
                                                             echo "User";
-                                                        }else{
-                                                            echo "School";
+                                                        }elseif($user->role_id == 2){
+                                                            echo "Sekolah";
+                                                        }elseif($user->role_id == 3){ 
+                                                            echo "Kepala Sekolah";
                                                         } ?></option>
                                                         <?php if ($user->role_id == 0) { ?>
                                                             <option value="1">User</option>
-                                                            <option value="2">School</option>
+                                                            <option value="2">Sekolah</option>
+                                                            <option value="3">Kepala Sekolah</option>
                                                         <?php } elseif ($user->role_id == 1) { ?>
                                                             <option value="0">Administrator</option>
-                                                            <option value="2">School</option>
-                                                        <?php } else { ?>
+                                                            <option value="2">Sekolah</option>
+                                                            <option value="3">Kepala Sekolah</option>
+                                                        <?php } elseif ($user->role_id == 2) { ?>
                                                             <option value="0">Administrator</option>
                                                             <option value="1">User</option>
+                                                            <option value="3">Kepala Sekolah</option>
+                                                        <?php } elseif ($user->role_id == 3) { ?>
+                                                            <option value="0">Administrator</option>
+                                                            <option value="1">User</option>
+                                                            <option value="2">Sekolah</option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>

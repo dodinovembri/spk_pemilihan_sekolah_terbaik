@@ -60,7 +60,8 @@
                                                         <option value="">Pilih</option>
                                                         <option value="0">Administrator</option>
                                                         <option value="1">User</option>
-                                                        <option value="2">School</option>
+                                                        <option value="2">Sekolah</option>
+                                                        <option value="3">Kepala Sekolah</option>
                                                     </select>
                                                 </div>
                                             </div>

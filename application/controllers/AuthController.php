@@ -121,8 +121,17 @@ class AuthController extends CI_Controller {
                 'role_id' => 2
             );
 
-            $insert_user = $this->UserModel->insert($data_user);
+            $password_principal = md5("kepala".$this->input->post('password'));
+            $data_principal = array(
+                'name' => $school_name,
+                'email' => $email,
+                'password' => $password_principal,
+                'role_id' => 3
+            );
+
             $insert_alternative = $this->AlternativeModel->insert($data);
+            $insert_user = $this->UserModel->insert($data_user);
+            $insert_user = $this->UserModel->insert($data_principal);
 
             $this->session->set_flashdata('success', "Success register your school!");
             return redirect(base_url('login'));

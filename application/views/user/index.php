@@ -62,7 +62,9 @@
                                                         <?php }elseif ($value->role_id == 1) { ?>
                                                             <span class="badge badge-pill badge-soft-danger font-size-11">User</span>
                                                         <?php }elseif($value->role_id == 2){ ?>
-                                                            <span class="badge badge-pill badge-soft-info font-size-11">School</span>
+                                                            <span class="badge badge-pill badge-soft-info font-size-11">Sekolah</span>
+                                                        <?php }elseif($value->role_id == 3){ ?>
+                                                            <span class="badge badge-pill badge-soft-warning font-size-11">Kepala Sekolah</span>
                                                         <?php } ?>
                                                     </td>
                                                     <td>

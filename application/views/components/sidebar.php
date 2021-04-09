@@ -201,6 +201,15 @@
                                     </a>
                                 </li>
                             <?php } ?>
+                            <?php if ($this->session->userdata('role_id') == 3) { ?>
+                                <li class="menu-title" key="t-apps">Menu</li>
+                                <li>
+                                    <a href="<?php echo base_url('home') ?>" class="waves-effect">
+                                        <i class="bx bx-home"></i>
+                                        <span key="t-home">Dashboard</span>
+                                    </a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <!-- Sidebar -->
