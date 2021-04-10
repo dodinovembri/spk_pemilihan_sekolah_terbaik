@@ -105,7 +105,9 @@
                                                 <div class="col-md-10">
                                                     <img height="150px" src="<?php echo base_url('uploads/alternative/');
                                                                                 echo $school->image ?>">
-                                                    <input type="file" name="image">
+                                                    <?php if ($this->session->userdata('role_id') != 3) { ?> 
+                                                        <input type="file" name="image">
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -131,20 +133,16 @@
                                                 <div class="col-md-10">
                                                     <input class="form-control" type="text" name="entry_fee" value="<?php echo $school->entry_fee ?>">
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label for="example-search-input" class="col-md-2 col-form-label">Jarak (km)</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="text" name="distance" value="<?php echo $school->distance ?>">
-                                                </div>
-                                            </div>
+                                            </div>                                            
                                             <br><br>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label"></label>
-                                                <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
+                                            <?php if ($this->session->userdata('role_id') != 3) { ?>                                            
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label"></label>
+                                                    <div class="col-md-10">
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </form>
                                     </div>
                                 </div>

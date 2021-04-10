@@ -37,8 +37,9 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4>Dokumen Persyaratan</h4>
-                                        <hr>
+                                    <h4>Dokumen Persyaratan</h4>
+                                    <hr>
+                                    <?php if (count($requirement) > 0) { ?>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
@@ -65,6 +66,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php } ?>
+                                    <?php if (count($accessibility) > 0) { ?>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
@@ -90,6 +93,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php } ?>
+                                    <?php if (count($location) > 0) { ?>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
@@ -115,6 +120,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php } ?>
+                                    <?php if (count($website) > 0) { ?>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="card border border-primary">
@@ -135,52 +142,55 @@
                                                 </div>
                                             </div>
                                         </div> <br>
-                                        <form method="POST" action="<?php echo base_url('alternative_document/store') ?>" enctype="multipart/form-data">
-                                            <h4>Ganti Dokumen Persyaratan</h4>
-                                            <hr>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Dokumen Persyaratan</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" name="requirement_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: bisa berupa brosur, foto/dokumen</i></label>
-                                                    <input type="text" name="requirement_document_description" class="form-control" placeholder="Keterangan Dokumen Persyaratan">
+                                    <?php } ?>
+                                        <?php if ($this->session->userdata('role_id') != 3) { ?> 
+                                            <form method="POST" action="<?php echo base_url('alternative_document/store') ?>" enctype="multipart/form-data">
+                                                <h4>Ganti Dokumen Persyaratan</h4>
+                                                <hr>
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label">Dokumen Persyaratan</label>
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="requirement_document[]" class="form-control" multiple>
+                                                        <label for="files"><i style="color: blue;">*notes: bisa berupa brosur, foto/dokumen</i></label>
+                                                        <input type="text" name="requirement_document_description" class="form-control" placeholder="Keterangan Dokumen Persyaratan">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Bukti Aksesibilitas</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" id="files" name="accessibility_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
-                                                    <input type="text" name="accessibility_document_description" class="form-control" placeholder="Keterangan Bukti Aksesibilitas">
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label">Bukti Aksesibilitas</label>
+                                                    <div class="col-md-10">
+                                                        <input type="file" id="files" name="accessibility_document[]" class="form-control" multiple>
+                                                        <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
+                                                        <input type="text" name="accessibility_document_description" class="form-control" placeholder="Keterangan Bukti Aksesibilitas">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Bukti Lokasi</label>
-                                                <div class="col-md-10">
-                                                    <input type="file" id="files" name="location_document[]" class="form-control" multiple>
-                                                    <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
-                                                    <input type="text" name="location_document_description" class="form-control" placeholder="Keterangan Bukti Lokasi">
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label">Bukti Lokasi</label>
+                                                    <div class="col-md-10">
+                                                        <input type="file" id="files" name="location_document[]" class="form-control" multiple>
+                                                        <label for="files"><i style="color: blue;">*notes: foto bisa lebih dari satu</i></label>
+                                                        <input type="text" name="location_document_description" class="form-control" placeholder="Keterangan Bukti Lokasi">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label">Link Webstite</label>
-                                                <div class="col-md-10">
-                                                    <input type="text" id="files" name="website_url" class="form-control" placeholder="example: https://www.google.com/; https://www.school.com/">
-                                                    <label for="files"><i style="color: red;">*notes: pisahkan antar link dengan yg lain dengan titik koma</i></label>
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label">Link Webstite</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="files" name="website_url" class="form-control" placeholder="example: https://www.google.com/; https://www.school.com/">
+                                                        <label for="files"><i style="color: red;">*notes: pisahkan antar link dengan yg lain dengan titik koma</i></label>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="mb-3 row">
-                                                <label class="col-md-2 col-form-label"></label>
-                                                <div class="col-md-10">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
-                                                    <a href="<?php echo base_url('alternative_values/');
-                                                                echo $this->session->userdata('alternative_id'); ?>">
-                                                        <button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
+                                                <div class="mb-3 row">
+                                                    <label class="col-md-2 col-form-label"></label>
+                                                    <div class="col-md-10">
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
+                                                        <a href="<?php echo base_url('alternative_values/');
+                                                                    echo $this->session->userdata('alternative_id'); ?>">
+                                                            <button type="button" class="btn btn-danger waves-effect waves-light">Batal</button></a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </form>
+                                            </form>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div> <!-- end col -->

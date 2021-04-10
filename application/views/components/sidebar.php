@@ -84,7 +84,7 @@
                                 <li class="menu-title" key="t-apps">Menu</li>
                                 <li>
                                     <a href="<?php echo base_url('home') ?>" class="waves-effect">
-                                        <i class="bx bx-home"></i>
+                                        <i class="bx bxs-dashboard"></i>
                                         <span key="t-home">Dashboard</span>
                                     </a>
                                 </li>
@@ -125,7 +125,7 @@
                                 <li class="menu-title" key="t-apps">Menu</li>
                                 <li>
                                     <a href="<?php echo base_url('home') ?>" class="waves-effect">
-                                        <i class="bx bx-home"></i>
+                                        <i class="bx bxs-dashboard"></i>
                                         <span key="t-home">Dashboard</span>
                                     </a>
                                 </li>
@@ -154,37 +154,37 @@
                                 <li class="menu-title" key="t-apps">Menu</li>
                                 <li>
                                     <a href="<?php echo base_url('home') ?>" class="waves-effect">
-                                        <i class="bx bx-home"></i>
+                                        <i class="bx bxs-dashboard"></i>
                                         <span key="t-home">Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('school') ?>" class="waves-effect">
-                                        <i class="bx bx-detail"></i>
+                                        <i class="bx bxs-data"></i>
                                         <span key="t-calendar">Data Sekolah</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('alternative_facility') ?>" class="waves-effect">
-                                        <i class="bx bx-detail"></i>
+                                        <i class="bx bxs-data"></i>
                                         <span key="t-calendar">Data Fasilitas</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('alternative_extracurricular') ?>" class="waves-effect">
-                                        <i class="bx bx-detail"></i>
+                                        <i class="bx bxs-data"></i>
                                         <span key="t-calendar">Data Ekstrakurikuler</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('alternative_location') ?>" class="waves-effect">
-                                        <i class="bx bx-detail"></i>
+                                        <i class="bx bxs-data"></i>
                                         <span key="t-calendar">Data Lokasi</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('alternative_accessibility') ?>" class="waves-effect">
-                                        <i class="bx bx-detail"></i>
+                                        <i class="bx bxs-data"></i>
                                         <span key="t-calendar">Data Aksesibilitas</span>
                                     </a>
                                 </li>
@@ -196,7 +196,7 @@
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('alternative_document/create') ?>" class="waves-effect">
-                                        <i class="bx bxs-school"></i>
+                                        <i class="bx bxs-file-doc"></i>
                                         <span key="t-calendar">Data Dokumen</span>
                                     </a>
                                 </li>
@@ -205,10 +205,52 @@
                                 <li class="menu-title" key="t-apps">Menu</li>
                                 <li>
                                     <a href="<?php echo base_url('home') ?>" class="waves-effect">
-                                        <i class="bx bx-home"></i>
+                                        <i class="bx bxs-dashboard"></i>
                                         <span key="t-home">Dashboard</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?php echo base_url('school') ?>" class="waves-effect">
+                                        <i class="bx bxs-data"></i>
+                                        <span key="t-calendar">Data Sekolah</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_facility') ?>" class="waves-effect">
+                                        <i class="bx bxs-data"></i>
+                                        <span key="t-calendar">Data Fasilitas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_extracurricular') ?>" class="waves-effect">
+                                        <i class="bx bxs-data"></i>
+                                        <span key="t-calendar">Data Ekstrakurikuler</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_location') ?>" class="waves-effect">
+                                        <i class="bx bxs-data"></i>
+                                        <span key="t-calendar">Data Lokasi</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_accessibility') ?>" class="waves-effect">
+                                        <i class="bx bxs-data"></i>
+                                        <span key="t-calendar">Data Aksesibilitas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('school_alternative') ?>" class="waves-effect">
+                                        <i class="bx bxs-school"></i>
+                                        <span key="t-calendar">Alternatif</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('alternative_document/create') ?>" class="waves-effect">
+                                        <i class="bx bxs-file-doc"></i>
+                                        <span key="t-calendar">Data Dokumen</span>
+                                    </a>
+                                </li>                                
                             <?php } ?>
                         </ul>
                     </div>

@@ -42,9 +42,9 @@ if ( ! function_exists('s_vector')){
             $weight_fixes_result = $weight_fixes[$i]["weight_fixes"];            
 
             if (isset($latitude)) {
+                $distances = getDistanceBetweenPointsNew($value->latitude, $value->longitude, $latitude, $longitude);
+                $distance = (int)$distances;
                 if ($value->criteria_code == "C9") {
-                    $distances = getDistanceBetweenPointsNew($value->latitude, $value->longitude, $latitude, $longitude);
-                    $distance = (int)$distances;
                     if ($distance < 2) {
                         $value_of_criteria = 5;
                     }elseif ($distance >= 2 && $distance < 4) {
@@ -60,12 +60,14 @@ if ( ! function_exists('s_vector')){
                     $value_of_criteria = (int)$value->value_of_criteria;
                 }
             }else{
+                $distance = "not_defined";
                 $value_of_criteria = (int)$value->value_of_criteria;
             }
 
 
             $alternative_id = $value->alternative_id;
             $criteria_id = $value->criteria_id;
+            $distance = $distance;
             $s_vector = pow($value_of_criteria, $weight_fixes_result);
 
             // for reset to new
@@ -74,7 +76,7 @@ if ( ! function_exists('s_vector')){
                 $i = 0;
             }
   
-            $array[] = array('alternative_id' => $alternative_id, 'criteria_id' => $criteria_id, 's_vector' => $s_vector);   
+            $array[] = array('alternative_id' => $alternative_id, 'criteria_id' => $criteria_id, 's_vector' => $s_vector, 'distance' => $distance);   
         }    
         $data = $array;
         return $data;
@@ -89,6 +91,7 @@ if ( ! function_exists('s_vector_total')){
         $pushed = [];
         foreach ($s_vector_params as $key => $value) {
             $alternative_id = $value['alternative_id'];
+            $distance = $value['distance'];
 
             if ($i == 0) {
                 $temp_s_vector = $value['s_vector'];                
@@ -100,12 +103,12 @@ if ( ! function_exists('s_vector_total')){
 
             $i++;
             if ($i == $max) {
-                $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector);
+                $array[] = array('alternative_id' => $alternative_id, 'total_s_vector' => $temp_s_vector, 'distance' => $distance);
                 array_push($pushed, $array);
                 $i = 0;
             }
         }       
-        $data = $array;      
+        $data = $array;              
         return $data;
     }
 }
@@ -126,9 +129,10 @@ if ( ! function_exists('v_vector')){
     function v_vector($s_vector_total, $sum_s_vector_total){
         foreach ($s_vector_total as $key => $value) {
             $alternative_id = $value['alternative_id'];
+            $distance = $value['distance'];
             $v_vector = $value['total_s_vector'] / $sum_s_vector_total;
 
-            $array[] = array('alternative_id' => $alternative_id, 'v_vector' => $v_vector); 
+            $array[] = array('alternative_id' => $alternative_id, 'v_vector' => $v_vector, 'distance' => $distance); 
         }
         $data = $array;
         return $data;

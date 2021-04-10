@@ -6,7 +6,8 @@ class MyScaleController extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->model(['UserWeightModel', 'CriteriaModel']);
+        $this->load->helper('my_function');
+        $this->load->model(['UserWeightModel', 'CriteriaModel', 'HelperModel']);
 
         if ($this->session->userdata('logged_in') != 1) {
             return redirect(base_url('login'));
@@ -15,6 +16,17 @@ class MyScaleController extends CI_Controller {
 
 	public function index()
 	{
+        $total_criteria = $this->CriteriaModel->get_total();
+        $total_importance_scale = $this->HelperModel->get_total();
+        $total_importance_scale = (int)$total_importance_scale->total;
+
+        if ($total_criteria == $total_importance_scale) {
+            $data['weight_fixes'] = weight_fixes();
+        }else{
+            $data['weight_fixes'] = "not_defined";
+        }
+
+
         $user_id = $this->session->userdata('id');
         $data['myscale'] = $this->UserWeightModel->get_my_scale($user_id)->result();
 

@@ -121,7 +121,7 @@ class AuthController extends CI_Controller {
                 'role_id' => 2
             );
 
-            $password_principal = md5("kepala".$this->input->post('password'));
+            $password_principal = md5("ks".$this->input->post('password'));
             $data_principal = array(
                 'name' => $school_name,
                 'email' => $email,

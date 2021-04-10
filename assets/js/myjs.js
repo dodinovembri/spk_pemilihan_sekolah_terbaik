@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// })
 	
     var t = $('#ranking').DataTable( {
-        "order": [ 3, 'desc' ]
+        "order": [ 4, 'desc' ]
     } );
  
     t.on( 'order.dt search.dt', function () {

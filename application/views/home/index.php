@@ -30,13 +30,13 @@
                                                 <div class="card-body">
                                                     <div class="media">
                                                         <div class="media-body">
-                                                            <p class="text-muted fw-medium">Sekolah Register</p>
-                                                            <h4 class="mb-0"><?php echo $alternative; ?></h4>
+                                                            <p class="text-muted fw-medium">Fasilitas</p>
+                                                            <h6 class="mb-0"><a href="<?php echo base_url('alternative_facility') ?>">Details</a></h6>
                                                         </div>
 
                                                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
                                                             <span class="avatar-title">
-                                                                <i class="bx bx-copy-alt font-size-24"></i>
+                                                                <i class="bx bxs-data font-size-24"></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -48,13 +48,13 @@
                                                 <div class="card-body">
                                                     <div class="media">
                                                         <div class="media-body">
-                                                            <p class="text-muted fw-medium">Belum Diverifikasi</p>
-                                                            <h4 class="mb-0"><?php echo $criteria; ?></h4>
+                                                            <p class="text-muted fw-medium">Ekstrakurikuler</p>
+                                                            <h6 class="mb-0"><a href="<?php echo base_url('alternative_extracurricular') ?>">Details</a></h6>
                                                         </div>
 
                                                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                                             <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-file font-size-24"></i>
+                                                                <i class="bx bxs-data font-size-24"></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -66,13 +66,13 @@
                                                 <div class="card-body">
                                                     <div class="media">
                                                         <div class="media-body">
-                                                            <p class="text-muted fw-medium">Memenuhi Kriteria</p>
-                                                            <h4 class="mb-0"><?php echo $user; ?></h4>
+                                                            <p class="text-muted fw-medium">Lokasi</p>
+                                                            <h6 class="mb-0"><a href="<?php echo base_url('alternative_location') ?>">Details</a></h6>
                                                         </div>
 
                                                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                                             <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-user font-size-24"></i>
+                                                                <i class="bx bxs-data font-size-24"></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -84,13 +84,13 @@
                                                 <div class="card-body">
                                                     <div class="media">
                                                         <div class="media-body">
-                                                            <p class="text-muted fw-medium">Tidak Memenuhi Kriteria</p>
-                                                            <h4 class="mb-0"><?php echo $user; ?></h4>
+                                                            <p class="text-muted fw-medium">Aksesibilitas</p>
+                                                            <h6 class="mb-0"><a href="<?php echo base_url('alternative_accessibility') ?>">Details</a></h6>
                                                         </div>
 
                                                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                                             <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-user font-size-24"></i>
+                                                                <i class="bx bxs-data font-size-24"></i>
                                                             </span>
                                                         </div>
                                                     </div>

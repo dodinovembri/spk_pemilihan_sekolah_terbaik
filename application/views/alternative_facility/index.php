@@ -29,7 +29,9 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="<?php echo base_url('alternative_facility/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat Baru</button></a><br><br>
+                                        <?php if ($this->session->userdata('role_id') != 3) { ?>
+                                            <a href="<?php echo base_url('alternative_facility/create') ?>"><button type="button" class="btn btn-primary waves-effect waves-light">Buat Baru</button></a><br><br>
+                                        <?php } ?>
                                         <?php if ($this->session->flashdata('success')) { ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
@@ -45,7 +47,9 @@
                                                     <th>No</th>
                                                     <th>Fasilitas</th>
                                                     <th>Status</th>
-                                                    <th>Aksi</th>
+                                                    <?php if ($this->session->userdata('role_id') != 3) { ?>
+                                                        <th>Aksi</th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
 
@@ -64,11 +68,13 @@
                                                                 <span class="badge badge-pill badge-soft-danger font-size-11">Inactive</span>
                                                             <?php } ?>
                                                         </td>
-                                                        <td>
-                                                            <a href="<?php echo base_url('alternative_facility/edit/');
-                                                                        echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a>
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
-                                                        </td>
+                                                        <?php if ($this->session->userdata('role_id') != 3) { ?>
+                                                            <td>
+                                                                <a href="<?php echo base_url('alternative_facility/edit/');
+                                                                            echo $value->id; ?>"><i class="far fa-edit" style="margin: 2px"></i></a>
+                                                                <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop-<?php echo $value->id ?>"><i class="far fa-trash-alt" style="margin: 2px"></i></a>
+                                                            </td>
+                                                        <?php } ?>
                                                     </tr>
                                                     <!-- Static Backdrop Modal -->
                                                     <div class="modal fade" id="staticBackdrop-<?php echo $value->id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

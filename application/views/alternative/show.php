@@ -30,7 +30,7 @@
                             map: peta,
                             position: lokasi
                         });       
-                        peta.setOptions({ minZoom: 5, maxZoom: 15 });                        
+                        peta.setOptions({ minZoom: 5, maxZoom: 30 });                        
                         peta.fitBounds(bounds);
                         bindInfoWindow(marker, peta, infoWindow, info);
                      }

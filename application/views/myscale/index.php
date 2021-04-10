@@ -41,8 +41,10 @@
                                             <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Criteria</th>
-                                                <th>Importance Scale</th>
+                                                <th>Kriteria</th>
+                                                <th>Skala Kepentingan</th>
+                                                <th>Bobot</th>
+                                                <th>Perbaikan Bobot</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -66,6 +68,14 @@
                                                         }elseif ($value->importance_scale == 5) {
                                                             echo "Sangat Penting";
                                                         } ?> 
+                                                    </td>
+                                                    <td><?php echo $value->importance_scale; ?></td>
+                                                    <td>
+                                                        <?php if ($weight_fixes != "not_defined") {
+                                                            echo $weight_fixes[$key]["weight_fixes"];
+                                                        }else{
+                                                            echo "Skala Kepentingan Belum Lengkap";
+                                                        } ?>
                                                     </td>
                                                     <td>
                                                         <?php if ($value->status == 1) { ?>
