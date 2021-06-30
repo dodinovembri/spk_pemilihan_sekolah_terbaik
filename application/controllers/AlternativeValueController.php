@@ -64,7 +64,7 @@ class AlternativeValueController extends CI_Controller
             $insert = $this->AlternativeValueModel->insert($data);
         }
 
-        $this->session->set_flashdata('success', "Success create alternative value!");
+        $this->session->set_flashdata('success', "Nilai alternatif berhasil di buat!");
         return redirect(base_url("alternative_values/$alternative_id"));
     }
 
@@ -94,7 +94,7 @@ class AlternativeValueController extends CI_Controller
         );
 
         $update = $this->AlternativeValueModel->update($data, $id);
-        $this->session->set_flashdata('success', "Success update data!");
+        $this->session->set_flashdata('success', "Data berhasil di ubah!");
         return redirect(base_url("alternative_values/$alternative_id"));
     }
 

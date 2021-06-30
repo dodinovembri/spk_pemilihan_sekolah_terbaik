@@ -115,7 +115,7 @@ class SchoolController extends CI_Controller {
     public function destroy($id)
     {
         $delete = $this->AlternativeModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url('alternative'));
     }
 }

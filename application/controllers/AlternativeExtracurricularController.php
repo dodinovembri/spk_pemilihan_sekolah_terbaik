@@ -46,7 +46,7 @@ class AlternativeExtracurricularController extends CI_Controller {
         );
 
         $insert = $this->AlternativeExtracurricularModel->insert($data);
-        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil ditambahkan!");
+        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil di tambahkan!");
         return redirect(base_url('alternative_extracurricular'));
     }
 
@@ -75,14 +75,14 @@ class AlternativeExtracurricularController extends CI_Controller {
         );
 
         $update = $this->AlternativeExtracurricularModel->update($data, $id);
-        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil diubah!");
+        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil di ubah!");
         return redirect(base_url('alternative_extracurricular'));
     }
 
     public function destroy($id)
     {
         $delete = $this->AlternativeExtracurricularModel->destroy($id);        
-        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil dihapus!");
+        $this->session->set_flashdata('success', "Ekstrakurikuler berhasil di hapus!");
         return redirect(base_url('alternative_extracurricular'));
     }   
 }

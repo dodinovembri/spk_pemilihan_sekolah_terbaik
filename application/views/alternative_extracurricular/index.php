@@ -35,10 +35,12 @@
                                         <?php if ($this->session->flashdata('success')) { ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
+                                                <?php $this->session->unset_userdata('success'); ?>
                                             </div>
                                         <?php } elseif ($this->session->flashdata('warning')) { ?>
                                             <div class="alert alert-warning" role="alert">
                                                 <?php echo $this->session->flashdata('warning'); ?>
+                                                <?php $this->session->unset_userdata('warning'); ?>
                                             </div>
                                         <?php } ?>
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
@@ -63,9 +65,9 @@
                                                         <td><?php echo $value->extracurricular; ?></td>
                                                         <td>
                                                             <?php if ($value->status == 1) { ?>
-                                                                <span class="badge badge-pill badge-soft-success font-size-11">Active</span>
+                                                                <span class="badge badge-pill badge-soft-success font-size-11">Aktif</span>
                                                             <?php } elseif ($value->status == 0) { ?>
-                                                                <span class="badge badge-pill badge-soft-danger font-size-11">Inactive</span>
+                                                                <span class="badge badge-pill badge-soft-danger font-size-11">Non Aktif</span>
                                                             <?php } ?>
                                                         </td>
                                                         <?php if ($this->session->userdata('role_id') != 3) { ?>

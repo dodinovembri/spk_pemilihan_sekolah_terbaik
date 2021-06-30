@@ -103,14 +103,14 @@
                             </div>
                         <?php } else { ?>
                             <div class="row">
-                                <div class="col-xl-4">
+                                <div class="col-xl-8">
                                     <div class="card overflow-hidden">
                                         <div class="bg-primary bg-soft">
                                             <div class="row">
                                                 <div class="col-7">
                                                     <div class="text-primary p-3">
                                                         <h5 class="text-primary">Selamat Datang !</h5>
-                                                        <p>SPK Dashboard</p>
+                                                        <p>SPK Pemilihan Sekolah Menengah Atas (SMA) Swasta Terbaik Di Kota Palembang</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-5 align-self-end">
@@ -149,9 +149,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-8">
+                                <div class="col-xl-4">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
                                             <div class="card mini-stats-wid">
                                                 <div class="card-body">
                                                     <div class="media">
@@ -169,7 +169,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-12" style="margin-top: -21px;">
                                             <div class="card mini-stats-wid">
                                                 <div class="card-body">
                                                     <div class="media">
@@ -187,7 +187,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <?php if ($this->session->userdata('role_id') != 1) { ?>
+                                        <div class="col-md-12" style="margin-top: -21px;">
                                             <div class="card mini-stats-wid">
                                                 <div class="card-body">
                                                     <div class="media">
@@ -205,6 +206,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php } ?>
                                     </div>
                                     <!-- end row -->
                                 </div>

@@ -68,7 +68,7 @@ class ProfileController extends CI_Controller {
             );
 
             $update = $this->UserModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update data!");
+            $this->session->set_flashdata('success', "Update data berhasil!");
             return redirect(base_url('profile'));
         }
         else
@@ -79,7 +79,7 @@ class ProfileController extends CI_Controller {
             );
 
             $update = $this->UserModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update data!");
+            $this->session->set_flashdata('success', "Update data berhasil!");
             return redirect(base_url('profile'));
         }
     }
@@ -106,7 +106,7 @@ class ProfileController extends CI_Controller {
         $password_confirm = $this->input->post('password_confirm');
 
         if ($password != $password_confirm) {
-            $this->session->set_flashdata('warning', "Your password is doesn't match");
+            $this->session->set_flashdata('warning', "Password yang anda masukkan salah!");
             return redirect(base_url('profile/change_password'));
         }else{
             $password = md5($password);                             
@@ -115,7 +115,7 @@ class ProfileController extends CI_Controller {
             );
 
             $update = $this->UserModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update password!");
+            $this->session->set_flashdata('success', "Update password berhasil!");
             return redirect(base_url('profile/change_password'));
         }
     }    

@@ -46,7 +46,7 @@ class AlternativeLocationController extends CI_Controller {
         );
 
         $insert = $this->AlternativeLocationModel->insert($data);
-        $this->session->set_flashdata('success', "Lokasi berhasil ditambahkan!");
+        $this->session->set_flashdata('success', "Lokasi berhasil di tambahkan!");
         return redirect(base_url('alternative_location'));
     }
 
@@ -75,14 +75,14 @@ class AlternativeLocationController extends CI_Controller {
         );
 
         $update = $this->AlternativeLocationModel->update($data, $id);
-        $this->session->set_flashdata('success', "Lokasi berhasil diubah!");
+        $this->session->set_flashdata('success', "Lokasi berhasil di ubah!");
         return redirect(base_url('alternative_location'));
     }
 
     public function destroy($id)
     {
         $delete = $this->AlternativeLocationModel->destroy($id);        
-        $this->session->set_flashdata('success', "Lokasi berhasil dihapus!");
+        $this->session->set_flashdata('success', "Lokasi berhasil di hapus!");
         return redirect(base_url('alternative_location'));
     }   
 }

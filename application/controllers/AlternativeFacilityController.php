@@ -46,7 +46,7 @@ class AlternativeFacilityController extends CI_Controller {
         );
 
         $insert = $this->AlternativeFacilityModel->insert($data);
-        $this->session->set_flashdata('success', "Fasilitas berhasil ditambahkan!");
+        $this->session->set_flashdata('success', "Fasilitas berhasil di tambahkan!");
         return redirect(base_url('alternative_facility'));
     }
 
@@ -75,14 +75,14 @@ class AlternativeFacilityController extends CI_Controller {
         );
 
         $update = $this->AlternativeFacilityModel->update($data, $id);
-        $this->session->set_flashdata('success', "Fasilitas berhasil diubah!");
+        $this->session->set_flashdata('success', "Fasilitas berhasil di ubah!");
         return redirect(base_url('alternative_facility'));
     }
 
     public function destroy($id)
     {
         $delete = $this->AlternativeFacilityModel->destroy($id);        
-        $this->session->set_flashdata('success', "Fasilitas berhasil dihapus!");
+        $this->session->set_flashdata('success', "Fasilitas berhasil di hapus!");
         return redirect(base_url('alternative_facility'));
     }   
 }

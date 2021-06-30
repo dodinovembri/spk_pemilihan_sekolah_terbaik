@@ -50,7 +50,7 @@ class CriterionValueController extends CI_Controller {
         );
 
         $insert = $this->CriterionValueModel->insert($data);
-        $this->session->set_flashdata('success', "Success create criterion value!");
+        $this->session->set_flashdata('success', "Nilai kriteria berhasil di buat!");
         return redirect("criterion_value/$criteria_id");
    
     }
@@ -83,7 +83,7 @@ class CriterionValueController extends CI_Controller {
         );
 
         $update = $this->CriterionValueModel->update($data, $id);
-        $this->session->set_flashdata('success', "Success update data!");
+        $this->session->set_flashdata('success', "Data berhasil di ubah!");
         return redirect(base_url("criterion_value/$criteria_id"));      
     }
 
@@ -91,7 +91,7 @@ class CriterionValueController extends CI_Controller {
     {
         $criteria_id = $this->session->userdata('criteria_id');
         $delete = $this->CriterionValueModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url("criterion_value/$criteria_id"));
     }
 }

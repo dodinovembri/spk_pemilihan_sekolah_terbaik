@@ -176,3 +176,12 @@ $route['alternative_document/edit/(:any)'] = 'AlternativeDocumentController/edit
 $route['alternative_document/show/(:any)'] = 'AlternativeDocumentController/show/$1';
 $route['alternative_document/update/(:any)'] = 'AlternativeDocumentController/update/$1';
 $route['alternative_document/destroy/(:any)'] = 'AlternativeDocumentController/destroy/$1';
+
+// routes for help
+$route['help'] = 'HelpController';
+$route['help/create'] = 'HelpController/create';
+$route['help/store'] = 'HelpController/store';
+$route['help/edit/(:any)'] = 'HelpController/edit/$1';
+$route['help/show/(:any)'] = 'HelpController/show/$1';
+$route['help/update/(:any)'] = 'HelpController/update/$1';
+$route['help/destroy/(:any)'] = 'HelpController/destroy/$1';

@@ -59,7 +59,7 @@ class MyScaleController extends CI_Controller {
         );
 
         $insert = $this->UserWeightModel->insert($data);
-        $this->session->set_flashdata('success', "Success create my-scale!");
+        $this->session->set_flashdata('success', "Skala kepentingan berhasil di buat!");
         return redirect(base_url('my_scale'));    
     }
 
@@ -88,14 +88,14 @@ class MyScaleController extends CI_Controller {
         );
 
         $update = $this->UserWeightModel->update($data, $id);
-        $this->session->set_flashdata('success', "Success update data!");
+        $this->session->set_flashdata('success', "Data berhasil di ubah!");
         return redirect(base_url('my_scale'));
     }
 
     public function destroy($id)
     {
         $delete = $this->UserWeightModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url('my_scale'));
     }
 }

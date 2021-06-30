@@ -44,7 +44,7 @@ class CriteriaController extends CI_Controller {
         );
 
         $insert = $this->CriteriaModel->insert($data);
-        $this->session->set_flashdata('success', "Success create criteria!");
+        $this->session->set_flashdata('success', "Kriteria berhasil di buat!");
         return redirect(base_url('criteria'));
     }
 
@@ -77,14 +77,14 @@ class CriteriaController extends CI_Controller {
         );
 
         $update = $this->CriteriaModel->update($data, $id);
-        $this->session->set_flashdata('success', "Success update data!");
+        $this->session->set_flashdata('success', "Data berhasil di ubah!");
         return redirect(base_url('criteria'));
     }
 
     public function destroy($id)
     {
         $delete = $this->CriteriaModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url('criteria'));
     }
 }

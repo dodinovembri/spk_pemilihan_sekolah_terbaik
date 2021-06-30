@@ -39,7 +39,7 @@ class UserController extends CI_Controller {
         $status = $this->input->post('status');
 
         if ($password != $password_confirm) {
-            $this->session->set_flashdata('warning', "Your password is doesn't match");
+            $this->session->set_flashdata('warning', "Password yang anda masukkan salah");
             return redirect(base_url('user'));
         }else{
             $password = md5($this->input->post('password'));
@@ -52,7 +52,7 @@ class UserController extends CI_Controller {
             );
 
             $insert = $this->UserModel->insert($data);
-            $this->session->set_flashdata('success', "Success create new user!");
+            $this->session->set_flashdata('success', "User baru berhasil di buat!");
             return redirect(base_url('user'));
         }
     }
@@ -81,7 +81,7 @@ class UserController extends CI_Controller {
         $status = $this->input->post('status');
 
         if ($password != $password_confirm) {
-            $this->session->set_flashdata('warning', "Your password is doesn't match");
+            $this->session->set_flashdata('warning', "Password yang anda masukkan salah");
             return redirect(base_url('user'));
         }else{
             $password = md5($this->input->post('password'));
@@ -94,7 +94,7 @@ class UserController extends CI_Controller {
             );
 
             $update = $this->UserModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update user!");
+            $this->session->set_flashdata('success', "User berhasil di ubah!");
             return redirect(base_url('user'));
         }
     }
@@ -102,7 +102,7 @@ class UserController extends CI_Controller {
     public function destroy($id)
     {
         $delete = $this->UserModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url('user'));
     }
 }

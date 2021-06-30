@@ -75,7 +75,7 @@ class AlternativeController extends CI_Controller {
             );
 
             $insert = $this->AlternativeModel->insert($data);
-            $this->session->set_flashdata('success', "Success create alternative!");
+            $this->session->set_flashdata('success', "Alternatif berhasil di buat!");
             return redirect(base_url('alternative'));
         }
         else
@@ -93,7 +93,7 @@ class AlternativeController extends CI_Controller {
             );
 
             $insert = $this->AlternativeModel->insert($data);
-            $this->session->set_flashdata('success', "Success create alternative!");
+            $this->session->set_flashdata('success', "Alternatif berhasil di buat!");
             return redirect(base_url('alternative'));
         }
     }
@@ -158,7 +158,7 @@ class AlternativeController extends CI_Controller {
             );
 
             $update = $this->AlternativeModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update alternative!");
+            $this->session->set_flashdata('success', "Alternatif berhasil di ubah!");
             return redirect(base_url('alternative'));
         }
         else
@@ -176,7 +176,7 @@ class AlternativeController extends CI_Controller {
             );
 
             $update = $this->AlternativeModel->update($data, $id);
-            $this->session->set_flashdata('success', "Success update alternative!");
+            $this->session->set_flashdata('success', "Alternatif berhasil di ubah!");
             return redirect(base_url('alternative'));
         }
     }
@@ -184,7 +184,7 @@ class AlternativeController extends CI_Controller {
     public function destroy($id)
     {
         $delete = $this->AlternativeModel->destroy($id);        
-        $this->session->set_flashdata('success', "Success deleted data!");
+        $this->session->set_flashdata('success', "Data berhasil di hapus!");
         return redirect(base_url('alternative'));
     }
 

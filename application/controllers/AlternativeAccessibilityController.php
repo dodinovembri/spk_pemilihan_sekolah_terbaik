@@ -46,7 +46,7 @@ class AlternativeAccessibilityController extends CI_Controller {
         );
 
         $insert = $this->AlternativeAccessibilityModel->insert($data);
-        $this->session->set_flashdata('success', "Aksesibilitas berhasil ditambahkan!");
+        $this->session->set_flashdata('success', "Aksesibilitas berhasil di tambahkan!");
         return redirect(base_url('alternative_accessibility'));
     }
 
@@ -75,14 +75,14 @@ class AlternativeAccessibilityController extends CI_Controller {
         );
 
         $update = $this->AlternativeAccessibilityModel->update($data, $id);
-        $this->session->set_flashdata('success', "Aksesibilitas berhasil diubah!");
+        $this->session->set_flashdata('success', "Aksesibilitas berhasil di ubah!");
         return redirect(base_url('alternative_accessibility'));
     }
 
     public function destroy($id)
     {
         $delete = $this->AlternativeAccessibilityModel->destroy($id);        
-        $this->session->set_flashdata('success', "Aksesibilitas berhasil dihapus!");
+        $this->session->set_flashdata('success', "Aksesibilitas berhasil di hapus!");
         return redirect(base_url('alternative_accessibility'));
     }   
 }

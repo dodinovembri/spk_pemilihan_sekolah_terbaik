@@ -117,7 +117,7 @@ class AlternativeDocumentController extends CI_Controller {
 
         $this->AlternativeModel->update($data_description, $alternative_id);
 
-        $this->session->set_flashdata('success', "Success create alternative value!");
+        $this->session->set_flashdata('success', " Nilai alternatif berhasil di buat!");
         return redirect(base_url("alternative_document/create"));
     }
 

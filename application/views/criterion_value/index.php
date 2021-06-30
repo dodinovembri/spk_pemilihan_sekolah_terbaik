@@ -33,10 +33,12 @@
                                         <?php if($this->session->flashdata('success')){ ?>
                                             <div class="alert alert-success" role="alert">
                                                 <?php echo $this->session->flashdata('success'); ?>
+                                                <?php $this->session->unset_userdata('success'); ?>
                                             </div>
                                         <?php } elseif ($this->session->flashdata('warning')){ ?>
                                             <div class="alert alert-warning" role="alert">
                                                 <?php echo $this->session->flashdata('warning'); ?>
+                                                <?php $this->session->unset_userdata('warning'); ?>
                                             </div>
                                         <?php } ?>
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
@@ -45,7 +47,7 @@
                                                 <th>No</th>
                                                 <th>Kriteria</th>
                                                 <th>Deskripsi</th>
-                                                <th>Nila</th>
+                                                <th>Nilai</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
